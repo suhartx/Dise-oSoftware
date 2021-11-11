@@ -3,12 +3,12 @@ package es.deusto.ingenieria.sd.auctions.strava.data.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {	
+public class Usuario {	
 	private String nickname;
 	private String password;
 	private String email;
-	private List<Bid> bids = new ArrayList<>();
-	private List<Article> articles = new ArrayList<>();
+	private List<Bid_CambiarAEstado> bids = new ArrayList<>();
+	private List<Article_CambiarAentrenamiento> articles = new ArrayList<>();
 		
 	public String getNickname() {
 		return nickname;
@@ -34,29 +34,29 @@ public class User {
 		this.email = email;
 	}
 	
-	public List<Bid> getBids() {
+	public List<Bid_CambiarAEstado> getBids() {
 		return bids;
 	}
 	
-	public void setBids(List<Bid> bids) {
+	public void setBids(List<Bid_CambiarAEstado> bids) {
 		this.bids = bids;
 	}
 	
-	public void addBid(Bid bid) {
+	public void addBid(Bid_CambiarAEstado bid) {
 		if (bid != null && !this.bids.contains(bid)) {
 			this.bids.add(bid);
 		}
 	}
 	
-	public List<Article> getArticles() {
+	public List<Article_CambiarAentrenamiento> getArticles() {
 		return articles;
 	}
 	
-	public void setArticles(List<Article> articles) {
+	public void setArticles(List<Article_CambiarAentrenamiento> articles) {
 		this.articles = articles;
 	}
 	
-	public void addArticle(Article article) {
+	public void addArticle(Article_CambiarAentrenamiento article) {
 		if (article != null && !this.articles.contains(article)) {
 			this.articles.add(article);
 		}
@@ -81,7 +81,7 @@ public class User {
 	@Override
 	public boolean equals(Object obj) {
 		if (this.getClass().getName().equals(obj.getClass().getName())) {
-			return this.email.equals(((User)obj).email);
+			return this.email.equals(((Usuario)obj).email);
 		}
 		
 		return false;

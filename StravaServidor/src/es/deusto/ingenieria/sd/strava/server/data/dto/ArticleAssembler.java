@@ -3,7 +3,7 @@ package es.deusto.ingenieria.sd.strava.server.data.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Article;
+import es.deusto.ingenieria.sd.auctions.strava.data.domain.Article_CambiarAentrenamiento;
 
 //This class is part of the DTO pattern. It also implements Singleton Pattern.
 public class ArticleAssembler {	
@@ -19,7 +19,7 @@ public class ArticleAssembler {
 		return instance;
 	}
 
-	public ArticleDTO articleToDTO(Article article) {
+	public ArticleDTO articleToDTO(Article_CambiarAentrenamiento article) {
 		ArticleDTO dto = new ArticleDTO();
 		
 		dto.setNumber(article.getNumber());
@@ -32,10 +32,10 @@ public class ArticleAssembler {
 		return dto;
 	}
 	
-	public List<ArticleDTO> articleToDTO(List<Article> articles) {
+	public List<ArticleDTO> articleToDTO(List<Article_CambiarAentrenamiento> articles) {
 		List<ArticleDTO> dtos = new ArrayList<>();
 		
-		for (Article article : articles) {
+		for (Article_CambiarAentrenamiento article : articles) {
 			dtos.add(this.articleToDTO(article));
 		}
 		

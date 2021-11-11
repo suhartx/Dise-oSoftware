@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Article;
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Bid;
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Category;
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.User;
+import es.deusto.ingenieria.sd.auctions.strava.data.domain.Article_CambiarAentrenamiento;
+import es.deusto.ingenieria.sd.auctions.strava.data.domain.Bid_CambiarAEstado;
+import es.deusto.ingenieria.sd.auctions.strava.data.domain.Category_CambiarAReto;
+import es.deusto.ingenieria.sd.auctions.strava.data.domain.Usuario;
 
 //TODO: Implement Singleton Pattern
 public class BidAppService {
 	
 	//TODO: remove when DAO Pattern is implemented
-	private List<Category> categories = new ArrayList<>();
-	private List<Article> articles = new ArrayList<>();
+	private List<Category_CambiarAReto> categories = new ArrayList<>();
+	private List<Article_CambiarAentrenamiento> articles = new ArrayList<>();
 	
 	public BidAppService() {
 		//TODO: remove when DAO Pattern is implemented
@@ -25,22 +25,22 @@ public class BidAppService {
 	//TODO: remove when DAO Pattern is implemented
 	private void initilizeData() {
 		//Create Users
-		User user0 = new User();
+		Usuario user0 = new Usuario();
 		user0.setEmail("thomas.e2001@gmail.com");
 		user0.setNickname("Thomas");
 		user0.setPassword("$!9PhNz,");
 		
-		User user1 = new User();
+		Usuario user1 = new Usuario();
 		user1.setEmail("sample@gmail.com");
 		user1.setNickname("buyer33");		
 		user1.setPassword("hqc`}3Hb");
 								
 		//Create Categories
-		Category catPhone = new Category();
+		Category_CambiarAReto catPhone = new Category_CambiarAReto();
 		catPhone.setName("Cell Phones");		
 
 		//Create Articles				
-		Article galaxy = new Article();
+		Article_CambiarAentrenamiento galaxy = new Article_CambiarAentrenamiento();
 		galaxy.setNumber(9);
 		galaxy.setTitle("Samsung Galaxy S20 128GB");
 		galaxy.setInitialPrice(149.99f);
@@ -53,7 +53,7 @@ public class BidAppService {
 		user1.addArticle(galaxy);
 		galaxy.setOwner(user1);
 		
-		Article iphone = new Article();
+		Article_CambiarAentrenamiento iphone = new Article_CambiarAentrenamiento();
 		iphone.setNumber(10);
 		iphone.setTitle("Apple iPhone 12 64GB");
 		iphone.setInitialPrice(216.00f);
@@ -66,7 +66,7 @@ public class BidAppService {
 		user1.addArticle(iphone);
 		iphone.setOwner(user1);
 						
-		Article xiaomi = new Article();
+		Article_CambiarAentrenamiento xiaomi = new Article_CambiarAentrenamiento();
 		xiaomi.setNumber(11);	
 		xiaomi.setTitle("Xiaomi Mi 10");
 		xiaomi.setInitialPrice(99.40f);
@@ -88,14 +88,14 @@ public class BidAppService {
 	}
 	
 	
-	public List<Category> getCategories() {
+	public List<Category_CambiarAReto> getCategories() {
 		//TODO: Get all the categories using DAO Pattern		
 		return this.categories;
 	}
 
-	public List<Article> getArticles(String category) {
+	public List<Article_CambiarAentrenamiento> getArticles(String category) {
 		//TODO: Get articles of a category using DAO Pattern
-		for (Category cat : this.categories) {
+		for (Category_CambiarAReto cat : this.categories) {
 			if (cat.getName().equalsIgnoreCase(category)) {
 				return cat.getArticles();
 			}
@@ -104,11 +104,11 @@ public class BidAppService {
 		return null;
 	}
 
-	public boolean makeBid(User user, int number, float amount) {
+	public boolean makeBid(Usuario user, int number, float amount) {
 		//TODO: Find the artile using DAO Pattern
-		Article article = null;
+		Article_CambiarAentrenamiento article = null;
 		
-		for (Article art : this.articles) {
+		for (Article_CambiarAentrenamiento art : this.articles) {
 			if (art.getNumber() == number) {
 				article = art;
 				break;
@@ -116,7 +116,7 @@ public class BidAppService {
 		}
 
 		if (article != null) {
-			Bid newBid = new Bid();		
+			Bid_CambiarAEstado newBid = new Bid_CambiarAEstado();		
 			newBid.setDate(Calendar.getInstance().getTime());
 			newBid.setAmount(amount);
 			newBid.setArticle(article);

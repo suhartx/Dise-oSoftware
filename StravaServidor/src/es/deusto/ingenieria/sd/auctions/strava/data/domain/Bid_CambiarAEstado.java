@@ -5,11 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class Bid implements Comparable<Bid> {
+public class Bid_CambiarAEstado implements Comparable<Bid_CambiarAEstado> {
 	private long date;
 	private float amount;	
-	private Article article;
-	private User user;
+	private Article_CambiarAentrenamiento article;
+	private Usuario user;
 
 	public void setDate(Date date) {		
 		this.date = date.getTime();
@@ -27,24 +27,24 @@ public class Bid implements Comparable<Bid> {
 		this.amount = amount;
 	}
 
-	public Article getArticle() {
+	public Article_CambiarAentrenamiento getArticle() {
 		return article;
 	}
 
-	public void setArticle(Article article) {
+	public void setArticle(Article_CambiarAentrenamiento article) {
 		this.article = article;
 	}
 
-	public User getUser() {
+	public Usuario getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Usuario user) {
 		this.user = user;
 	}
 
 	@Override
-	public int compareTo(Bid bid) {
+	public int compareTo(Bid_CambiarAEstado bid) {
 		if (bid != null) {
 			return Long.compare(this.date, bid.date);
 		} else {		
@@ -73,7 +73,7 @@ public class Bid implements Comparable<Bid> {
 	@Override
 	public boolean equals(Object obj) {
 		if (this.getClass().getName().equals(obj.getClass().getName())) {
-			Bid bid = (Bid)obj;
+			Bid_CambiarAEstado bid = (Bid_CambiarAEstado)obj;
 			
 			if (this.user != null && this.article != null &&
 					bid.user != null && bid.article != null) {			

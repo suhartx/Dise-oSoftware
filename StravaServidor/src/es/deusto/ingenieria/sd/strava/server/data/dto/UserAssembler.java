@@ -1,6 +1,6 @@
 package es.deusto.ingenieria.sd.strava.server.data.dto;
 
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.User;
+import es.deusto.ingenieria.sd.auctions.strava.data.domain.Usuario;
 
 //This class is part of the DTO pattern. It also implements Singleton Pattern.
 public class UserAssembler {
@@ -16,7 +16,7 @@ public class UserAssembler {
 		return instance;
 	}
 
-	public UserDTO userToDTO(User user) {
+	public UserDTO userToDTO(Usuario user) {
 		UserDTO dto = new UserDTO();
 		
 		dto.setEmail(user.getEmail());

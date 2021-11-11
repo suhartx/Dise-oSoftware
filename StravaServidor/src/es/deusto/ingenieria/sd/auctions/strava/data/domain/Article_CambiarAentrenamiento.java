@@ -8,14 +8,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class Article {
+public class Article_CambiarAentrenamiento {
 	private int number;
 	private String title;	
 	private float initialPrice;
 	private Date auctionEnd;	
-	private Category category;
-	private User owner;
-	private List<Bid> bids = new ArrayList<>();
+	private Category_CambiarAReto category;
+	private Usuario owner;
+	private List<Bid_CambiarAEstado> bids = new ArrayList<>();
 		
 	public int getNumber() {
 		return number;
@@ -57,39 +57,39 @@ public class Article {
 		this.auctionEnd = auctionEnd;
 	}
 
-	public Category getCategory() {
+	public Category_CambiarAReto getCategory() {
 		return category;
 	}
 	
-	public void setCategory(Category category) {
+	public void setCategory(Category_CambiarAReto category) {
 		this.category = category;
 	}
 	
-	public User getOwner() {
+	public Usuario getOwner() {
 		return owner;
 	}
 	
-	public void setOwner(User owner) {
+	public void setOwner(Usuario owner) {
 		this.owner = owner;
 	}
 	
-	public List<Bid> getBids() {
+	public List<Bid_CambiarAEstado> getBids() {
 		return bids;
 	}
 	
-	public void setBids(List<Bid> bids) {
+	public void setBids(List<Bid_CambiarAEstado> bids) {
 		this.bids = bids;
 	}
 	
-	public void addBid(Bid bid) {
+	public void addBid(Bid_CambiarAEstado bid) {
 		if (bid != null && !this.bids.contains(bid)) {
 			this.bids.add(bid);
 		}
 	}
 	
-	public Bid getHighestBid() {
+	public Bid_CambiarAEstado getHighestBid() {
 		if (!this.bids.isEmpty()) {
-			ArrayList<Bid> bidsArray = new ArrayList<Bid>(this.bids);			
+			ArrayList<Bid_CambiarAEstado> bidsArray = new ArrayList<Bid_CambiarAEstado>(this.bids);			
 			Collections.sort(bidsArray);		
 			return bidsArray.get(0);
 		} else {
@@ -123,7 +123,7 @@ public class Article {
 	@Override
 	public boolean equals(Object obj) {
 		if (this.getClass().getName().equals(obj.getClass().getName())) {
-			return this.number == ((Article)obj).number;
+			return this.number == ((Article_CambiarAentrenamiento)obj).number;
 		}
 		
 		return false;
