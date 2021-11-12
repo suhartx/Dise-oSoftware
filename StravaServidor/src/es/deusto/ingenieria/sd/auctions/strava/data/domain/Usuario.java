@@ -65,6 +65,7 @@ public class Usuario {
 		return contrasenya;
 	}
 
+
 	@Override
 	public String toString() {
 		StringBuffer result = new StringBuffer();
