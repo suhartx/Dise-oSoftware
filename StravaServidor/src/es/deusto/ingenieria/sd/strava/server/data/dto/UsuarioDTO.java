@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 //This class implements DTO pattern
-public class UserDTO implements Serializable {	
+public class UsuarioDTO implements Serializable {	
 	//This attribute is needed to implement the "Serializable" interface.
 	private static final long serialVersionUID = 1L;	
 	
@@ -53,6 +53,12 @@ public class UserDTO implements Serializable {
 
 	public void setContrasenya(String contrasenya) {
 		this.contrasenya = contrasenya;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDTO [idUsuario=" + idUsuario + ", nombre=" + nombre + ", email=" + email + ", fechaNacimiento="
+				+ fechaNacimiento + ", contrasenya=" + contrasenya + "]";
 	}
 
 }

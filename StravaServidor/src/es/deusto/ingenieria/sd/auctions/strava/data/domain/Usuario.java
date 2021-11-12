@@ -43,33 +43,6 @@ public class Usuario {
 		this.email = email;
 	}
 	
-//	public List<Bid_CambiarAEstado> getBids() {
-//		return bids;
-//	}
-//	
-//	public void setBids(List<Bid_CambiarAEstado> bids) {
-//		this.bids = bids;
-//	}
-	
-//	public void addBid(Bid_CambiarAEstado bid) {
-//		if (bid != null && !this.bids.contains(bid)) {
-//			this.bids.add(bid);
-//		}
-//	}
-//	
-//	public List<Article_CambiarAentrenamiento> getArticles() {
-//		return articles;
-//	}
-//	
-//	public void setArticles(List<Article_CambiarAentrenamiento> articles) {
-//		this.articles = articles;
-//	}
-//	
-//	public void addArticle(Article_CambiarAentrenamiento article) {
-//		if (article != null && !this.articles.contains(article)) {
-//			this.articles.add(article);
-//		}
-//	}
 		
 	public int getIdUsuario() {
 		return idUsuario;
@@ -85,6 +58,11 @@ public class Usuario {
 
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
+	}
+	
+
+	public String getContrasenya() {
+		return contrasenya;
 	}
 
 	@Override

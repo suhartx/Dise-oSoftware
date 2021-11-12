@@ -33,11 +33,11 @@ public class EntrenamientoAssembler {
 		return dto;
 	}
 	
-	public List<EntrenamientoDTO> articleToDTO(List<Entrenamiento> articles) {
+	public List<EntrenamientoDTO> articleToDTO(List<Entrenamiento> entrenamientos) {
 		List<EntrenamientoDTO> dtos = new ArrayList<>();
 		
-		for (Entrenamiento article : articles) {
-			dtos.add(this.articleToDTO(article));
+		for (Entrenamiento entrenamiento : entrenamientos) {
+			dtos.add(this.articleToDTO(entrenamiento));
 		}
 		
 		return dtos;		
