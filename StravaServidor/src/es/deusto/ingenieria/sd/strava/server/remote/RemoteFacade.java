@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import es.deusto.ingenieria.sd.auctions.strava.data.domain.Article_CambiarAentrenamiento;
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Category_CambiarAReto;
+import es.deusto.ingenieria.sd.auctions.strava.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.strava.data.domain.Usuario;
 import es.deusto.ingenieria.sd.strava.server.data.dto.ArticleAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.ArticleDTO;
@@ -70,7 +70,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		System.out.println(" * RemoteFacade getCategories()");
 		
 		//Get Categories using BidAppService
-		List<Category_CambiarAReto> categories = bidService.getCategories();
+		List<Reto> categories = bidService.getCategories();
 		
 		if (categories != null) {
 			//Convert domain object to DTO

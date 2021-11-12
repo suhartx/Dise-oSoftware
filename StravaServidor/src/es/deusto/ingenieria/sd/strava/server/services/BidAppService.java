@@ -7,14 +7,14 @@ import java.util.List;
 
 import es.deusto.ingenieria.sd.auctions.strava.data.domain.Article_CambiarAentrenamiento;
 import es.deusto.ingenieria.sd.auctions.strava.data.domain.Bid_CambiarAEstado;
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Category_CambiarAReto;
+import es.deusto.ingenieria.sd.auctions.strava.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.strava.data.domain.Usuario;
 
 //TODO: Implement Singleton Pattern
 public class BidAppService {
 	
 	//TODO: remove when DAO Pattern is implemented
-	private List<Category_CambiarAReto> categories = new ArrayList<>();
+	private List<Reto> categories = new ArrayList<>();
 	private List<Article_CambiarAentrenamiento> articles = new ArrayList<>();
 	
 	public BidAppService() {
@@ -36,7 +36,7 @@ public class BidAppService {
 		user1.setPassword("hqc`}3Hb");
 								
 		//Create Categories
-		Category_CambiarAReto catPhone = new Category_CambiarAReto();
+		Reto catPhone = new Reto();
 		catPhone.setName("Cell Phones");		
 
 		//Create Articles				
@@ -88,14 +88,14 @@ public class BidAppService {
 	}
 	
 	
-	public List<Category_CambiarAReto> getCategories() {
+	public List<Reto> getCategories() {
 		//TODO: Get all the categories using DAO Pattern		
 		return this.categories;
 	}
 
 	public List<Article_CambiarAentrenamiento> getArticles(String category) {
 		//TODO: Get articles of a category using DAO Pattern
-		for (Category_CambiarAReto cat : this.categories) {
+		for (Reto cat : this.categories) {
 			if (cat.getName().equalsIgnoreCase(category)) {
 				return cat.getArticles();
 			}

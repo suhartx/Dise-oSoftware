@@ -7,125 +7,86 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 public class Article_CambiarAentrenamiento {
-	private int number;
-	private String title;	
-	private float initialPrice;
-	private Date auctionEnd;	
-	private Category_CambiarAReto category;
-	private Usuario owner;
-	private List<Bid_CambiarAEstado> bids = new ArrayList<>();
-		
-	public int getNumber() {
-		return number;
+	private int idEntrenamiento;
+	private String titulo;
+	private double distancia;
+	private enum tipodeporte{
+		correr, monte, bici
+	};
+	private Date fechaInicio;
+	private String horaInicio;
+	private double duracion;
+	List<Usuario> usuarios= new ArrayList<>();
+	/*
+	 * la logica aqui dicta que esto no puede ser asi, la relacion de cardinalidad 
+	 * entre usuario y reto tiene que ser de 1 a n por tanto este arraylist hay que quitarlo
+	 * y cambiar en diagrama de clases
+	 */
+	public int getIdEntrenamiento() {
+		return idEntrenamiento;
 	}
-	
-	public void setNumber(int number) {
-		this.number = number;
+	public void setIdEntrenamiento(int idEntrenamiento) {
+		this.idEntrenamiento = idEntrenamiento;
 	}
-	
-	public String getTitle() {
-		return title;
+	public String getTitulo() {
+		return titulo;
 	}
-	
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
-	
-	public float getInitialPrice() {
-		return initialPrice;
+	public double getDistancia() {
+		return distancia;
 	}
-
-	public void setInitialPrice(float price) {
-		this.initialPrice = price;
+	public void setDistancia(double distancia) {
+		this.distancia = distancia;
 	}
-	
-	public float getActualPrice() {
-		if (this.bids.isEmpty()) {
-			return this.initialPrice;
-		} else {
-			return this.getHighestBid().getAmount();
-		}
+	public Date getFechaInicio() {
+		return fechaInicio;
 	}
-
-	public Date getAuctionEnd() {
-		return auctionEnd;
+	public void setFechaInicio(Date fechaInicio) {
+		this.fechaInicio = fechaInicio;
 	}
-
-	public void setAuctionEnd(Date auctionEnd) {
-		this.auctionEnd = auctionEnd;
+	public String getHoraInicio() {
+		return horaInicio;
 	}
-
-	public Category_CambiarAReto getCategory() {
-		return category;
+	public void setHoraInicio(String horaInicio) {
+		this.horaInicio = horaInicio;
 	}
-	
-	public void setCategory(Category_CambiarAReto category) {
-		this.category = category;
+	public double getDuracion() {
+		return duracion;
 	}
-	
-	public Usuario getOwner() {
-		return owner;
+	public void setDuracion(double duracion) {
+		this.duracion = duracion;
 	}
-	
-	public void setOwner(Usuario owner) {
-		this.owner = owner;
+	public List<Usuario> getUsuarios() {
+		return usuarios;
 	}
-	
-	public List<Bid_CambiarAEstado> getBids() {
-		return bids;
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
-	
-	public void setBids(List<Bid_CambiarAEstado> bids) {
-		this.bids = bids;
-	}
-	
-	public void addBid(Bid_CambiarAEstado bid) {
-		if (bid != null && !this.bids.contains(bid)) {
-			this.bids.add(bid);
-		}
-	}
-	
-	public Bid_CambiarAEstado getHighestBid() {
-		if (!this.bids.isEmpty()) {
-			ArrayList<Bid_CambiarAEstado> bidsArray = new ArrayList<Bid_CambiarAEstado>(this.bids);			
-			Collections.sort(bidsArray);		
-			return bidsArray.get(0);
-		} else {
-			return null;
-		}
-	}
-	
 	@Override
 	public String toString() {
-		SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MMM-YY - hh:mm");
-		NumberFormat numberFormatter = NumberFormat.getCurrencyInstance(Locale.getDefault()); 
-
-		StringBuffer result = new StringBuffer();
-		
-		result.append(this.number);
-		result.append(" # '");
-		result.append(this.title);
-		result.append("' # Initial/actual price: ");
-		result.append(numberFormatter.format(this.initialPrice));
-		result.append("/");
-		result.append(numberFormatter.format(this.getHighestBid().getAmount()));
-		result.append(" # Auction end: ");
-		result.append(dateFormatter.format(this.auctionEnd));
-		result.append(" (");
-		result.append(this.bids.size());
-		result.append(" bids)");
-		
-		return result.toString();		
+		return "Article_CambiarAentrenamiento [idEntrenamiento=" + idEntrenamiento + ", titulo=" + titulo
+				+ ", distancia=" + distancia + ", fechaInicio=" + fechaInicio + ", horaInicio=" + horaInicio
+				+ ", duracion=" + duracion + ", usuarios=" + usuarios + "]";
 	}
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(idEntrenamiento);
+	}
 	@Override
 	public boolean equals(Object obj) {
-		if (this.getClass().getName().equals(obj.getClass().getName())) {
-			return this.number == ((Article_CambiarAentrenamiento)obj).number;
-		}
-		
-		return false;
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Article_CambiarAentrenamiento other = (Article_CambiarAentrenamiento) obj;
+		return idEntrenamiento == other.idEntrenamiento;
 	}
+	
 }

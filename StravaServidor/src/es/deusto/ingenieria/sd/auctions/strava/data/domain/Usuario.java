@@ -1,11 +1,10 @@
 package es.deusto.ingenieria.sd.auctions.strava.data.domain;
 
-import java.sql.Date;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-import es.deusto.ingenieria.sd.auctions.server.data.domain.Article;
-import es.deusto.ingenieria.sd.auctions.server.data.domain.Bid;
 
 public class Usuario {	
 	private int idUsuario;

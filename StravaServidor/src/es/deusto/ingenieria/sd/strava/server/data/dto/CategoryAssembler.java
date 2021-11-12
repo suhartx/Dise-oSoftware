@@ -3,7 +3,7 @@ package es.deusto.ingenieria.sd.strava.server.data.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Category_CambiarAReto;
+import es.deusto.ingenieria.sd.auctions.strava.data.domain.Reto;
 
 //This class is part of the DTO pattern. It also implements Singleton Pattern.
 public class CategoryAssembler {
@@ -19,16 +19,16 @@ public class CategoryAssembler {
 		return instance;
 	}
 
-	public CategoryDTO categoryToDTO(Category_CambiarAReto category) {
+	public CategoryDTO categoryToDTO(Reto category) {
 		CategoryDTO dto = new CategoryDTO();		
 		dto.setName(category.getName());
 		return dto;
 	}
 
-	public List<CategoryDTO> categoryToDTO(List<Category_CambiarAReto> categories) {		
+	public List<CategoryDTO> categoryToDTO(List<Reto> categories) {		
 		List<CategoryDTO> dtos = new ArrayList<>();
 		
-		for (Category_CambiarAReto category : categories) {
+		for (Reto category : categories) {
 			dtos.add(this.categoryToDTO(category));
 		}
 		
