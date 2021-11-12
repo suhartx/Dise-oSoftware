@@ -7,12 +7,10 @@ import java.util.List;
 public class Reto {	
 	private int idReto;
 	private String nombre;
-	private Date fechainicio;
+	private Date fechaInicio;
 	private Date fechaFin;
 	private double distancia;
-	private enum deporte{
-		correr, bicicleta, senderismo
-	};
+	private String tipoDeporte;
 	private Estado estado;
 	public int getIdReto() {
 		return idReto;
@@ -26,11 +24,11 @@ public class Reto {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Date getFechainicio() {
-		return fechainicio;
+	public Date getFechaInicio() {
+		return fechaInicio;
 	}
-	public void setFechainicio(Date fechainicio) {
-		this.fechainicio = fechainicio;
+	public void setFechaInicio(Date fechainicio) {
+		this.fechaInicio = fechainicio;
 	}
 	public Date getFechaFin() {
 		return fechaFin;
@@ -44,6 +42,13 @@ public class Reto {
 	public void setDistancia(double distancia) {
 		this.distancia = distancia;
 	}
+	
+	public String getTipoDeporte() {
+		return tipoDeporte;
+	}
+	public void setTipoDeporte(String tipoDeporte) {
+		this.tipoDeporte = tipoDeporte;
+	}
 	public Estado getEstado() {
 		return estado;
 	}
@@ -52,7 +57,8 @@ public class Reto {
 	}
 	@Override
 	public String toString() {
-		return "Category_CambiarAReto [idReto=" + idReto + ", nombre=" + nombre + ", fechainicio=" + fechainicio
-				+ ", fechaFin=" + fechaFin + ", distancia=" + distancia + ", estado=" + estado + "]";
+		return "Reto [idReto=" + idReto + ", nombre=" + nombre + ", fechainicio=" + fechaInicio + ", fechaFin="
+				+ fechaFin + ", distancia=" + distancia + ", tipoDeporte=" + tipoDeporte + ", estado=" + estado + "]";
 	}
+
 }

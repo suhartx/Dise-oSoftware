@@ -2,7 +2,7 @@ package es.deusto.ingenieria.sd.strava.server.test;
 
 import java.util.List;
 
-import es.deusto.ingenieria.sd.strava.server.data.dto.ArticleDTO;
+import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.strava.server.remote.RemoteFacade;
 
@@ -12,8 +12,8 @@ public class LocalTest {
 		RemoteFacade facade = null;
 		List<RetoDTO> categories = null;
 		RetoDTO category = null;
-		List<ArticleDTO> articles = null;
-		ArticleDTO article = null;
+		List<EntrenamientoDTO> articles = null;
+		EntrenamientoDTO article = null;
 		long token = 0l;
 		
 		try {
@@ -31,7 +31,7 @@ public class LocalTest {
 			articles = facade.getArticles(category.getName());
 			article = articles.get(0);
 			
-			for (ArticleDTO a : articles) {
+			for (EntrenamientoDTO a : articles) {
 				System.out.println("\t- " + a);
 			}
 			

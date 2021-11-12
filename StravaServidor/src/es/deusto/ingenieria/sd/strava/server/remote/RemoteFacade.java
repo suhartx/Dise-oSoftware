@@ -10,8 +10,8 @@ import java.util.Map;
 import es.deusto.ingenieria.sd.auctions.strava.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.strava.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.strava.data.domain.Usuario;
-import es.deusto.ingenieria.sd.strava.server.data.dto.ArticleAssembler;
-import es.deusto.ingenieria.sd.strava.server.data.dto.ArticleDTO;
+import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoAssembler;
+import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.strava.server.services.BidAppService;
@@ -81,7 +81,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 
 	@Override
-	public List<ArticleDTO> getArticles(String category) throws RemoteException {
+	public List<EntrenamientoDTO> getArticles(String category) throws RemoteException {
 		System.out.println(" * RemoteFacade getArticle('" + category + "')");
 
 		//Get Articles using BidAppService
@@ -89,7 +89,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		
 		if (articles != null) {
 			//Convert domain object to DTO
-			return ArticleAssembler.getInstance().articleToDTO(articles);
+			return EntrenamientoAssembler.getInstance().articleToDTO(articles);
 		} else {
 			throw new RemoteException("getArticles() fails!");
 		}

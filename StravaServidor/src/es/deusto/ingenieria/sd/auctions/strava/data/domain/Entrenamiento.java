@@ -13,9 +13,7 @@ public class Entrenamiento {
 	private int idEntrenamiento;
 	private String titulo;
 	private double distancia;
-	private enum tipodeporte{
-		correr, monte, bici
-	};
+	private String tipoDeporte;
 	private Date fechaInicio;
 	private String horaInicio;
 	private double duracion;
@@ -30,7 +28,9 @@ public class Entrenamiento {
 	}
 	public void setIdEntrenamiento(int idEntrenamiento) {
 		this.idEntrenamiento = idEntrenamiento;
+		
 	}
+	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -42,6 +42,13 @@ public class Entrenamiento {
 	}
 	public void setDistancia(double distancia) {
 		this.distancia = distancia;
+	}
+	
+	public String getTipoDeporte() {
+		return tipoDeporte;
+	}
+	public void setTipoDeporte(String tipoDeporte) {
+		this.tipoDeporte = tipoDeporte;
 	}
 	public Date getFechaInicio() {
 		return fechaInicio;
@@ -67,10 +74,11 @@ public class Entrenamiento {
 	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
 	}
+
 	@Override
 	public String toString() {
-		return "Article_CambiarAentrenamiento [idEntrenamiento=" + idEntrenamiento + ", titulo=" + titulo
-				+ ", distancia=" + distancia + ", fechaInicio=" + fechaInicio + ", horaInicio=" + horaInicio
+		return "Entrenamiento [idEntrenamiento=" + idEntrenamiento + ", titulo=" + titulo + ", distancia=" + distancia
+				+ ", tipoDeporte=" + tipoDeporte + ", fechaInicio=" + fechaInicio + ", horaInicio=" + horaInicio
 				+ ", duracion=" + duracion + ", usuarios=" + usuarios + "]";
 	}
 	@Override
