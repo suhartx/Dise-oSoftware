@@ -55,37 +55,38 @@ public class InitializationWindow {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel contentPanel = new JPanel();
-		contentPanel.setBackground(Color.GRAY);
+		contentPanel.setBackground(UIManager.getColor("Button.shadow"));
 		contentPanel.setForeground(Color.BLACK);
 		frame.getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
 		JLabel titleLabel = new JLabel("STRAVA");
 		titleLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		titleLabel.setForeground(Color.BLACK);
+		titleLabel.setForeground(Color.WHITE);
 		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		titleLabel.setVerticalAlignment(SwingConstants.TOP);
-		titleLabel.setBounds(128, 11, 149, 26);
+		titleLabel.setBounds(10, 11, 414, 26);
 		contentPanel.add(titleLabel);
 		
 		JPanel buttonsPanel = new JPanel();
+		buttonsPanel.setForeground(new Color(0, 0, 0));
 		buttonsPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		buttonsPanel.setBackground(Color.LIGHT_GRAY);
-		buttonsPanel.setBounds(62, 36, 307, 183);
+		buttonsPanel.setBackground(UIManager.getColor("Button.background"));
+		buttonsPanel.setBounds(59, 67, 307, 183);
 		contentPanel.add(buttonsPanel);
 		buttonsPanel.setLayout(null);
 		
 		JButton toRegisterMenuButton = new JButton("Registrarse");
-		toRegisterMenuButton.setForeground(Color.WHITE);
-		toRegisterMenuButton.setBackground(Color.DARK_GRAY);
+		toRegisterMenuButton.setForeground(UIManager.getColor("CheckBox.focus"));
+		toRegisterMenuButton.setBackground(UIManager.getColor("CheckBox.light"));
 		toRegisterMenuButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		toRegisterMenuButton.setBounds(89, 58, 128, 29);
 		buttonsPanel.add(toRegisterMenuButton);
 		
 		JButton toLoginMenuButton = new JButton("Iniciar sesi\u00F3n");
 		toLoginMenuButton.setFont(new Font("Tahoma", Font.BOLD, 13));
-		toLoginMenuButton.setBackground(Color.DARK_GRAY);
-		toLoginMenuButton.setForeground(Color.WHITE);
+		toLoginMenuButton.setBackground(UIManager.getColor("CheckBox.light"));
+		toLoginMenuButton.setForeground(UIManager.getColor("CheckBox.focus"));
 		toLoginMenuButton.setBounds(89, 119, 128, 29);
 		buttonsPanel.add(toLoginMenuButton);
 		
