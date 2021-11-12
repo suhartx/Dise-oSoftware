@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Article_CambiarAentrenamiento;
+import es.deusto.ingenieria.sd.auctions.strava.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.strava.data.domain.Bid_CambiarAEstado;
 import es.deusto.ingenieria.sd.auctions.strava.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.strava.data.domain.Usuario;
@@ -15,7 +15,7 @@ public class BidAppService {
 	
 	//TODO: remove when DAO Pattern is implemented
 	private List<Reto> categories = new ArrayList<>();
-	private List<Article_CambiarAentrenamiento> articles = new ArrayList<>();
+	private List<Entrenamiento> articles = new ArrayList<>();
 	
 	public BidAppService() {
 		//TODO: remove when DAO Pattern is implemented
@@ -40,7 +40,7 @@ public class BidAppService {
 		catPhone.setName("Cell Phones");		
 
 		//Create Articles				
-		Article_CambiarAentrenamiento galaxy = new Article_CambiarAentrenamiento();
+		Entrenamiento galaxy = new Entrenamiento();
 		galaxy.setNumber(9);
 		galaxy.setTitle("Samsung Galaxy S20 128GB");
 		galaxy.setInitialPrice(149.99f);
@@ -53,7 +53,7 @@ public class BidAppService {
 		user1.addArticle(galaxy);
 		galaxy.setOwner(user1);
 		
-		Article_CambiarAentrenamiento iphone = new Article_CambiarAentrenamiento();
+		Entrenamiento iphone = new Entrenamiento();
 		iphone.setNumber(10);
 		iphone.setTitle("Apple iPhone 12 64GB");
 		iphone.setInitialPrice(216.00f);
@@ -66,7 +66,7 @@ public class BidAppService {
 		user1.addArticle(iphone);
 		iphone.setOwner(user1);
 						
-		Article_CambiarAentrenamiento xiaomi = new Article_CambiarAentrenamiento();
+		Entrenamiento xiaomi = new Entrenamiento();
 		xiaomi.setNumber(11);	
 		xiaomi.setTitle("Xiaomi Mi 10");
 		xiaomi.setInitialPrice(99.40f);
@@ -93,7 +93,7 @@ public class BidAppService {
 		return this.categories;
 	}
 
-	public List<Article_CambiarAentrenamiento> getArticles(String category) {
+	public List<Entrenamiento> getArticles(String category) {
 		//TODO: Get articles of a category using DAO Pattern
 		for (Reto cat : this.categories) {
 			if (cat.getName().equalsIgnoreCase(category)) {
@@ -106,9 +106,9 @@ public class BidAppService {
 
 	public boolean makeBid(Usuario user, int number, float amount) {
 		//TODO: Find the artile using DAO Pattern
-		Article_CambiarAentrenamiento article = null;
+		Entrenamiento article = null;
 		
-		for (Article_CambiarAentrenamiento art : this.articles) {
+		for (Entrenamiento art : this.articles) {
 			if (art.getNumber() == number) {
 				article = art;
 				break;

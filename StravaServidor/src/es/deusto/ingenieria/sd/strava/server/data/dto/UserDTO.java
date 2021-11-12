@@ -6,15 +6,15 @@ import java.io.Serializable;
 public class UserDTO implements Serializable {	
 	//This attribute is needed to implement the "Serializable" interface.
 	private static final long serialVersionUID = 1L;	
-	private String nickname;
+	private String nombre;
 	private String email;
 	
-	public String getNickname() {
-		return nickname;
+	public String getNombre() {
+		return nombre;
 	}
 	
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
+	public void setNombre(String nickname) {
+		this.nombre = nickname;
 	}
 	
 	public String getEmail() {

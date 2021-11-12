@@ -19,7 +19,7 @@ public class Usuario {
 
 	 */
 	
-	public String getnombre() {
+	public String getNombre() {
 		return nombre;
 	}
 	
@@ -27,7 +27,7 @@ public class Usuario {
 		this.nombre = nombre;
 	}
 	
-	public boolean checkcontrasenya(String contrasenya) {
+	public boolean checkContrasenya(String contrasenya) {
 		return this.contrasenya.equals(contrasenya);
 	}
 	
