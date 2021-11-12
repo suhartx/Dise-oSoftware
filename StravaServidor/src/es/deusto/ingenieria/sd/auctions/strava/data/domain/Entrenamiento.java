@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-public class Article_CambiarAentrenamiento {
+public class Entrenamiento {
 	private int idEntrenamiento;
 	private String titulo;
 	private double distancia;
@@ -85,7 +85,7 @@ public class Article_CambiarAentrenamiento {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Article_CambiarAentrenamiento other = (Article_CambiarAentrenamiento) obj;
+		Entrenamiento other = (Entrenamiento) obj;
 		return idEntrenamiento == other.idEntrenamiento;
 	}
 	

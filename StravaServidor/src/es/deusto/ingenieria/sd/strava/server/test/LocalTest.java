@@ -3,15 +3,15 @@ package es.deusto.ingenieria.sd.strava.server.test;
 import java.util.List;
 
 import es.deusto.ingenieria.sd.strava.server.data.dto.ArticleDTO;
-import es.deusto.ingenieria.sd.strava.server.data.dto.CategoryDTO;
+import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.strava.server.remote.RemoteFacade;
 
 public class LocalTest {
 
 	public static void main(String[] args) {		
 		RemoteFacade facade = null;
-		List<CategoryDTO> categories = null;
-		CategoryDTO category = null;
+		List<RetoDTO> categories = null;
+		RetoDTO category = null;
 		List<ArticleDTO> articles = null;
 		ArticleDTO article = null;
 		long token = 0l;
@@ -23,7 +23,7 @@ public class LocalTest {
 			categories = facade.getCategories();
 			category = categories.get(0);
 			
-			for (CategoryDTO c : categories) {
+			for (RetoDTO c : categories) {
 				System.out.println("\t- " + c);
 			}			
 						

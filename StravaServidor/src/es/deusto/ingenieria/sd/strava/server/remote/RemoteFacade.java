@@ -7,13 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Article_CambiarAentrenamiento;
+import es.deusto.ingenieria.sd.auctions.strava.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.auctions.strava.data.domain.Reto;
 import es.deusto.ingenieria.sd.auctions.strava.data.domain.Usuario;
 import es.deusto.ingenieria.sd.strava.server.data.dto.ArticleAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.ArticleDTO;
-import es.deusto.ingenieria.sd.strava.server.data.dto.CategoryAssembler;
-import es.deusto.ingenieria.sd.strava.server.data.dto.CategoryDTO;
+import es.deusto.ingenieria.sd.strava.server.data.dto.RetoAssembler;
+import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.strava.server.services.BidAppService;
 import es.deusto.ingenieria.sd.strava.server.services.LoginAppService;
 
@@ -66,7 +66,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 	
 	@Override
-	public List<CategoryDTO> getCategories() throws RemoteException {
+	public List<RetoDTO> getCategories() throws RemoteException {
 		System.out.println(" * RemoteFacade getCategories()");
 		
 		//Get Categories using BidAppService
@@ -74,7 +74,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		
 		if (categories != null) {
 			//Convert domain object to DTO
-			return CategoryAssembler.getInstance().categoryToDTO(categories);
+			return RetoAssembler.getInstance().categoryToDTO(categories);
 		} else {
 			throw new RemoteException("getCategories() fails!");
 		}
@@ -85,7 +85,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		System.out.println(" * RemoteFacade getArticle('" + category + "')");
 
 		//Get Articles using BidAppService
-		List<Article_CambiarAentrenamiento> articles = bidService.getArticles(category);
+		List<Entrenamiento> articles = bidService.getArticles(category);
 		
 		if (articles != null) {
 			//Convert domain object to DTO

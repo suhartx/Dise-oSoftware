@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 import es.deusto.ingenieria.sd.strava.server.data.dto.ArticleDTO;
-import es.deusto.ingenieria.sd.strava.server.data.dto.CategoryDTO;
+import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 
 //This interface defines the API of the Server. It represents the Remote Facade pattern
 public interface IRemoteFacade extends Remote {	
@@ -14,7 +14,7 @@ public interface IRemoteFacade extends Remote {
 	
 	public void logout(long token) throws RemoteException; 
 	
-	public List<CategoryDTO> getCategories() throws RemoteException;
+	public List<RetoDTO> getCategories() throws RemoteException;
 	
 	public List<ArticleDTO> getArticles(String aCategory) throws RemoteException;
 	

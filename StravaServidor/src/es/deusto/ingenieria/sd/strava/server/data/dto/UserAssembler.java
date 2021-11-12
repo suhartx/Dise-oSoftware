@@ -20,7 +20,7 @@ public class UserAssembler {
 		UserDTO dto = new UserDTO();
 		
 		dto.setEmail(user.getEmail());
-		dto.setNickname(user.getNickname());
+		dto.setNombre(user.getNombre());
 		
 		return dto;
 	}

@@ -1,5 +1,5 @@
 package es.deusto.ingenieria.sd.auctions.strava.data.domain;
-
+//HAY QUE CAMBIAR ESTO
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
