@@ -20,5 +20,12 @@ public class Estado  {
 	public void setEstado(int estado) {
 		this.estado = estado;
 	}
+	public Estado(int idEstado, int estado) {
+
+		this.idEstado = idEstado;
+		this.estado = estado;
+	}
+	
+	
 	
 }

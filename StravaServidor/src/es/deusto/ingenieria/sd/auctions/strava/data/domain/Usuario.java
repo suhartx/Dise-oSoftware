@@ -4,20 +4,30 @@ package es.deusto.ingenieria.sd.auctions.strava.data.domain;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Usuario {	
-	private int idUsuario;
+	private static int count=0;
+	private final int idUsuario;
 	private String nombre;
 	private String email;
 	private Date fechaNacimiento;
 	private String contrasenya;
 	/*
 	 * faltan las clases relacionadas
-	 * 	private List<Bid> bids = new ArrayList<>();
-	private List<Article> articles = new ArrayList<>();
-
 	 */
+	private List<Entrenamiento> entrenamientos = new ArrayList<>();
+	private List<Reto> retos = new ArrayList<>();
+
+	 
+	public Usuario(){
+		
+		idUsuario= ++count;
+		//Esto genera automaticamente el id de usuario 
+		//cada vez que se inizializa uno nuevo
+		
+	}
 	
 	public String getNombre() {
 		return nombre;
@@ -48,9 +58,9 @@ public class Usuario {
 		return idUsuario;
 	}
 
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
-	}
+//	public void setIdUsuario(int idUsuario) {
+//		this.idUsuario = idUsuario;
+//	}
 
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
@@ -65,6 +75,29 @@ public class Usuario {
 		return contrasenya;
 	}
 
+
+	public List<Entrenamiento> getEntrenamientos() {
+		return entrenamientos;
+	}
+
+	public void setEntrenamientos(List<Entrenamiento> entrenamientos) {
+		this.entrenamientos = entrenamientos;
+	}
+	
+	public void anyadirEntrenamiento(Entrenamiento e) {
+		this.entrenamientos.add(e);
+	}
+
+	public List<Reto> getRetos() {
+		return retos;
+	}
+
+	public void setRetos(List<Reto> retos) {
+		this.retos = retos;
+	}
+	public void anyadirReto(Reto r) {
+		this.retos.add(r);
+	}
 
 	@Override
 	public String toString() {

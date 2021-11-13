@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Reto {	
+	private static int count=0;
 	private int idReto;
 	private String nombre;
 	private Date fechaInicio;
@@ -15,9 +16,24 @@ public class Reto {
 	public int getIdReto() {
 		return idReto;
 	}
-	public void setIdReto(int idReto) {
-		this.idReto = idReto;
+	public Reto() {
+		idReto = ++count;
 	}
+	
+public Reto(Reto r) {
+		super();
+		this.idReto = r.idReto;
+		this.nombre = r.nombre;
+		this.fechaInicio = r.fechaInicio;
+		this.fechaFin = r.fechaFin;
+		this.distancia = r.distancia;
+		this.tipoDeporte = r.tipoDeporte;
+		this.estado.setIdEstado(0);
+		this.estado.setEstado(0);
+	}
+	//	public void setIdReto(int idReto) {
+//		this.idReto = idReto;
+//	}
 	public String getNombre() {
 		return nombre;
 	}
