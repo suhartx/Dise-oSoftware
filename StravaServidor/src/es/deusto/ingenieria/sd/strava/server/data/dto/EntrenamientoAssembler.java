@@ -19,7 +19,7 @@ public class EntrenamientoAssembler {
 		return instance;
 	}
 
-	public EntrenamientoDTO articleToDTO(Entrenamiento entrenamiento) {
+	public EntrenamientoDTO entrenamientoToDTO(Entrenamiento entrenamiento) {
 		EntrenamientoDTO dto = new EntrenamientoDTO();
 		
 		dto.setIdEntrenamiento(entrenamiento.getIdEntrenamiento());
@@ -33,11 +33,11 @@ public class EntrenamientoAssembler {
 		return dto;
 	}
 	
-	public List<EntrenamientoDTO> articleToDTO(List<Entrenamiento> entrenamientos) {
+	public List<EntrenamientoDTO> entrenamientoToDTO(List<Entrenamiento> entrenamientos) {
 		List<EntrenamientoDTO> dtos = new ArrayList<>();
 		
 		for (Entrenamiento entrenamiento : entrenamientos) {
-			dtos.add(this.articleToDTO(entrenamiento));
+			dtos.add(this.entrenamientoToDTO(entrenamiento));
 		}
 		
 		return dtos;		

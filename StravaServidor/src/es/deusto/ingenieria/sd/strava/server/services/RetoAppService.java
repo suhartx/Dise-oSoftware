@@ -83,7 +83,7 @@ public class RetoAppService {
 
 
 		public void crearReto(Usuario usuario ,String nombre, Date fechaInicio,
-	Date fechaFin, double distancia, String tipoDeporte, Estado estado ) {
+	Date fechaFin, double distancia, String tipoDeporte) {
 	
 		Reto r = new Reto();
 		r.setNombre(nombre);
@@ -126,6 +126,17 @@ public class RetoAppService {
 		
 		
 	}
-	
+	public Estado consultarReto(Usuario u, Reto r) {
+		for (Reto reto : u.getRetos()) {
+			if (reto.getIdReto()==r.getIdReto()) {
+				return reto.getEstado();
+			}
+			
+		}
+		System.out.println("Ese entrenamiento no existe");
+		return null;
+		
+		
+	}
 	
 }

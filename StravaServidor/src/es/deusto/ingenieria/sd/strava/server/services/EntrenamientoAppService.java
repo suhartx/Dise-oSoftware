@@ -54,7 +54,7 @@ public class EntrenamientoAppService {
 	
 	}
 	public void crearentrEnamiento(Usuario usuario ,String nombre, Date fechaInicio,
-String horaInicio, double distancia, String tipoDeporte, Estado estado ) {
+String horaInicio, double distancia, String tipoDeporte) {
 
 	Entrenamiento e= new Entrenamiento();
 	e.setTitulo(nombre);
@@ -65,7 +65,13 @@ String horaInicio, double distancia, String tipoDeporte, Estado estado ) {
 	//r.setEstado(estado);
 	//usuario.anyadirReto(r);
 	entrenamientos.add(e);
+	usuario.anyadirEntrenamiento(e);
+	
 	
 }
+	public List<Entrenamiento> getEntrenamientos() {
+		//TODO: Get all the categories using DAO Pattern		
+		return this.entrenamientos;
+	}
 	
 }
