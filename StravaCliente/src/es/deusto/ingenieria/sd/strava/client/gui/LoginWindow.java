@@ -3,33 +3,23 @@ package es.deusto.ingenieria.sd.strava.client.gui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import java.awt.BorderLayout;
-import java.awt.Color;
 import javax.swing.JPanel;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.SwingConstants;
+import java.awt.SystemColor;
+import java.awt.Color;
 import javax.swing.border.LineBorder;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.border.SoftBevelBorder;
+import java.awt.Font;
 import javax.swing.border.MatteBorder;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
-import java.awt.SystemColor;
-import javax.swing.DebugGraphics;
+import javax.swing.border.TitledBorder;
 import javax.swing.JPasswordField;
-import javax.swing.UIManager;
+import javax.swing.SwingConstants;
 
-public class RegisterWithGoogleWindow {
+public class LoginWindow {
 
 	private JFrame frame;
-	private JTextField emailTextField;
+	private JTextField textField;
 	private JPasswordField passwordField;
 
 	/**
@@ -39,7 +29,7 @@ public class RegisterWithGoogleWindow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RegisterWithGoogleWindow window = new RegisterWithGoogleWindow();
+					LoginWindow window = new LoginWindow();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,7 +41,7 @@ public class RegisterWithGoogleWindow {
 	/**
 	 * Create the application.
 	 */
-	public RegisterWithGoogleWindow() {
+	public LoginWindow() {
 		initialize();
 	}
 
@@ -67,61 +57,57 @@ public class RegisterWithGoogleWindow {
 		JPanel contentPanel = new JPanel();
 		contentPanel.setLayout(null);
 		contentPanel.setForeground(Color.BLACK);
-		contentPanel.setBackground(UIManager.getColor("Button.shadow"));
+		contentPanel.setBackground(SystemColor.controlShadow);
 		contentPanel.setBounds(0, 0, 434, 261);
 		frame.getContentPane().add(contentPanel);
 		
 		JPanel buttonsPanel = new JPanel();
 		buttonsPanel.setLayout(null);
 		buttonsPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		buttonsPanel.setBackground(UIManager.getColor("Button.background"));
+		buttonsPanel.setBackground(SystemColor.menu);
 		buttonsPanel.setBounds(10, 36, 414, 214);
 		contentPanel.add(buttonsPanel);
 		
 		JButton toMenuButton = new JButton("Acceder");
-		toMenuButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		toMenuButton.setForeground(new Color(0, 0, 0));
+		toMenuButton.setForeground(Color.BLACK);
 		toMenuButton.setFont(new Font("Tahoma", Font.BOLD, 13));
-		toMenuButton.setBackground(UIManager.getColor("Button.shadow"));
+		toMenuButton.setBackground(SystemColor.controlShadow);
 		toMenuButton.setBounds(135, 174, 128, 29);
 		buttonsPanel.add(toMenuButton);
 		
 		JPanel enterUserPanel = new JPanel();
-		enterUserPanel.setBackground(UIManager.getColor("CheckBox.light"));
+		enterUserPanel.setLayout(null);
 		enterUserPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		enterUserPanel.setBackground(SystemColor.controlHighlight);
 		enterUserPanel.setBounds(10, 36, 394, 43);
 		buttonsPanel.add(enterUserPanel);
-		enterUserPanel.setLayout(null);
 		
 		JPanel enterEmailTextPanel = new JPanel();
-		enterEmailTextPanel.setBackground(Color.WHITE);
+		enterEmailTextPanel.setLayout(null);
 		enterEmailTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		enterEmailTextPanel.setBackground(Color.WHITE);
 		enterEmailTextPanel.setBounds(10, 11, 374, 21);
 		enterUserPanel.add(enterEmailTextPanel);
-		enterEmailTextPanel.setLayout(null);
 		
 		JLabel emailLabel = new JLabel("Correo electr\u00F3nico:");
 		emailLabel.setBackground(new Color(255, 255, 153));
 		emailLabel.setBounds(10, 0, 92, 21);
 		enterEmailTextPanel.add(emailLabel);
 		
-		emailTextField = new JTextField();
-		emailTextField.setBackground(Color.WHITE);
-		emailTextField.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		emailTextField.setText("example@gmail.com");
-		emailTextField.setToolTipText("");
-		emailTextField.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		emailTextField.setBounds(112, 2, 261, 18);
-		enterEmailTextPanel.add(emailTextField);
-		emailTextField.setColumns(10);
+		textField = new JTextField();
+		textField.setToolTipText("");
+		textField.setText("example@gmail.com");
+		textField.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		textField.setColumns(10);
+		textField.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		textField.setBackground(Color.WHITE);
+		textField.setBounds(112, 2, 261, 18);
+		enterEmailTextPanel.add(textField);
 		
 		JPanel enterPasswordPanel = new JPanel();
 		enterPasswordPanel.setLayout(null);
 		enterPasswordPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		enterPasswordPanel.setBackground(UIManager.getColor("CheckBox.light"));
+		enterPasswordPanel.setBackground(SystemColor.controlHighlight);
 		enterPasswordPanel.setBounds(10, 101, 394, 43);
 		buttonsPanel.add(enterPasswordPanel);
 		
@@ -146,12 +132,13 @@ public class RegisterWithGoogleWindow {
 		backButton.setBounds(10, 2, 118, 23);
 		buttonsPanel.add(backButton);
 		
-		JLabel titleLabel = new JLabel("Registro con Google");
-		titleLabel.setBounds(10, 11, 414, 26);
-		contentPanel.add(titleLabel);
+		JLabel titleLabel = new JLabel("Iniciar sesi\u00F3n");
 		titleLabel.setVerticalAlignment(SwingConstants.TOP);
 		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		titleLabel.setForeground(Color.WHITE);
 		titleLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		titleLabel.setBounds(10, 11, 414, 26);
+		contentPanel.add(titleLabel);
 	}
+
 }

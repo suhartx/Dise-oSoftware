@@ -60,11 +60,12 @@ public class MenuWindow {
 		
 		JPanel buttonsPanel = new JPanel();
 		buttonsPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		buttonsPanel.setBounds(47, 66, 206, 152);
+		buttonsPanel.setBounds(126, 75, 206, 147);
 		contentPanel.add(buttonsPanel);
 		buttonsPanel.setLayout(null);
 		
 		JButton crearEntrenamientoButton = new JButton("Crear Entrenamiento");
+		crearEntrenamientoButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		crearEntrenamientoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -73,32 +74,23 @@ public class MenuWindow {
 		buttonsPanel.add(crearEntrenamientoButton);
 		
 		JButton crearRetoButton = new JButton("Crear Reto");
+		crearRetoButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		crearRetoButton.setBounds(10, 45, 170, 23);
 		buttonsPanel.add(crearRetoButton);
 		
-		JButton buscarEntrenamientosButton = new JButton("Buscar Entrenamiento");
-		buscarEntrenamientosButton.setBounds(10, 79, 170, 23);
-		buttonsPanel.add(buscarEntrenamientosButton);
+		JButton buscarRetosButton = new JButton("Buscar Reto");
+		buscarRetosButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		buscarRetosButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		buscarRetosButton.setBounds(10, 79, 170, 23);
+		buttonsPanel.add(buscarRetosButton);
 		
-		JButton BuscarRetosButton = new JButton("Buscar Reto");
-		BuscarRetosButton.setBounds(10, 113, 170, 23);
-		buttonsPanel.add(BuscarRetosButton);
-		
-		JPanel panel = new JPanel();
-		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panel.setBounds(287, 150, 137, 85);
-		contentPanel.add(panel);
-		panel.setLayout(null);
-		
-		JButton logOutButton = new JButton("Cerrar sesi\u00F3n");
-		logOutButton.setBounds(10, 11, 118, 23);
-		panel.add(logOutButton);
-		logOutButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		
-		JButton miCuentaButton = new JButton("Mi cuenta");
-		miCuentaButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		miCuentaButton.setBounds(10, 45, 118, 23);
-		panel.add(miCuentaButton);
+		JButton consultarRetosButton = new JButton("Consultar Retos");
+		consultarRetosButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		consultarRetosButton.setBounds(10, 113, 170, 23);
+		buttonsPanel.add(consultarRetosButton);
 		
 		JPanel titlePanel = new JPanel();
 		titlePanel.setBounds(10, 11, 414, 34);
@@ -113,6 +105,11 @@ public class MenuWindow {
 		titleLabel.setForeground(UIManager.getColor("CheckBox.focus"));
 		titleLabel.setBackground(UIManager.getColor("CheckBox.light"));
 		titleLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
+		
+		JButton logOutButton = new JButton("Cerrar sesi\u00F3n");
+		logOutButton.setBounds(296, 0, 118, 23);
+		titlePanel.add(logOutButton);
+		logOutButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		logOutButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}

@@ -15,12 +15,17 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
+import com.toedter.calendar.JYearChooser;
+import com.toedter.calendar.JMonthChooser;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
-public class RegisterWithFacebookWindow {
+public class RegisterWithEmailWindow {
 
 	private JFrame frame;
 	private JTextField emailTextField;
 	private JPasswordField passwordField;
+	private JTextField nombreTextField;
 
 	/**
 	 * Launch the application.
@@ -29,7 +34,7 @@ public class RegisterWithFacebookWindow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RegisterWithFacebookWindow window = new RegisterWithFacebookWindow();
+					RegisterWithEmailWindow window = new RegisterWithEmailWindow();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +46,7 @@ public class RegisterWithFacebookWindow {
 	/**
 	 * Create the application.
 	 */
-	public RegisterWithFacebookWindow() {
+	public RegisterWithEmailWindow() {
 		initialize();
 	}
 
@@ -50,7 +55,7 @@ public class RegisterWithFacebookWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 483, 381);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -58,21 +63,21 @@ public class RegisterWithFacebookWindow {
 		contentPanel.setLayout(null);
 		contentPanel.setForeground(Color.BLACK);
 		contentPanel.setBackground(SystemColor.controlShadow);
-		contentPanel.setBounds(0, 0, 434, 261);
+		contentPanel.setBounds(0, 0, 467, 342);
 		frame.getContentPane().add(contentPanel);
 		
 		JPanel buttonsPanel = new JPanel();
 		buttonsPanel.setLayout(null);
 		buttonsPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		buttonsPanel.setBackground(SystemColor.menu);
-		buttonsPanel.setBounds(10, 36, 414, 214);
+		buttonsPanel.setBounds(10, 36, 447, 295);
 		contentPanel.add(buttonsPanel);
 		
 		JButton toMenuButton = new JButton("Acceder");
 		toMenuButton.setForeground(Color.BLACK);
 		toMenuButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		toMenuButton.setBackground(SystemColor.controlShadow);
-		toMenuButton.setBounds(135, 174, 128, 29);
+		toMenuButton.setBounds(148, 255, 128, 29);
 		buttonsPanel.add(toMenuButton);
 		
 		JPanel enterUserPanel = new JPanel();
@@ -108,7 +113,7 @@ public class RegisterWithFacebookWindow {
 		enterPasswordPanel.setLayout(null);
 		enterPasswordPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		enterPasswordPanel.setBackground(SystemColor.controlHighlight);
-		enterPasswordPanel.setBounds(10, 101, 394, 43);
+		enterPasswordPanel.setBounds(10, 207, 394, 43);
 		buttonsPanel.add(enterPasswordPanel);
 		
 		JPanel enterPasswordTextPanel = new JPanel();
@@ -132,12 +137,75 @@ public class RegisterWithFacebookWindow {
 		backButton.setBounds(10, 2, 118, 23);
 		buttonsPanel.add(backButton);
 		
-		JLabel titleLabel = new JLabel("Registro con Facebook");
-		titleLabel.setVerticalAlignment(SwingConstants.TOP);
-		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		titleLabel.setForeground(Color.WHITE);
-		titleLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		titleLabel.setBounds(10, 11, 414, 26);
-		contentPanel.add(titleLabel);
+		JPanel enterNamePanel = new JPanel();
+		enterNamePanel.setLayout(null);
+		enterNamePanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		enterNamePanel.setBackground(SystemColor.controlHighlight);
+		enterNamePanel.setBounds(10, 90, 394, 43);
+		buttonsPanel.add(enterNamePanel);
+		
+		JPanel enterNameTextPanel = new JPanel();
+		enterNameTextPanel.setLayout(null);
+		enterNameTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		enterNameTextPanel.setBackground(Color.WHITE);
+		enterNameTextPanel.setBounds(10, 11, 374, 21);
+		enterNamePanel.add(enterNameTextPanel);
+		
+		JLabel nameLabel = new JLabel("Nombre: ");
+		nameLabel.setBackground(new Color(255, 255, 153));
+		nameLabel.setBounds(10, 0, 92, 21);
+		enterNameTextPanel.add(nameLabel);
+		
+		nombreTextField = new JTextField();
+		nombreTextField.setToolTipText("");
+		nombreTextField.setText("example");
+		nombreTextField.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		nombreTextField.setColumns(10);
+		nombreTextField.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		nombreTextField.setBackground(Color.WHITE);
+		nombreTextField.setBounds(112, 2, 261, 18);
+		enterNameTextPanel.add(nombreTextField);
+		
+		JPanel enterFechaNacimientoPanel = new JPanel();
+		enterFechaNacimientoPanel.setLayout(null);
+		enterFechaNacimientoPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		enterFechaNacimientoPanel.setBackground(SystemColor.controlHighlight);
+		enterFechaNacimientoPanel.setBounds(10, 147, 394, 49);
+		buttonsPanel.add(enterFechaNacimientoPanel);
+		
+		JPanel enterFechaNacimientoTextPanel = new JPanel();
+		enterFechaNacimientoTextPanel.setLayout(null);
+		enterFechaNacimientoTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		enterFechaNacimientoTextPanel.setBackground(Color.WHITE);
+		enterFechaNacimientoTextPanel.setBounds(10, 11, 374, 28);
+		enterFechaNacimientoPanel.add(enterFechaNacimientoTextPanel);
+		
+		JLabel fechaNacimientoLabel = new JLabel("Fecha nacimiento: ");
+		fechaNacimientoLabel.setBackground(new Color(255, 255, 153));
+		fechaNacimientoLabel.setBounds(10, 0, 92, 28);
+		enterFechaNacimientoTextPanel.add(fechaNacimientoLabel);
+		
+		JYearChooser yearChooserSpinner = new JYearChooser();
+		yearChooserSpinner.setBounds(300, 4, 48, 20);
+		yearChooserSpinner.setEndYear(2021);
+		yearChooserSpinner.setEndYear(1900);
+		enterFechaNacimientoTextPanel.add(yearChooserSpinner);
+		
+		JMonthChooser monthChooserSpinner = new JMonthChooser();
+		monthChooserSpinner.setBounds(178, 4, 100, 20);
+		enterFechaNacimientoTextPanel.add(monthChooserSpinner);
+		
+		JSpinner dayChooserSpinner = new JSpinner();
+		dayChooserSpinner.setModel(new SpinnerNumberModel(1, 1, 31, 1));
+		dayChooserSpinner.setBounds(128, 4, 30, 20);
+		enterFechaNacimientoTextPanel.add(dayChooserSpinner);
+		
+		JLabel lblRegistroConEmail = new JLabel("Registro con Email");
+		lblRegistroConEmail.setVerticalAlignment(SwingConstants.TOP);
+		lblRegistroConEmail.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRegistroConEmail.setForeground(Color.WHITE);
+		lblRegistroConEmail.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblRegistroConEmail.setBounds(10, 11, 414, 26);
+		contentPanel.add(lblRegistroConEmail);
 	}
 }

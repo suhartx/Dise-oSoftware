@@ -6,30 +6,27 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.SystemColor;
 import javax.swing.border.BevelBorder;
-import javax.swing.JButton;
-import java.awt.Font;
-import javax.swing.JLabel;
 import java.awt.Color;
-import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.UIManager;
 import javax.swing.border.MatteBorder;
-import javax.swing.JScrollPane;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JTable;
-import com.toedter.calendar.JCalendar;
-import com.toedter.calendar.JDateChooser;
+import java.awt.Font;
 import javax.swing.JSpinner;
+import javax.swing.JComboBox;
+import com.toedter.calendar.JDateChooser;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import javax.swing.JRadioButton;
+import javax.swing.border.CompoundBorder;
+import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
 import javax.swing.SpinnerNumberModel;
 
-public class CrearEntrenamientoWindow {
+public class CrearRetoWindow {
 
 	private JFrame frame;
-	private JTextField tituloTextField;
+	private JTextField nombreTextField;
 
 	/**
 	 * Launch the application.
@@ -38,7 +35,7 @@ public class CrearEntrenamientoWindow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CrearEntrenamientoWindow window = new CrearEntrenamientoWindow();
+					CrearRetoWindow window = new CrearRetoWindow();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,7 +47,7 @@ public class CrearEntrenamientoWindow {
 	/**
 	 * Create the application.
 	 */
-	public CrearEntrenamientoWindow() {
+	public CrearRetoWindow() {
 		initialize();
 	}
 
@@ -59,55 +56,55 @@ public class CrearEntrenamientoWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 463, 350);
+		frame.setBounds(100, 100, 493, 345);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JPanel contentPanel = new JPanel();
-		contentPanel.setBackground(UIManager.getColor("Button.shadow"));
-		contentPanel.setBounds(0, 0, 447, 311);
-		frame.getContentPane().add(contentPanel);
 		contentPanel.setLayout(null);
+		contentPanel.setBackground(SystemColor.controlShadow);
+		contentPanel.setBounds(0, 0, 477, 306);
+		frame.getContentPane().add(contentPanel);
 		
 		JPanel buttonsPanel = new JPanel();
 		buttonsPanel.setLayout(null);
 		buttonsPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		buttonsPanel.setBounds(10, 42, 424, 254);
+		buttonsPanel.setBounds(10, 42, 457, 256);
 		contentPanel.add(buttonsPanel);
 		
 		JPanel variablesPanel = new JPanel();
 		variablesPanel.setLayout(null);
 		variablesPanel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		variablesPanel.setBackground(Color.WHITE);
-		variablesPanel.setBounds(10, 11, 401, 232);
+		variablesPanel.setBounds(10, 11, 437, 233);
 		buttonsPanel.add(variablesPanel);
 		
-		JPanel tituloPanel = new JPanel();
-		tituloPanel.setLayout(null);
-		tituloPanel.setBounds(10, 11, 374, 21);
-		variablesPanel.add(tituloPanel);
+		JPanel nombrePanel = new JPanel();
+		nombrePanel.setLayout(null);
+		nombrePanel.setBounds(10, 11, 374, 21);
+		variablesPanel.add(nombrePanel);
 		
-		JPanel tituloTextPanel = new JPanel();
-		tituloTextPanel.setLayout(null);
-		tituloTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		tituloTextPanel.setBackground(Color.WHITE);
-		tituloTextPanel.setBounds(0, 0, 374, 21);
-		tituloPanel.add(tituloTextPanel);
+		JPanel nombreTextPanel = new JPanel();
+		nombreTextPanel.setLayout(null);
+		nombreTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		nombreTextPanel.setBackground(Color.WHITE);
+		nombreTextPanel.setBounds(0, 0, 374, 21);
+		nombrePanel.add(nombreTextPanel);
 		
-		JLabel tituloLabel = new JLabel("T\u00EDtulo: ");
-		tituloLabel.setBackground(new Color(255, 255, 153));
-		tituloLabel.setBounds(10, 0, 92, 21);
-		tituloTextPanel.add(tituloLabel);
+		JLabel nombreLabel = new JLabel("Nombre:");
+		nombreLabel.setBackground(new Color(255, 255, 153));
+		nombreLabel.setBounds(10, 0, 92, 21);
+		nombreTextPanel.add(nombreLabel);
 		
-		tituloTextField = new JTextField();
-		tituloTextField.setToolTipText("");
-		tituloTextField.setText("entrenamiento 1");
-		tituloTextField.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		tituloTextField.setColumns(10);
-		tituloTextField.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		tituloTextField.setBackground(Color.WHITE);
-		tituloTextField.setBounds(112, 2, 261, 18);
-		tituloTextPanel.add(tituloTextField);
+		nombreTextField = new JTextField();
+		nombreTextField.setToolTipText("");
+		nombreTextField.setText("reto 1");
+		nombreTextField.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		nombreTextField.setColumns(10);
+		nombreTextField.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		nombreTextField.setBackground(Color.WHITE);
+		nombreTextField.setBounds(112, 2, 261, 18);
+		nombreTextPanel.add(nombreTextField);
 		
 		JPanel deportePanel = new JPanel();
 		deportePanel.setLayout(null);
@@ -145,7 +142,7 @@ public class CrearEntrenamientoWindow {
 		
 		JSpinner kmSpinner = new JSpinner();
 		kmSpinner.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
-		kmSpinner.setBounds(93, 1, 49, 19);
+		kmSpinner.setBounds(96, 1, 46, 19);
 		distanciaTextPanel.add(kmSpinner);
 		
 		JLabel kmLabel = new JLabel("km");
@@ -167,12 +164,11 @@ public class CrearEntrenamientoWindow {
 		
 		JLabel duracionLabel = new JLabel("Duraci\u00F3n: ");
 		duracionLabel.setBackground(new Color(255, 255, 153));
-		duracionLabel.setBounds(10, 1, 92, 19);
+		duracionLabel.setBounds(10, 0, 92, 21);
 		duracionTextPanel.add(duracionLabel);
 		
 		JSpinner hourSpinner = new JSpinner();
-		hourSpinner.setModel(new SpinnerNumberModel(new Integer(0), null, null, new Integer(1)));
-		hourSpinner.setBounds(60, 1, 42, 19);
+		hourSpinner.setBounds(62, 1, 40, 19);
 		duracionTextPanel.add(hourSpinner);
 		
 		JLabel hoursLabel = new JLabel("hours");
@@ -181,8 +177,7 @@ public class CrearEntrenamientoWindow {
 		duracionTextPanel.add(hoursLabel);
 		
 		JSpinner minutesSpinner = new JSpinner();
-		minutesSpinner.setModel(new SpinnerNumberModel(new Integer(0), null, null, new Integer(1)));
-		minutesSpinner.setBounds(156, 1, 42, 19);
+		minutesSpinner.setBounds(158, 1, 40, 19);
 		duracionTextPanel.add(minutesSpinner);
 		
 		JLabel minutesLabel = new JLabel("minutes");
@@ -191,19 +186,13 @@ public class CrearEntrenamientoWindow {
 		duracionTextPanel.add(minutesLabel);
 		
 		JSpinner secondsSpinner = new JSpinner();
-		secondsSpinner.setModel(new SpinnerNumberModel(new Integer(0), null, null, new Integer(1)));
-		secondsSpinner.setBounds(264, 1, 42, 19);
+		secondsSpinner.setBounds(266, 1, 40, 19);
 		duracionTextPanel.add(secondsSpinner);
 		
 		JLabel secondsLabel = new JLabel("seconds");
 		secondsLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		secondsLabel.setBounds(316, 4, 58, 14);
 		duracionTextPanel.add(secondsLabel);
-		
-		JComboBox deporteComboBox = new JComboBox();
-		deporteComboBox.setModel(new DefaultComboBoxModel(new String[] {"Ciclismo", "Running"}));
-		deporteComboBox.setBounds(138, 43, 92, 22);
-		variablesPanel.add(deporteComboBox);
 		
 		JPanel fechaInicioPanel = new JPanel();
 		fechaInicioPanel.setLayout(null);
@@ -227,13 +216,9 @@ public class CrearEntrenamientoWindow {
 		variablesPanel.add(fechaInicioCalendar);
 		
 		JButton CrearEntrenamientoButton = new JButton("Crear Entrenamiento");
+		CrearEntrenamientoButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		CrearEntrenamientoButton.setBounds(133, 198, 170, 23);
 		variablesPanel.add(CrearEntrenamientoButton);
-		CrearEntrenamientoButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		CrearEntrenamientoButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		
 		JPanel fechaFinPanel = new JPanel();
 		fechaFinPanel.setLayout(null);
@@ -256,20 +241,31 @@ public class CrearEntrenamientoWindow {
 		fechaFinCalendar.setBounds(364, 75, 20, 21);
 		variablesPanel.add(fechaFinCalendar);
 		
+		JRadioButton ciclismoRadioButton = new JRadioButton("Ciclismo");
+		ciclismoRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		ciclismoRadioButton.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		ciclismoRadioButton.setBounds(138, 41, 109, 23);
+		variablesPanel.add(ciclismoRadioButton);
+		
+		JRadioButton runningRadioButton = new JRadioButton("Running");
+		runningRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		runningRadioButton.setBounds(275, 41, 109, 23);
+		variablesPanel.add(runningRadioButton);
+		
 		JButton logOutButton = new JButton("Cerrar sesi\u00F3n");
 		logOutButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		logOutButton.setBounds(316, 11, 118, 23);
+		logOutButton.setBounds(349, 8, 118, 23);
 		contentPanel.add(logOutButton);
 		
 		JButton backButton = new JButton("Volver");
 		backButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		backButton.setBounds(10, 11, 118, 23);
+		backButton.setBounds(10, 8, 118, 23);
 		contentPanel.add(backButton);
 		
-		JLabel titleLabel = new JLabel("Crear entrenamiento");
+		JLabel titleLabel = new JLabel("Crear reto");
+		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		titleLabel.setForeground(Color.DARK_GRAY);
 		titleLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		titleLabel.setBounds(138, 8, 146, 23);
 		contentPanel.add(titleLabel);
 	}
