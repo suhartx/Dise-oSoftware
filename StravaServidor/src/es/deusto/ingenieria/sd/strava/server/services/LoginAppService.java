@@ -10,7 +10,7 @@ public class LoginAppService {
 		Usuario user = new Usuario();		
 		user.setEmail("thomas.e2001@gmail.com");
 		user.setNombre("Thomas");		
-		//Generate the hash of the password
+		//Generate the hash of the pasword
 		String sha1 = org.apache.commons.codec.digest.DigestUtils.sha1Hex("$!9PhNz,");		
 		user.setContrasenya(sha1);
 		

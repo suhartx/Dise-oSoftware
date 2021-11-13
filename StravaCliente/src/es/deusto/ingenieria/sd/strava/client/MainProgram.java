@@ -27,7 +27,7 @@ public class MainProgram {
 		
 		//Login
 		loginDialog.login();		
-		//Get Categories
+		
 		List<CategoryDTO> categories = bidWindow.getCategories();
 		//Get Articles of a category (first category is selected)
 		List<ArticleDTO> articles = bidWindow.getArticles(categories.get(0).getName());
