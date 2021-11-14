@@ -18,7 +18,7 @@ public interface IRemoteFacade extends Remote {
 	
 	public void logout(long token) throws RemoteException; 
 	
-//	public long registrarUsuario(String email,String nombre,Date fecha, String contrasenya) throws RemoteException;
+	public long registrarUsuario(String email,String nombre,Date fecha, String contrasenya) throws RemoteException;
 	
 	public List<RetoDTO> getRetos() throws RemoteException;
 	

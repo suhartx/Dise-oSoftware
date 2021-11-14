@@ -68,6 +68,24 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 			throw new RemoteException("El usuario no esta logueado!");
 		}
 	}
+	
+	@Override
+	public long  registrarUsuario(String email, String nombre, Date fecha, String contrasenya) throws RemoteException {
+		// TODO Auto-generated method stub
+
+		
+		
+		boolean sigue = loginService.anyadirUsuario(email, nombre, fecha, contrasenya);
+		
+		Long token = null;
+		if (sigue) {
+			
+			token=login(email, contrasenya);
+		}
+		
+		this.serverState.put(token, new Usuario(nombre, email, fecha, contrasenya));		
+		return(token);
+	}
 
 	@Override
 	public List<RetoDTO> getRetos() throws RemoteException {
@@ -85,7 +103,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 
 	@Override
-	public List<EntrenamientoDTO> getEntrenamientos(String aEntrenamiento) throws RemoteException {
+	public  List<EntrenamientoDTO> getEntrenamientos(String aEntrenamiento) throws RemoteException {
 		System.out.println(" * RemoteFacade getEntrenamientos()");
 		
 		//Get Categories using BidAppService

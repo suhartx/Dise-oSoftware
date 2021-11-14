@@ -29,6 +29,15 @@ public class Usuario {
 		
 	}
 	
+	public Usuario(String nombre, String email, Date fechaNacimiento, String contrasenya) {
+		
+		idUsuario= ++count;
+		this.nombre = nombre;
+		this.email = email;
+		this.fechaNacimiento = fechaNacimiento;
+		this.contrasenya = contrasenya;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
