@@ -1,10 +1,7 @@
 package es.deusto.ingenieria.sd.strava.server.data.dto;
 
 import java.io.Serializable;
-import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 //This class implements DTO pattern
 public class EntrenamientoDTO implements Serializable {

@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 import es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento;
-import es.deusto.ingenieria.sd.strava.data.domain.Estado;
 import es.deusto.ingenieria.sd.strava.data.domain.Reto;
 import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoAssembler;
@@ -18,7 +17,6 @@ import es.deusto.ingenieria.sd.strava.server.data.dto.EstadoAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EstadoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
-
 import es.deusto.ingenieria.sd.strava.server.services.EntrenamientoAppService;
 import es.deusto.ingenieria.sd.strava.server.services.LoginAppService;
 import es.deusto.ingenieria.sd.strava.server.services.RetoAppService;

@@ -1,30 +1,22 @@
 package es.deusto.ingenieria.sd.strava.client.gui;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.MatteBorder;
-import javax.swing.JTextField;
-import java.awt.SystemColor;
-import javax.swing.DebugGraphics;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.TitledBorder;
 
 public class RegisterWithGoogleWindow {
 

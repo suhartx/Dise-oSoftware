@@ -1,10 +1,5 @@
 package es.deusto.ingenieria.sd.strava.data.domain;
 
-import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 public class Estado  {
 	private int idEstado;
 	private int estado;

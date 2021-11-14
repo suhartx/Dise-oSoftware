@@ -4,7 +4,6 @@ package es.deusto.ingenieria.sd.strava.data.domain;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Usuario {	

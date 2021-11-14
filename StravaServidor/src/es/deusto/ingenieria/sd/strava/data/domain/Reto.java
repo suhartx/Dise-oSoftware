@@ -1,8 +1,5 @@
 package es.deusto.ingenieria.sd.strava.data.domain;
-//HAY QUE CAMBIAR ESTO
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Reto {	
 	private static int count=0;

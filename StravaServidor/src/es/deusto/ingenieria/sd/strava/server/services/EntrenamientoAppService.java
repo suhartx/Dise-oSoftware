@@ -7,8 +7,6 @@ import java.util.Date;
 import java.util.List;
 
 import es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento;
-import es.deusto.ingenieria.sd.strava.data.domain.Estado;
-import es.deusto.ingenieria.sd.strava.data.domain.Reto;
 import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 
 

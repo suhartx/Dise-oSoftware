@@ -1,25 +1,17 @@
 package es.deusto.ingenieria.sd.strava.client.gui;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.awt.Color;
-import javax.swing.UIManager;
+import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.SystemColor;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.border.TitledBorder;
-import java.awt.Font;
-import javax.swing.JSpinner;
-import com.toedter.calendar.JDateChooser;
-import javax.swing.JButton;
-import javax.swing.JRadioButton;
-import javax.swing.border.LineBorder;
-import javax.swing.SwingConstants;
-import javax.swing.JScrollPane;
 
 public class BuscarRetosWindow {
 
