@@ -9,6 +9,7 @@ import es.deusto.ingenieria.sd.strava.data.domain.Estado;
 import es.deusto.ingenieria.sd.strava.data.domain.Reto;
 import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
+import es.deusto.ingenieria.sd.strava.server.data.dto.EstadoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 
 //This interface defines the API of the Server. It represents the Remote Facade pattern
@@ -36,7 +37,7 @@ public interface IRemoteFacade extends Remote {
 	 *  registrado/a pueda acceder a ese reto. Además después de haber creado el reto, el servidor envía un mensaje
 	 *  de confirmación al usuario con los datos introducidos previamente.
 	 */
-	public long crearReto(Usuario u,String nombre, Date fechaInicio, Date fechaFin, double distancia, String tipoDeporte) throws RemoteException;
+	public long crearReto(Long u, String nombre, Date fechaInicio, Date fechaFin, double distancia, String tipoDeporte) throws RemoteException;
 
 	//public Reto obtenerReto() throws RemoteException;
 	//: El usuario solicitará al servidor que haga una búsqueda de entre sus retos y 
@@ -46,14 +47,14 @@ public interface IRemoteFacade extends Remote {
 	 * El usuario después de haber seleccionado un reto decide apuntarse a este. El servidor por lo tanto,
 	 * recibe el reto elegido. El método consiste en la recepción del reto escogido por el usuario.
 	 */
-	public void aceptarReto(Usuario u,Reto reto) throws RemoteException;
+	public void aceptarReto(Long u,Reto reto) throws RemoteException;
 	
 	/**
 	 * 	El usuario tendrá la posibilidad de ver el estado de sus retos. Seleccionará un reto y 
 	 * podrá ver el estado del reto seleccionado. El servidor recibirá el 
 	 * reto introducido y devolverá su estado. 
 	 */
-	public Estado consultarReto(Usuario u,Reto reto) throws RemoteException;
+	public EstadoDTO consultarReto(Long u,Reto reto) throws RemoteException;
 
  
 }

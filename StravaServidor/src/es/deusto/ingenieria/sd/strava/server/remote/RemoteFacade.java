@@ -14,6 +14,8 @@ import es.deusto.ingenieria.sd.strava.data.domain.Reto;
 import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
+import es.deusto.ingenieria.sd.strava.server.data.dto.EstadoAssembler;
+import es.deusto.ingenieria.sd.strava.server.data.dto.EstadoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 
@@ -120,31 +122,32 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	public long crearEntrenamiento(Long valor, String titulo, String tipoDeporte, double distancia, Date fechaInicio,
 			String horaInicio, double duracion) throws RemoteException {
 		
-		serverState.get(valor);
+		
 		System.out.println(" * RemoteFacade crearEntrenamiento()");
 		entrenaService.crearEntrenamiento(serverState.get(valor), titulo, fechaInicio, horaInicio, distancia, tipoDeporte);
 		return 0;
 	}
 
 	@Override
-	public long crearReto(Usuario u, String nombre, Date fechaInicio, Date fechaFin, double distancia, String tipoDeporte)
+	public long crearReto(Long u, String nombre, Date fechaInicio, Date fechaFin, double distancia, String tipoDeporte)
 			throws RemoteException {
+		
 		System.out.println(" * RemoteFacade crearReto()");
-		retoService.crearReto(u, nombre, fechaInicio, fechaFin, distancia, tipoDeporte);
+		retoService.crearReto(serverState.get(u), nombre, fechaInicio, fechaFin, distancia, tipoDeporte);
 		return 0;
 	}
 
 	@Override
-	public Estado consultarReto(Usuario u, Reto reto) throws RemoteException {
+	public EstadoDTO consultarReto(Long u, Reto reto) throws RemoteException {
 		
 		System.out.println(" * RemoteFacade consultarReto()");
-		return retoService.consultarReto(u, reto);
+		return EstadoAssembler.getInstance().estadoToDTO(retoService.consultarReto(serverState.get(u), reto));
 	}
 
 	@Override
-	public void aceptarReto(Usuario u, Reto reto) throws RemoteException {
+	public void aceptarReto(Long u, Reto reto) throws RemoteException {
 		System.out.println(" * RemoteFacade aceptarReto()");
-		retoService.aceptarReto(u, reto);
+		retoService.aceptarReto(serverState.get(u), reto);
 	}
 
 //	@Override
