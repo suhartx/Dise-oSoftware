@@ -53,7 +53,7 @@ public class EntrenamientoAppService {
 	user0.anyadirEntrenamiento(entr0);
 	
 	}
-	public void crearentrEnamiento(Usuario usuario ,String nombre, Date fechaInicio,
+	public void crearEntrenamiento(Usuario usuario ,String nombre, Date fechaInicio,
 String horaInicio, double distancia, String tipoDeporte) {
 
 	Entrenamiento e= new Entrenamiento();
