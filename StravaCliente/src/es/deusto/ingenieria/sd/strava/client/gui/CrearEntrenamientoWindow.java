@@ -197,7 +197,7 @@ public class CrearEntrenamientoWindow {
 		secondsLabel.setBounds(316, 4, 58, 14);
 		duracionTextPanel.add(secondsLabel);
 		
-		JComboBox deporteComboBox = new JComboBox();
+		JComboBox deporteComboBox = new JComboBox();//Enum (deporte ciclismo)
 		deporteComboBox.setModel(new DefaultComboBoxModel(new String[] {"Ciclismo", "Running"}));
 		deporteComboBox.setBounds(138, 43, 92, 22);
 		variablesPanel.add(deporteComboBox);

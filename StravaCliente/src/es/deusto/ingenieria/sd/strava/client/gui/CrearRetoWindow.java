@@ -1,27 +1,25 @@
 package es.deusto.ingenieria.sd.strava.client.gui;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.SystemColor;
-import javax.swing.border.BevelBorder;
 import java.awt.Color;
-import javax.swing.border.MatteBorder;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.border.TitledBorder;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.JSpinner;
-import javax.swing.JComboBox;
-import com.toedter.calendar.JDateChooser;
+import java.awt.SystemColor;
+
 import javax.swing.JButton;
-import javax.swing.SwingConstants;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.border.CompoundBorder;
-import javax.swing.UIManager;
-import javax.swing.border.LineBorder;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.TitledBorder;
+
+import com.toedter.calendar.JDateChooser;
 
 public class CrearRetoWindow {
 

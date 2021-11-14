@@ -14,7 +14,7 @@ public class EntrenamientoController {
 		this.serviceLocator = serviceLocator;
 	}
 
-	public void crearentrEnamiento(Long valor, String titulo, String tipoDeporte, double distancia, Date fechaInicio,
+	public void crearEntrenamiento(Long valor, String titulo, String tipoDeporte, double distancia, Date fechaInicio,
 			String horaInicio, double duracion) {
 
 
