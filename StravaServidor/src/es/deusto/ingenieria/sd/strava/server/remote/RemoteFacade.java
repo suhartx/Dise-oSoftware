@@ -117,10 +117,12 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 
 	@Override
-	public long crearEntrenamiento(Usuario u, String titulo, String tipoDeporte, double distancia, Date fechaInicio,
+	public long crearEntrenamiento(Long valor, String titulo, String tipoDeporte, double distancia, Date fechaInicio,
 			String horaInicio, double duracion) throws RemoteException {
+		
+		serverState.get(valor);
 		System.out.println(" * RemoteFacade crearEntrenamiento()");
-		entrenaService.crearentrEnamiento(u, titulo, fechaInicio, horaInicio, distancia, tipoDeporte);
+		entrenaService.crearEntrenamiento(serverState.get(valor), titulo, fechaInicio, horaInicio, distancia, tipoDeporte);
 		return 0;
 	}
 

@@ -28,7 +28,7 @@ public interface IRemoteFacade extends Remote {
 	Después de haber rellenado los valores necesarios para la creación de la sesión de entrenamiento,
 	 estos se enviarán al servidor. Por lo tanto este método recibirá los datos introducidos por el usuario.
 	 */
-	public long crearEntrenamiento(Usuario u,String titulo, String tipoDeporte, double distancia, Date fechaInicio, String horaInicio, double duracion )throws RemoteException;
+	public long crearEntrenamiento(Long valor,String titulo, String tipoDeporte, double distancia, Date fechaInicio, String horaInicio, double duracion )throws RemoteException;
 	
 	
 	/**

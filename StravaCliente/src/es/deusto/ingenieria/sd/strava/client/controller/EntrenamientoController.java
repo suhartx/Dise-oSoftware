@@ -1,5 +1,6 @@
 package es.deusto.ingenieria.sd.strava.client.controller;
 
+import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
 
@@ -13,16 +14,27 @@ public class EntrenamientoController {
 		this.serviceLocator = serviceLocator; 
 	}
 	
-	public void crearentrEnamiento(Usuario usuario ,String nombre, Date fechaInicio,
-			String horaInicio, double distancia, String tipoDeporte) {
+	public void crearentrEnamiento(Long valor, String titulo, String tipoDeporte, double distancia, Date fechaInicio,
+			String horaInicio, double duracion) {
 
 
-	this.serviceLocator.getService().crearEntrenamiento(null, nombre, fechaInicio, horaInicio, distancia,  tipoDeporte);
+	try {
+		this.serviceLocator.getService().crearEntrenamiento(valor, titulo, tipoDeporte, distancia, fechaInicio,  horaInicio, duracion);
+	} catch (RemoteException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	
 }
 	public List<EntrenamientoDTO> getEntrenamientos(String aEntrenamiento) {
 		//TODO: Get all the categories using DAO Pattern		
-		return this.serviceLocator.getService().getEntrenamientos(aEntrenamiento);
+		try {
+			return this.serviceLocator.getService().getEntrenamientos(aEntrenamiento);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 }
