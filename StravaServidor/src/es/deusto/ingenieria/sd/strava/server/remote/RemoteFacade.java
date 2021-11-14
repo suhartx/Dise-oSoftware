@@ -28,6 +28,8 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	
 	private Map<Long, Usuario> serverState = new HashMap<>();
 	
+	private Map<Long, Reto> serverStateR = new HashMap<>();
+	
 	private LoginAppService loginService = new LoginAppService();
 	private RetoAppService retoService =  new RetoAppService();
 	private EntrenamientoAppService entrenaService =  new EntrenamientoAppService();
@@ -134,6 +136,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		
 		System.out.println(" * RemoteFacade crearReto()");
 		retoService.crearReto(serverState.get(u), nombre, fechaInicio, fechaFin, distancia, tipoDeporte);
+		serverStateR.put(u, null);
 		return 0;
 	}
 

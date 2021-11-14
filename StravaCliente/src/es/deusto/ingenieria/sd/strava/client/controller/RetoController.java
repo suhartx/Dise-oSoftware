@@ -2,10 +2,12 @@ package es.deusto.ingenieria.sd.strava.client.controller;
 
 import java.rmi.RemoteException;
 import java.util.Date;
+import java.util.List;
 
 import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
 import es.deusto.ingenieria.sd.strava.data.domain.Estado;
 import es.deusto.ingenieria.sd.strava.data.domain.Reto;
+import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 
 public class RetoController {
 
@@ -13,6 +15,11 @@ public class RetoController {
 	
 	public RetoController(ServiceLocator serviceLocator) {
 		this.serviceLocator = serviceLocator; 
+	}
+	
+	public List<RetoDTO> getRetos() {
+		
+		return this.serviceLocator.getService().getRetos();
 	}
 	
 	public long crearReto(Long u, String nombre, Date fechaInicio, Date fechaFin, double distancia, String tipoDeporte) {

@@ -94,6 +94,7 @@ public class RetoAppService {
 		//r.setEstado(estado);
 		//usuario.anyadirReto(r);
 		retos.add(r);
+		usuario.anyadirReto(r);
 		
 	}
 
