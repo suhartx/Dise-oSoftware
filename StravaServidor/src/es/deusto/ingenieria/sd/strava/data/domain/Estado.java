@@ -1,4 +1,4 @@
-package es.deusto.ingenieria.sd.auctions.strava.data.domain;
+package es.deusto.ingenieria.sd.strava.data.domain;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -20,5 +20,18 @@ public class Estado  {
 	public void setEstado(int estado) {
 		this.estado = estado;
 	}
+	public Estado(int idEstado, int estado) {
+
+		this.idEstado = idEstado;
+		this.estado = estado;
+	}
+	public Estado() {
+		super();
+		this.idEstado = 0;
+		this.estado = 0;
+	}
+	
+	
+	
 	
 }

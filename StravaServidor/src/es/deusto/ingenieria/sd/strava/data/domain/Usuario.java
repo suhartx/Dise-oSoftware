@@ -1,24 +1,43 @@
-package es.deusto.ingenieria.sd.auctions.strava.data.domain;
+package es.deusto.ingenieria.sd.strava.data.domain;
 
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Usuario {	
-	private int idUsuario;
+	private static int count=0;
+	private final int idUsuario;
 	private String nombre;
 	private String email;
 	private Date fechaNacimiento;
 	private String contrasenya;
 	/*
 	 * faltan las clases relacionadas
-	 * 	private List<Bid> bids = new ArrayList<>();
-	private List<Article> articles = new ArrayList<>();
-
 	 */
+	private List<Entrenamiento> entrenamientos = new ArrayList<>();
+	private List<Reto> retos = new ArrayList<>();
+
+	 
+	public Usuario(){
+		
+		idUsuario= ++count;
+		//Esto genera automaticamente el id de usuario 
+		//cada vez que se inizializa uno nuevo
+		
+	}
 	
+	public Usuario(String nombre, String email, Date fechaNacimiento, String contrasenya) {
+		
+		idUsuario= ++count;
+		this.nombre = nombre;
+		this.email = email;
+		this.fechaNacimiento = fechaNacimiento;
+		this.contrasenya = contrasenya;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -43,41 +62,14 @@ public class Usuario {
 		this.email = email;
 	}
 	
-//	public List<Bid_CambiarAEstado> getBids() {
-//		return bids;
-//	}
-//	
-//	public void setBids(List<Bid_CambiarAEstado> bids) {
-//		this.bids = bids;
-//	}
-	
-//	public void addBid(Bid_CambiarAEstado bid) {
-//		if (bid != null && !this.bids.contains(bid)) {
-//			this.bids.add(bid);
-//		}
-//	}
-//	
-//	public List<Article_CambiarAentrenamiento> getArticles() {
-//		return articles;
-//	}
-//	
-//	public void setArticles(List<Article_CambiarAentrenamiento> articles) {
-//		this.articles = articles;
-//	}
-//	
-//	public void addArticle(Article_CambiarAentrenamiento article) {
-//		if (article != null && !this.articles.contains(article)) {
-//			this.articles.add(article);
-//		}
-//	}
 		
 	public int getIdUsuario() {
 		return idUsuario;
 	}
 
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
-	}
+//	public void setIdUsuario(int idUsuario) {
+//		this.idUsuario = idUsuario;
+//	}
 
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
@@ -85,6 +77,35 @@ public class Usuario {
 
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
+	}
+	
+
+	public String getContrasenya() {
+		return contrasenya;
+	}
+
+
+	public List<Entrenamiento> getEntrenamientos() {
+		return entrenamientos;
+	}
+
+	public void setEntrenamientos(List<Entrenamiento> entrenamientos) {
+		this.entrenamientos = entrenamientos;
+	}
+	
+	public void anyadirEntrenamiento(Entrenamiento e) {
+		this.entrenamientos.add(e);
+	}
+
+	public List<Reto> getRetos() {
+		return retos;
+	}
+
+	public void setRetos(List<Reto> retos) {
+		this.retos = retos;
+	}
+	public void anyadirReto(Reto r) {
+		this.retos.add(r);
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package es.deusto.ingenieria.sd.auctions.strava.data.domain;
+package es.deusto.ingenieria.sd.strava.data.domain;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -10,27 +10,32 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class Entrenamiento {
+	private static int count=0;
 	private int idEntrenamiento;
 	private String titulo;
 	private double distancia;
-	private enum tipodeporte{
-		correr, monte, bici
-	};
+	private String tipoDeporte;
 	private Date fechaInicio;
 	private String horaInicio;
 	private double duracion;
-	List<Usuario> usuarios= new ArrayList<>();
+	//List<Usuario> usuarios= new ArrayList<>();
 	/*
 	 * la logica aqui dicta que esto no puede ser asi, la relacion de cardinalidad 
 	 * entre usuario y reto tiene que ser de 1 a n por tanto este arraylist hay que quitarlo
 	 * y cambiar en diagrama de clases
 	 */
+	
+	public Entrenamiento() {
+		idEntrenamiento = ++count;
+	}
 	public int getIdEntrenamiento() {
 		return idEntrenamiento;
 	}
-	public void setIdEntrenamiento(int idEntrenamiento) {
-		this.idEntrenamiento = idEntrenamiento;
-	}
+//	public void setIdEntrenamiento(int idEntrenamiento) {
+//		this.idEntrenamiento = idEntrenamiento;
+//		
+//	}
+	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -42,6 +47,13 @@ public class Entrenamiento {
 	}
 	public void setDistancia(double distancia) {
 		this.distancia = distancia;
+	}
+	
+	public String getTipoDeporte() {
+		return tipoDeporte;
+	}
+	public void setTipoDeporte(String tipoDeporte) {
+		this.tipoDeporte = tipoDeporte;
 	}
 	public Date getFechaInicio() {
 		return fechaInicio;
@@ -61,17 +73,20 @@ public class Entrenamiento {
 	public void setDuracion(double duracion) {
 		this.duracion = duracion;
 	}
-	public List<Usuario> getUsuarios() {
-		return usuarios;
-	}
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
+//	public List<Usuario> getUsuarios() {
+//		return usuarios;
+//	}
+//	public void setUsuarios(List<Usuario> usuarios) {
+//		this.usuarios = usuarios;
+//	}
+
 	@Override
 	public String toString() {
-		return "Article_CambiarAentrenamiento [idEntrenamiento=" + idEntrenamiento + ", titulo=" + titulo
-				+ ", distancia=" + distancia + ", fechaInicio=" + fechaInicio + ", horaInicio=" + horaInicio
-				+ ", duracion=" + duracion + ", usuarios=" + usuarios + "]";
+		return "Entrenamiento [idEntrenamiento=" + idEntrenamiento + ", titulo=" + titulo + ", distancia=" + distancia
+				+ ", tipoDeporte=" + tipoDeporte + ", fechaInicio=" + fechaInicio + ", horaInicio=" + horaInicio
+				+ ", duracion=" + duracion + ""
+						//+ ", usuarios=" + usuarios 
+						+ "]";
 	}
 	@Override
 	public int hashCode() {

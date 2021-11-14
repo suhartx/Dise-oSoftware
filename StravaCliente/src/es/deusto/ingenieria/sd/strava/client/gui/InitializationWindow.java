@@ -1,24 +1,20 @@
 package es.deusto.ingenieria.sd.strava.client.gui;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.border.MatteBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.UIManager;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EtchedBorder;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 import javax.swing.border.LineBorder;
 
-public class InitializationWindow { 
-	//If it's selected register take to registerWindow 
+public class InitializationWindow {
+	//If it's selected register take to registerWindow
 	//If it's selected login take to loginWindow
 	private JFrame frame;
 
@@ -27,6 +23,7 @@ public class InitializationWindow {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					InitializationWindow window = new InitializationWindow();
@@ -52,14 +49,14 @@ public class InitializationWindow {
 		frame = new JFrame();
 		frame.setBackground(Color.LIGHT_GRAY);
 		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
 		JPanel contentPanel = new JPanel();
 		contentPanel.setBackground(UIManager.getColor("Button.shadow"));
 		contentPanel.setForeground(Color.BLACK);
 		frame.getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		
+
 		JLabel titleLabel = new JLabel("STRAVA");
 		titleLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		titleLabel.setForeground(Color.WHITE);
@@ -67,7 +64,7 @@ public class InitializationWindow {
 		titleLabel.setVerticalAlignment(SwingConstants.TOP);
 		titleLabel.setBounds(10, 11, 414, 26);
 		contentPanel.add(titleLabel);
-		
+
 		JPanel buttonsPanel = new JPanel();
 		buttonsPanel.setForeground(new Color(0, 0, 0));
 		buttonsPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -75,21 +72,21 @@ public class InitializationWindow {
 		buttonsPanel.setBounds(59, 67, 307, 183);
 		contentPanel.add(buttonsPanel);
 		buttonsPanel.setLayout(null);
-		
+
 		JButton toRegisterMenuButton = new JButton("Registrarse");
 		toRegisterMenuButton.setForeground(UIManager.getColor("CheckBox.focus"));
 		toRegisterMenuButton.setBackground(UIManager.getColor("CheckBox.light"));
 		toRegisterMenuButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		toRegisterMenuButton.setBounds(89, 58, 128, 29);
 		buttonsPanel.add(toRegisterMenuButton);
-		
+
 		JButton toLoginMenuButton = new JButton("Iniciar sesi\u00F3n");
 		toLoginMenuButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		toLoginMenuButton.setBackground(UIManager.getColor("CheckBox.light"));
 		toLoginMenuButton.setForeground(UIManager.getColor("CheckBox.focus"));
 		toLoginMenuButton.setBounds(89, 119, 128, 29);
 		buttonsPanel.add(toLoginMenuButton);
-		
+
 		JLabel lblNewLabel = new JLabel("Bienvenido/a seleccione una opci\u00F3n");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
