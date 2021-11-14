@@ -2,8 +2,8 @@ package es.deusto.ingenieria.sd.strava.client;
 
 import java.util.List;
 
-import es.deusto.ingenieria.sd.auctions.server.data.dto.ArticleDTO;
-import es.deusto.ingenieria.sd.auctions.server.data.dto.CategoryDTO;
+import es.deusto.ingenieria.sd.strava.server.data.dto.ArticleDTO;
+import es.deusto.ingenieria.sd.strava.server.data.dto.CategoryDTO;
 import es.deusto.ingenieria.sd.strava.client.controller.BidController;
 import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
 import es.deusto.ingenieria.sd.strava.client.gui.BidWindow;

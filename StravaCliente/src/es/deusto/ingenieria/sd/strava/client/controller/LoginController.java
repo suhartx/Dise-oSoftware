@@ -1,6 +1,7 @@
 package es.deusto.ingenieria.sd.strava.client.controller;
 
 import java.rmi.RemoteException;
+import java.util.Date;
 
 import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
 
@@ -38,5 +39,14 @@ public class LoginController {
 
 	public long getToken() {
 		return token;
+	}
+	public void registro(String email, String nombre, Date fecha, String contrasenya) {
+		
+		try {
+			this.serviceLocator.getService().registrarUsuario(email, nombre, fecha, contrasenya);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

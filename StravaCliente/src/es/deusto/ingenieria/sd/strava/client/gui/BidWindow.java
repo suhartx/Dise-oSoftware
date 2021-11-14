@@ -5,8 +5,8 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
-import es.deusto.ingenieria.sd.auctions.server.data.dto.ArticleDTO;
-import es.deusto.ingenieria.sd.auctions.server.data.dto.CategoryDTO;
+import es.deusto.ingenieria.sd.strava.server.data.dto.ArticleDTO;
+import es.deusto.ingenieria.sd.strava.server.data.dto.CategoryDTO;
 import es.deusto.ingenieria.sd.strava.client.controller.BidController;
 
 //This clase simulates the GUI of the Bid use case
