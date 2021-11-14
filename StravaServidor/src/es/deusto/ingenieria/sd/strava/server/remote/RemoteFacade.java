@@ -134,23 +134,31 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	public long crearReto(Long u, String nombre, Date fechaInicio, Date fechaFin, double distancia, String tipoDeporte)
 			throws RemoteException {
 		
+		Reto r = new Reto();
+		
+		r.setNombre(nombre);
+		r.setDistancia(distancia);
+		r.setFechaInicio(fechaInicio);
+		r.setFechaFin(fechaFin);
+		r.setTipoDeporte(tipoDeporte);
+		
 		System.out.println(" * RemoteFacade crearReto()");
-		retoService.crearReto(serverState.get(u), nombre, fechaInicio, fechaFin, distancia, tipoDeporte);
-		serverStateR.put(u, null);
-		return 0;
+		retoService.crearReto(serverState.get(u),r);
+		serverStateR.put((long) r.getIdReto(), r);
+		return r.getIdReto();
 	}
 
 	@Override
-	public EstadoDTO consultarReto(Long u, Reto reto) throws RemoteException {
+	public EstadoDTO consultarReto(Long u, Long idReto) throws RemoteException {
 		
 		System.out.println(" * RemoteFacade consultarReto()");
-		return EstadoAssembler.getInstance().estadoToDTO(retoService.consultarReto(serverState.get(u), reto));
+		return EstadoAssembler.getInstance().estadoToDTO(retoService.consultarReto(serverState.get(u), serverStateR.get(idReto)));
 	}
 
 	@Override
-	public void aceptarReto(Long u, Reto reto) throws RemoteException {
+	public void aceptarReto(Long u, Long idReto) throws RemoteException {
 		System.out.println(" * RemoteFacade aceptarReto()");
-		retoService.aceptarReto(serverState.get(u), reto);
+		retoService.aceptarReto(serverState.get(u), serverStateR.get(idReto));
 	}
 
 //	@Override

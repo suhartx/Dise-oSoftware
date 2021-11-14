@@ -82,17 +82,9 @@ public class RetoAppService {
 //	}
 
 
-		public void crearReto(Usuario usuario ,String nombre, Date fechaInicio,
-	Date fechaFin, double distancia, String tipoDeporte) {
+		public void crearReto(Usuario usuario ,Reto r) {
 	
-		Reto r = new Reto();
-		r.setNombre(nombre);
-		r.setDistancia(distancia);
-		r.setFechaInicio(fechaInicio);
-		r.setFechaFin(fechaFin);
-		r.setTipoDeporte(tipoDeporte);
-		//r.setEstado(estado);
-		//usuario.anyadirReto(r);
+
 		retos.add(r);
 		usuario.anyadirReto(r);
 		

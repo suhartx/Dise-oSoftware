@@ -47,14 +47,14 @@ public interface IRemoteFacade extends Remote {
 	 * El usuario después de haber seleccionado un reto decide apuntarse a este. El servidor por lo tanto,
 	 * recibe el reto elegido. El método consiste en la recepción del reto escogido por el usuario.
 	 */
-	public void aceptarReto(Long u,Reto reto) throws RemoteException;
+	public void aceptarReto(Long u,Long idReto) throws RemoteException;
 	
 	/**
 	 * 	El usuario tendrá la posibilidad de ver el estado de sus retos. Seleccionará un reto y 
 	 * podrá ver el estado del reto seleccionado. El servidor recibirá el 
 	 * reto introducido y devolverá su estado. 
 	 */
-	public EstadoDTO consultarReto(Long u,Reto reto) throws RemoteException;
+	public EstadoDTO consultarReto(Long u,Long idReto) throws RemoteException;
 
  
 }
