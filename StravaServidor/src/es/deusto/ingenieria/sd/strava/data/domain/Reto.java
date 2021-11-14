@@ -1,4 +1,4 @@
-package es.deusto.ingenieria.sd.auctions.strava.data.domain;
+package es.deusto.ingenieria.sd.strava.data.domain;
 //HAY QUE CAMBIAR ESTO
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,8 +28,7 @@ public Reto(Reto r) {
 		this.fechaFin = r.fechaFin;
 		this.distancia = r.distancia;
 		this.tipoDeporte = r.tipoDeporte;
-		this.estado.setIdEstado(0);
-		this.estado.setEstado(0);
+		this.estado= new Estado();
 	}
 	//	public void setIdReto(int idReto) {
 //		this.idReto = idReto;

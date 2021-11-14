@@ -1,4 +1,4 @@
-package es.deusto.ingenieria.sd.auctions.strava.data.domain;
+package es.deusto.ingenieria.sd.strava.data.domain;
 
 
 import java.util.ArrayList;

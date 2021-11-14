@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Usuario;
+import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 
 //TODO: Implement Singleton Pattern
 public class LoginAppService {

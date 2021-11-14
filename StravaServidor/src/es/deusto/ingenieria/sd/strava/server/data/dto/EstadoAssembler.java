@@ -3,7 +3,7 @@ package es.deusto.ingenieria.sd.strava.server.data.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Estado;
+import es.deusto.ingenieria.sd.strava.data.domain.Estado;
 
 public class EstadoAssembler {
 	

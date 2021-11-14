@@ -3,8 +3,8 @@ package es.deusto.ingenieria.sd.strava.server.data.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Reto;
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Usuario;
+import es.deusto.ingenieria.sd.strava.data.domain.Reto;
+import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 
 //This class is part of the DTO pattern. It also implements Singleton Pattern.
 public class UsuarioAssembler {

@@ -5,9 +5,9 @@ import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
 
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Estado;
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Reto;
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Usuario;
+import es.deusto.ingenieria.sd.strava.data.domain.Estado;
+import es.deusto.ingenieria.sd.strava.data.domain.Reto;
+import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 

@@ -8,11 +8,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Entrenamiento;
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Estado;
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Reto;
-import es.deusto.ingenieria.sd.auctions.strava.data.domain.Usuario;
+import es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento;
+import es.deusto.ingenieria.sd.strava.data.domain.Estado;
+import es.deusto.ingenieria.sd.strava.data.domain.Reto;
+import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoAssembler;
