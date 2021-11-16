@@ -3,7 +3,7 @@ import java.util.Date;
 
 public class Reto {	
 	private static int count=0;
-	private int idReto;
+	private int idReto;//FUERA, NO ES NECESARIO
 	private String nombre;
 	private Date fechaInicio;
 	private Date fechaFin;

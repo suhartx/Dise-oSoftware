@@ -6,6 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Escritorio/DEUSTO/1. SEMESTRE/DISEÑO SOFTWARE/2021-2022/ProyectoDW/Dise-oSoftware/Dise-oSoftware/StravaServidor/lib/commons-codec-1.15.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.15.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
