@@ -139,7 +139,7 @@ public class CrearRetoWindow {
 		distanciaTextPanel.add(distanciaLabel);
 		
 		JSpinner kmSpinner = new JSpinner();
-		kmSpinner.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
+		kmSpinner.setModel(new SpinnerNumberModel(0, null, null,1));
 		kmSpinner.setBounds(96, 1, 46, 19);
 		distanciaTextPanel.add(kmSpinner);
 		

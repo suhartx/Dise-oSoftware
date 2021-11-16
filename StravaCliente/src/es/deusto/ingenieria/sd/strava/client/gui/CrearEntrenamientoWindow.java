@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.function.IntToDoubleFunction;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -141,7 +142,8 @@ public class CrearEntrenamientoWindow {
 		distanciaTextPanel.add(distanciaLabel);
 		
 		JSpinner kmSpinner = new JSpinner();
-		kmSpinner.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
+		kmSpinner.setModel(new SpinnerNumberModel(0, null, null, 1));
+		
 		kmSpinner.setBounds(93, 1, 49, 19);
 		distanciaTextPanel.add(kmSpinner);
 		
@@ -168,7 +170,7 @@ public class CrearEntrenamientoWindow {
 		duracionTextPanel.add(duracionLabel);
 		
 		JSpinner hourSpinner = new JSpinner();
-		hourSpinner.setModel(new SpinnerNumberModel(new Integer(0), null, null, new Integer(1)));
+		hourSpinner.setModel(new SpinnerNumberModel(0, null, null,  1));
 		hourSpinner.setBounds(60, 1, 42, 19);
 		duracionTextPanel.add(hourSpinner);
 		
@@ -178,7 +180,7 @@ public class CrearEntrenamientoWindow {
 		duracionTextPanel.add(hoursLabel);
 		
 		JSpinner minutesSpinner = new JSpinner();
-		minutesSpinner.setModel(new SpinnerNumberModel(new Integer(0), null, null, new Integer(1)));
+		minutesSpinner.setModel(new SpinnerNumberModel(0, null, null, 1));
 		minutesSpinner.setBounds(156, 1, 42, 19);
 		duracionTextPanel.add(minutesSpinner);
 		
@@ -188,7 +190,7 @@ public class CrearEntrenamientoWindow {
 		duracionTextPanel.add(minutesLabel);
 		
 		JSpinner secondsSpinner = new JSpinner();
-		secondsSpinner.setModel(new SpinnerNumberModel(new Integer(0), null, null, new Integer(1)));
+		secondsSpinner.setModel(new SpinnerNumberModel(0, null, null, 1));
 		secondsSpinner.setBounds(264, 1, 42, 19);
 		duracionTextPanel.add(secondsSpinner);
 		
@@ -197,8 +199,8 @@ public class CrearEntrenamientoWindow {
 		secondsLabel.setBounds(316, 4, 58, 14);
 		duracionTextPanel.add(secondsLabel);
 		
-		JComboBox deporteComboBox = new JComboBox();//Enum (deporte ciclismo)
-		deporteComboBox.setModel(new DefaultComboBoxModel(new String[] {"Ciclismo", "Running"}));
+		JComboBox<String> deporteComboBox = new JComboBox<>();//Enum (deporte ciclismo)
+		deporteComboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Ciclismo", "Running"}));
 		deporteComboBox.setBounds(138, 43, 92, 22);
 		variablesPanel.add(deporteComboBox);
 		
