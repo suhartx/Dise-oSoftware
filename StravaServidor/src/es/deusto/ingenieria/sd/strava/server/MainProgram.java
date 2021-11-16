@@ -20,10 +20,11 @@ public class MainProgram {
 		
 		//Bind remote facade instance to a sirvice name using RMIRegistry
 		try {
-			IRemoteFacade remoteFacade = new RemoteFacade();			
+			IRemoteFacade remoteFacade = new RemoteFacade();
 			Naming.rebind(name, remoteFacade);
 			System.out.println(" * Strava Server v1 '" + name + "' Iniciado!!");
 		} catch (Exception ex) {
+			System.err.println(name);
 			System.err.println(" # Strava Server Exception: " + ex.getMessage());
 			ex.printStackTrace();
 		}
