@@ -8,10 +8,10 @@ import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
 //This class implements Controller pattern.
 public class LoginController {
 
-	//Reference to the Service Locator
+	// Reference to the Service Locator
 	private ServiceLocator serviceLocator;
-	//This attibute stores the token when login success
-	private long token = -1; //-1 = login has not been done or fails
+	// This attibute stores the token when login success
+	private long token = -1; // -1 = login has not been done or fails
 
 	public LoginController(ServiceLocator serviceLocator) {
 		this.serviceLocator = serviceLocator;
@@ -40,6 +40,7 @@ public class LoginController {
 	public long getToken() {
 		return token;
 	}
+
 	public void registro(String email, String nombre, Date fecha, String contrasenya) {
 
 		try {

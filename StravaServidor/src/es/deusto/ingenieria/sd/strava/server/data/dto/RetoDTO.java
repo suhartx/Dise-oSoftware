@@ -4,16 +4,16 @@ import java.io.Serializable;
 import java.util.Date;
 
 //This class implements DTO pattern
-public class RetoDTO implements Serializable {	
-	//This attribute is needed to implement the "Serializable" interface.
+public class RetoDTO implements Serializable {
+	// This attribute is needed to implement the "Serializable" interface.
 	private static final long serialVersionUID = 1L;
-	private int idReto;
+	private long idReto;
 	private String nombre;
 	private Date fechaInicio;
 	private Date fechaFin;
 	private double distancia;
 	private String tipoDeporte;
-	
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -21,12 +21,12 @@ public class RetoDTO implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	public int getIdReto() {
+
+	public long getIdReto() {
 		return idReto;
 	}
 
-	public void setIdReto(int idReto) {
+	public void setIdReto(long idReto) {
 		this.idReto = idReto;
 	}
 

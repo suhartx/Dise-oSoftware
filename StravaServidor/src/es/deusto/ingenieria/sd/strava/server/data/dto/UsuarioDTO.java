@@ -4,17 +4,16 @@ import java.io.Serializable;
 import java.util.Date;
 
 //This class implements DTO pattern
-public class UsuarioDTO implements Serializable {	
-	//This attribute is needed to implement the "Serializable" interface.
-	private static final long serialVersionUID = 1L;	
-	
+public class UsuarioDTO implements Serializable {
+	// This attribute is needed to implement the "Serializable" interface.
+	private static final long serialVersionUID = 1L;
+
 	private int idUsuario;
 	private String nombre;
 	private String email;
 	private Date fechaNacimiento;
 	private String contrasenya;
-	
-	
+
 	public int getIdUsuario() {
 		return idUsuario;
 	}
@@ -26,15 +25,15 @@ public class UsuarioDTO implements Serializable {
 	public String getNombre() {
 		return nombre;
 	}
-	
+
 	public void setNombre(String nickname) {
 		this.nombre = nickname;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
-	
+
 	public void setEmail(String email) {
 		this.email = email;
 	}

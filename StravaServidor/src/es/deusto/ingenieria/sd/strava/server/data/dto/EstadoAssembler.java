@@ -6,11 +6,12 @@ import java.util.List;
 import es.deusto.ingenieria.sd.strava.data.domain.Estado;
 
 public class EstadoAssembler {
-	
+
 	private static EstadoAssembler instance;
 
-	private EstadoAssembler() { }
-	
+	private EstadoAssembler() {
+	}
+
 	public static EstadoAssembler getInstance() {
 		if (instance == null) {
 			instance = new EstadoAssembler();
@@ -21,22 +22,21 @@ public class EstadoAssembler {
 
 	public EstadoDTO estadoToDTO(Estado estado) {
 		EstadoDTO dto = new EstadoDTO();
-		
+
 		dto.setIdEstado(estado.getIdEstado());
 		dto.setEstado(estado.getEstado());
-		
+
 		return dto;
 	}
-	
-	public List<EstadoDTO> estadoToDTO(List<Estado> estados) {		
+
+	public List<EstadoDTO> estadoToDTO(List<Estado> estados) {
 		List<EstadoDTO> dtos = new ArrayList<>();
-		
+
 		for (Estado estado : estados) {
 			dtos.add(this.estadoToDTO(estado));
 		}
-		
+
 		return dtos;
 	}
-
 
 }

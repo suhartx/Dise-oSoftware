@@ -1,4 +1,5 @@
 package es.deusto.ingenieria.sd.strava.server.data.dto;
+
 //HAY QUE CAMBIAR ESTO
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +10,14 @@ import es.deusto.ingenieria.sd.strava.data.domain.Reto;
 public class RetoAssembler {
 	private static RetoAssembler instance;
 
-	private RetoAssembler() { }
-	
+	private RetoAssembler() {
+	}
+
 	public static RetoAssembler getInstance() {
 		if (instance == null) {
 			instance = new RetoAssembler();
 		}
-		
+
 		return instance;
 	}
 
@@ -30,13 +32,13 @@ public class RetoAssembler {
 		return dto;
 	}
 
-	public List<RetoDTO> retoToDTO(List<Reto> retos) {		
+	public List<RetoDTO> retoToDTO(List<Reto> retos) {
 		List<RetoDTO> dtos = new ArrayList<>();
-		
+
 		for (Reto reto : retos) {
 			dtos.add(this.retoToDTO(reto));
 		}
-		
+
 		return dtos;
 	}
 }

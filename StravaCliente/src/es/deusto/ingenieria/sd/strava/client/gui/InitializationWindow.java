@@ -15,8 +15,8 @@ import javax.swing.WindowConstants;
 import javax.swing.border.LineBorder;
 
 public class InitializationWindow {
-	//If it's selected register take to registerWindow
-	//If it's selected login take to loginWindow
+	// If it's selected register take to registerWindow
+	// If it's selected login take to loginWindow
 	private JFrame frame;
 
 	/**
