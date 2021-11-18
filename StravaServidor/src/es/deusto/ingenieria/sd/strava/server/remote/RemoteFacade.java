@@ -43,7 +43,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 
 		// Perform login() using LoginAppService
 		Usuario user = loginService.login(email, password);
-///
+////
 		// If login() success user is stored in the Server State
 		if (user != null) {
 			// If user is not logged in
