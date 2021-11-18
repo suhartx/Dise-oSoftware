@@ -64,11 +64,11 @@ public class MainProgram {
 				new Date(tiempo), "15:30", 2.5);
 		
 		// Aceptar reto
-		retoController.aceptarReto(loginController.getToken(), (long) retoController.getRetos().get(0).getIdReto());
+		retoController.aceptarReto(loginController.getToken(),  retoController.getRetos().get(0).getIdReto());
 
 		
 		// Consultar reto
-		retoController.consultarReto(loginController.getToken(), (long) retoController.getRetos().get(0).getIdReto());
+		retoController.consultarReto(loginController.getToken(),  retoController.getRetos().get(0).getIdReto());
 
 
 		// Logout
