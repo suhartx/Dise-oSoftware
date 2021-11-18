@@ -11,6 +11,7 @@ import java.util.Map;
 import es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.strava.data.domain.Reto;
 import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
+import es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EstadoAssembler;
@@ -26,7 +27,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 
 	private Map<Long, Usuario> serverState = new HashMap<>();
 
-	private Map<Long, Reto> serverStateR = new HashMap<>();
+	private Map<Long, Reto> serverStateReto = new HashMap<>();
 
 	private LoginAppService loginService = new LoginAppService();
 	private RetoAppService retoService = new RetoAppService();
@@ -82,7 +83,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 			token = login(email, contrasenya);
 		}
 
-		this.serverState.put(token, new Usuario(nombre, email, fecha, contrasenya));
+		this.serverState.put(token, new UsuarioContra(nombre, email, fecha, contrasenya));
 		return (token);
 	}
 
@@ -140,7 +141,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 
 		System.out.println(" * RemoteFacade crearReto()");
 		retoService.crearReto(serverState.get(u), r);
-		serverStateR.put(r.getIdReto(), r);
+		serverStateReto.put(r.getIdReto(), r);
 		return r.getIdReto();
 	}
 
@@ -149,13 +150,13 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 
 		System.out.println(" * RemoteFacade consultarReto()");
 		return EstadoAssembler.getInstance()
-				.estadoToDTO(retoService.consultarReto(serverState.get(u), serverStateR.get(idReto)));
+				.estadoToDTO(retoService.consultarReto(serverState.get(u), serverStateReto.get(idReto)));
 	}
 
 	@Override
 	public void aceptarReto(Long u, Long idReto) throws RemoteException {
 		System.out.println(" * RemoteFacade aceptarReto()");
-		retoService.aceptarReto(serverState.get(u), serverStateR.get(idReto));
+		retoService.aceptarReto(serverState.get(u), serverStateReto.get(idReto));
 	}
 
 //	@Override

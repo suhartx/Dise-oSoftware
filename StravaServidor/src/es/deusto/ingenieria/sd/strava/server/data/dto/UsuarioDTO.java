@@ -8,19 +8,19 @@ public class UsuarioDTO implements Serializable {
 	// This attribute is needed to implement the "Serializable" interface.
 	private static final long serialVersionUID = 1L;
 
-	private int idUsuario;
+//	private int idUsuario;
 	private String nombre;
 	private String email;
 	private Date fechaNacimiento;
-	private String contrasenya;
+	//private String contrasenya;
 
-	public int getIdUsuario() {
-		return idUsuario;
-	}
+//	public int getIdUsuario() {
+//		return idUsuario;
+//	}
 
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
-	}
+//	public void setIdUsuario(int idUsuario) {
+//		this.idUsuario = idUsuario;
+//	}
 
 	public String getNombre() {
 		return nombre;
@@ -46,18 +46,19 @@ public class UsuarioDTO implements Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public String getContrasenya() {
-		return contrasenya;
-	}
-
-	public void setContrasenya(String contrasenya) {
-		this.contrasenya = contrasenya;
-	}
-
 	@Override
 	public String toString() {
-		return "UserDTO [idUsuario=" + idUsuario + ", nombre=" + nombre + ", email=" + email + ", fechaNacimiento="
-				+ fechaNacimiento + ", contrasenya=" + contrasenya + "]";
+		return "UsuarioDTO [nombre=" + nombre + ", email=" + email + ", fechaNacimiento=" + fechaNacimiento + "]";
 	}
+
+//	public String getContrasenya() {
+//		return contrasenya;
+//	}
+//
+//	public void setContrasenya(String contrasenya) {
+//		this.contrasenya = contrasenya;
+//	}
+
+	
 
 }

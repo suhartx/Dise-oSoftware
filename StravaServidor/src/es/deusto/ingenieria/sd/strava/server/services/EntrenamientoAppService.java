@@ -8,6 +8,7 @@ import java.util.List;
 
 import es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
+import es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra;
 
 public class EntrenamientoAppService {
 
@@ -17,8 +18,8 @@ public class EntrenamientoAppService {
 		this.initializeData();// TODO Auto-generated constructor stub
 	}
 
-	private void initializeData() {
-		Usuario user0 = new Usuario();
+	private void initializeData() {//CLASES DE TEST QUITARLOS
+		UsuarioContra user0 = new UsuarioContra();
 		user0.setNombre("tomas");
 		user0.setContrasenya("cositas");
 		user0.setEmail("tomas@gmail.com");

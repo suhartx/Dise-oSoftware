@@ -5,12 +5,12 @@ import java.util.Date;
 import java.util.List;
 
 public class Usuario {
-	private static int count = 0;
-	private final int idUsuario;
+	//private static int count = 0;
+	//private final int idUsuario;
 	private String nombre;
 	private String email;
 	private Date fechaNacimiento;
-	private String contrasenya;
+	
 	/*
 	 * faltan las clases relacionadas
 	 */
@@ -19,19 +19,18 @@ public class Usuario {
 
 	public Usuario() {
 
-		idUsuario = ++count;
+		//idUsuario = ++count;
 		// Esto genera automaticamente el id de usuario
 		// cada vez que se inizializa uno nuevo
 
 	}
 
-	public Usuario(String nombre, String email, Date fechaNacimiento, String contrasenya) {
+	public Usuario(String nombre, String email, Date fechaNacimiento) {
 
-		idUsuario = ++count;
+		//idUsuario = ++count;
 		this.nombre = nombre;
 		this.email = email;
 		this.fechaNacimiento = fechaNacimiento;
-		this.contrasenya = contrasenya;
 	}
 
 	public String getNombre() {
@@ -42,13 +41,6 @@ public class Usuario {
 		this.nombre = nombre;
 	}
 
-	public boolean checkContrasenya(String contrasenya) {
-		return this.contrasenya.equals(contrasenya);
-	}
-
-	public void setContrasenya(String contrasenya) {
-		this.contrasenya = contrasenya;
-	}
 
 	public String getEmail() {
 		return email;
@@ -58,9 +50,9 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public int getIdUsuario() {
-		return idUsuario;
-	}
+//	public int getIdUsuario() {
+//		return idUsuario;
+//	}
 
 //	public void setIdUsuario(int idUsuario) {
 //		this.idUsuario = idUsuario;
@@ -74,9 +66,6 @@ public class Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public String getContrasenya() {
-		return contrasenya;
-	}
 
 	public List<Entrenamiento> getEntrenamientos() {
 		return entrenamientos;
