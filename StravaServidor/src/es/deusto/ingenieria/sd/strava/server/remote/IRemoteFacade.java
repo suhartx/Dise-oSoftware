@@ -59,5 +59,7 @@ public interface IRemoteFacade extends Remote {
 	 * reto introducido y devolverá su estado.
 	 */
 	public RetoDTO consultarReto(Long u, Long idReto) throws RemoteException;
+	
+	public List<RetoDTO> consultarRetosActivos(Long u) throws RemoteException;
 
 }

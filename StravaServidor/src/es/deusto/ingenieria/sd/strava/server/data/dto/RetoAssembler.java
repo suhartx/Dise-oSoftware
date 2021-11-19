@@ -45,6 +45,7 @@ public class RetoAssembler {
 
 		for (Reto reto : retos) {
 			dtos.add(this.retoToDTO(reto));
+			
 		}
 
 		return dtos;

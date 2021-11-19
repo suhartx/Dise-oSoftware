@@ -159,6 +159,13 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		return RetoAssembler.getInstance()
 				.retoToDTO(retoService.consultarReto(serverState.get(u), serverStateReto.get(idReto)));
 	}
+	@SuppressWarnings("unchecked")
+	public List<RetoDTO> consultarRetosActivos(Long u) throws RemoteException {
+
+		System.out.println(" * RemoteFacade consultarReto()");
+		return (List<RetoDTO>) RetoAssembler.getInstance()
+				.retoToDTO((Reto) retoService.obtenerRetosActivos(serverState.get(u)));
+	}
 
 	@Override
 	public void aceptarReto(Long u, Long idReto) throws RemoteException {
