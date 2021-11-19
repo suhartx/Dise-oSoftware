@@ -12,7 +12,7 @@ public class UsuarioDTO implements Serializable {
 	private String nombre;
 	private String email;
 	private Date fechaNacimiento;
-	//private String contrasenya;
+	// private String contrasenya;
 
 //	public int getIdUsuario() {
 //		return idUsuario;
@@ -58,7 +58,5 @@ public class UsuarioDTO implements Serializable {
 //	public void setContrasenya(String contrasenya) {
 //		this.contrasenya = contrasenya;
 //	}
-
-	
 
 }

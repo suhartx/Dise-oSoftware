@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
 
+import es.deusto.ingenieria.sd.strava.data.domain.Tipologin;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EstadoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
@@ -12,7 +13,7 @@ import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 //This interface defines the API of the Server. It represents the Remote Facade pattern
 public interface IRemoteFacade extends Remote {
 
-	public long login(String email, String password) throws RemoteException;
+	public long login(Tipologin tipologin, String email, String password) throws RemoteException;
 
 	public void logout(long token) throws RemoteException;
 

@@ -10,6 +10,7 @@ import java.util.Map;
 
 import es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.strava.data.domain.Reto;
+import es.deusto.ingenieria.sd.strava.data.domain.Tipologin;
 import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 import es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoAssembler;
@@ -38,25 +39,33 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 
 	@Override
-	public synchronized long login(String email, String password) throws RemoteException {
+	public synchronized long login(Tipologin tipologin, String email, String password) throws RemoteException {
 		System.out.println(" * RemoteFacade login(): " + email + " / " + password);
-
+		// AÑADIMOS EL TIPOLOGIN PARA DEPENDE DEL TIPO DE LOGUEO SE LOGUEE CON FACEBOOK
+		// GOOGLE O STRAVA
 		// Perform login() using LoginAppService
-		Usuario user = loginService.login(email, password);
-//
-		// If login() success user is stored in the Server State
-		if (user != null) {
-			// If user is not logged in
-			if (!this.serverState.values().contains(user)) {
-				Long token = Calendar.getInstance().getTimeInMillis();
-				this.serverState.put(token, user);
-				return (token);
+		if (tipologin.equals(Tipologin.LOCAL)) {
+			Usuario user = loginService.login(email, password);
+			//
+			// If login() success user is stored in the Server State
+			if (user != null) {
+				// If user is not logged in
+				if (!this.serverState.values().contains(user)) {
+					Long token = Calendar.getInstance().getTimeInMillis();
+					this.serverState.put(token, user);
+					return (token);
+				} else {
+					throw new RemoteException("El usuario ya esta logueado!");
+				}
 			} else {
-				throw new RemoteException("El usuario ya esta logueado!");
+				throw new RemoteException("El logueo falla!");
 			}
-		} else {
-			throw new RemoteException("El logueo falla!");
+		} else if (tipologin.equals(tipologin.FACEBOOK)) {// usuariogoogle
+			return 0L;
+		} else if (tipologin.equals(tipologin.FACEBOOK)) {// usuarioFacebook
+			return 0L;
 		}
+		return 0L;
 	}
 
 	@Override
@@ -80,7 +89,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		Long token = null;
 		if (sigue) {
 
-			token = login(email, contrasenya);
+			token = login(Tipologin.LOCAL, email, contrasenya);
 		}
 
 		this.serverState.put(token, new UsuarioContra(nombre, email, fecha, contrasenya));

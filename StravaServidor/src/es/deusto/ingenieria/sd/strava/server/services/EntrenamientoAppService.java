@@ -18,7 +18,7 @@ public class EntrenamientoAppService {
 		this.initializeData();// TODO Auto-generated constructor stub
 	}
 
-	private void initializeData() {//CLASES DE TEST QUITARLOS
+	private void initializeData() {// CLASES DE TEST QUITARLOS
 		UsuarioContra user0 = new UsuarioContra();
 		user0.setNombre("tomas");
 		user0.setContrasenya("cositas");

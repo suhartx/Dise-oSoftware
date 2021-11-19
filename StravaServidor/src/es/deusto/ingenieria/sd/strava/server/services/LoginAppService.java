@@ -20,15 +20,17 @@ public class LoginAppService {
 		// Generate the hash of the pasword
 		String sha1 = org.apache.commons.codec.digest.DigestUtils.sha1Hex("$!9PhNz,");
 		user.setContrasenya(sha1);
-		
 
 		Usuarios.add(user);
 
 		for (Usuario usuario : Usuarios) {
 
-			if (usuario.getClass().getSimpleName().equals("UsuarioContra")&&usuario.getEmail().equals(email) && ((UsuarioContra) usuario).checkContrasenya(contrasenya)) {
+			if (usuario.getClass().getSimpleName().equals("UsuarioContra") && usuario.getEmail().equals(email)
+					&& ((UsuarioContra) usuario).checkContrasenya(contrasenya)) {
 				return user;
-			}else if(false){}//aqui implementaremos si el usuario viene de facebook y hara la comprobacion el propio facebook
+			} else if (false) {
+			} // aqui implementaremos si el usuario viene de facebook y hara la comprobacion
+				// el propio facebook
 
 		}
 		return null;

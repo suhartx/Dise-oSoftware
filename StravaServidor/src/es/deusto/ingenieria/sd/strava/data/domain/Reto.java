@@ -12,8 +12,6 @@ public class Reto {
 	private String tipoDeporte;
 	private Estado estado;
 
-
-
 	public Reto() {
 		idReto = ++count;
 	}
@@ -28,17 +26,14 @@ public class Reto {
 		this.tipoDeporte = r.tipoDeporte;
 		this.estado = new Estado();
 	}
-	
-	
 
-	public long  getIdReto() {
+	public long getIdReto() {
 		return this.idReto;
 	}
 
 	public void setIdReto(long idReto) {
 		this.idReto = idReto;
 	}
-
 
 	public String getNombre() {
 		return nombre;

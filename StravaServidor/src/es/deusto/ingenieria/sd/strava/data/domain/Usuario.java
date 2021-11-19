@@ -5,12 +5,12 @@ import java.util.Date;
 import java.util.List;
 
 public class Usuario {
-	//private static int count = 0;
-	//private final int idUsuario;
+	// private static int count = 0;
+	// private final int idUsuario;
 	private String nombre;
 	private String email;
 	private Date fechaNacimiento;
-	
+
 	/*
 	 * faltan las clases relacionadas
 	 */
@@ -19,7 +19,7 @@ public class Usuario {
 
 	public Usuario() {
 
-		//idUsuario = ++count;
+		// idUsuario = ++count;
 		// Esto genera automaticamente el id de usuario
 		// cada vez que se inizializa uno nuevo
 
@@ -27,7 +27,7 @@ public class Usuario {
 
 	public Usuario(String nombre, String email, Date fechaNacimiento) {
 
-		//idUsuario = ++count;
+		// idUsuario = ++count;
 		this.nombre = nombre;
 		this.email = email;
 		this.fechaNacimiento = fechaNacimiento;
@@ -40,7 +40,6 @@ public class Usuario {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 
 	public String getEmail() {
 		return email;
@@ -65,7 +64,6 @@ public class Usuario {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-
 
 	public List<Entrenamiento> getEntrenamientos() {
 		return entrenamientos;

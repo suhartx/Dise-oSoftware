@@ -2,6 +2,7 @@ package es.deusto.ingenieria.sd.strava.server.test;
 
 import java.util.List;
 
+import es.deusto.ingenieria.sd.strava.data.domain.Tipologin;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.strava.server.remote.RemoteFacade;
@@ -51,7 +52,7 @@ public class LocalTest {
 		try {
 			// Login
 			String sha1 = org.apache.commons.codec.digest.DigestUtils.sha1Hex("$!9PhNz,");
-			token = facade.login("thomas.e2001@gmail.com", sha1);
+			token = facade.login(Tipologin.LOCAL, "thomas.e2001@gmail.com", sha1);
 			// Make a bid
 			// facade.makeBid(token, article.getNumber(), article.getActualPrice()+1);
 			// Logout
