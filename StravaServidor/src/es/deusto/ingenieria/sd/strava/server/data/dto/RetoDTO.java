@@ -14,6 +14,7 @@ public class RetoDTO implements Serializable {
 	private double distancia;
 	private String tipoDeporte;
 	
+	private String emailPropietario;
 	private int porcentaje;
 
 	public String getNombre() {
@@ -70,6 +71,14 @@ public class RetoDTO implements Serializable {
 
 	public void setPorcentaje(int porcentaje) {
 		this.porcentaje = porcentaje;
+	}
+
+	public String getEmailPropietario() {
+		return emailPropietario;
+	}
+
+	public void setEmailPropietario(String emailPropietario) {
+		this.emailPropietario = emailPropietario;
 	}
 
 	@Override

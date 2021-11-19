@@ -30,7 +30,7 @@ public class RetoAssembler {
 		dto.setFechaFin(reto.getFechaFin());
 		dto.setDistancia(reto.getDistancia());
 		dto.setTipoDeporte(reto.getTipoDeporte());
-		
+		dto.setEmailPropietario(reto.getDuenyo().getEmail());
 		if (reto.getClass().getSimpleName().equals("RetoConEstado")) {
 		dto.setPorcentaje(((RetoConEstado) reto).getPorcentaje());	
 		}else {
