@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.List;
 
 import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
-import es.deusto.ingenieria.sd.strava.server.data.dto.EstadoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 
 public class RetoController {
@@ -68,7 +67,7 @@ public class RetoController {
 	 * un reto y podrá ver el estado del reto seleccionado. El servidor recibirá el
 	 * reto introducido y devolverá su estado.
 	 */
-	public EstadoDTO consultarReto(Long u, Long idReto) {
+	public RetoDTO consultarReto(Long u, Long idReto) {
 
 		try {
 			return serviceLocator.getService().consultarReto(u, idReto);

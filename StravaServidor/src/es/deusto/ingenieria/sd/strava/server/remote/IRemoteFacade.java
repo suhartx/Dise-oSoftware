@@ -7,7 +7,6 @@ import java.util.List;
 
 import es.deusto.ingenieria.sd.strava.data.domain.Tipologin;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
-import es.deusto.ingenieria.sd.strava.server.data.dto.EstadoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 
 //This interface defines the API of the Server. It represents the Remote Facade pattern
@@ -59,6 +58,6 @@ public interface IRemoteFacade extends Remote {
 	 * un reto y podrá ver el estado del reto seleccionado. El servidor recibirá el
 	 * reto introducido y devolverá su estado.
 	 */
-	public EstadoDTO consultarReto(Long u, Long idReto) throws RemoteException;
+	public RetoDTO consultarReto(Long u, Long idReto) throws RemoteException;
 
 }

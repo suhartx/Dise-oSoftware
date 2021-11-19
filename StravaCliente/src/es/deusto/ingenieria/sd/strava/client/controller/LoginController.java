@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.Date;
 
 import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
+import es.deusto.ingenieria.sd.strava.data.domain.Tipologin;
 
 //This class implements Controller pattern.
 public class LoginController {
@@ -17,9 +18,10 @@ public class LoginController {
 		this.serviceLocator = serviceLocator;
 	}
 
-	public boolean login(String email, String password) {
+	public boolean login(Tipologin t, String email, String password) {
+		
 		try {
-			this.token = this.serviceLocator.getService().login(email, password);
+			this.token = this.serviceLocator.getService().login(t, email, password);
 			return true;
 		} catch (RemoteException e) {
 			System.out.println("# Error during login: " + e);

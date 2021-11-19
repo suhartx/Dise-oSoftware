@@ -11,6 +11,7 @@ import es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra;
 public class LoginAppService {
 	List<Usuario> Usuarios = new ArrayList<>();
 
+	@SuppressWarnings("unused")
 	public Usuario login(String email, String contrasenya) {
 		// TODO: Get User using DAO and check
 
