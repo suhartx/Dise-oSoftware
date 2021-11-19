@@ -15,8 +15,6 @@ import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 import es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
-import es.deusto.ingenieria.sd.strava.server.data.dto.EstadoAssembler;
-import es.deusto.ingenieria.sd.strava.server.data.dto.EstadoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.strava.server.services.EntrenamientoAppService;
@@ -155,11 +153,11 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 
 	@Override
-	public EstadoDTO consultarReto(Long u, Long idReto) throws RemoteException {
+	public RetoDTO consultarReto(Long u, Long idReto) throws RemoteException {
 
 		System.out.println(" * RemoteFacade consultarReto()");
-		return EstadoAssembler.getInstance()
-				.estadoToDTO(retoService.consultarReto(serverState.get(u), serverStateReto.get(idReto)));
+		return RetoAssembler.getInstance()
+				.retoToDTO(retoService.consultarReto(serverState.get(u), serverStateReto.get(idReto)));
 	}
 
 	@Override

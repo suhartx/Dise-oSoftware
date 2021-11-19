@@ -15,7 +15,7 @@ public class Usuario {
 	 * faltan las clases relacionadas
 	 */
 	private List<Entrenamiento> entrenamientos = new ArrayList<>();
-	private List<Reto> retos = new ArrayList<>();
+	private List<RetoConEstado> retos = new ArrayList<>();
 
 	public Usuario() {
 
@@ -77,16 +77,17 @@ public class Usuario {
 		this.entrenamientos.add(e);
 	}
 
-	public List<Reto> getRetos() {
+	public List<RetoConEstado> getRetos() {
 		return retos;
 	}
 
-	public void setRetos(List<Reto> retos) {
+	public void setRetos(List<RetoConEstado> retos) {
 		this.retos = retos;
 	}
 
 	public void anyadirReto(Reto r) {
-		this.retos.add(r);
+		
+		this.retos.add(new RetoConEstado(r));
 	}
 
 	@Override

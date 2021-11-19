@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import es.deusto.ingenieria.sd.strava.data.domain.Estado;
 import es.deusto.ingenieria.sd.strava.data.domain.Reto;
+import es.deusto.ingenieria.sd.strava.data.domain.RetoConEstado;
 import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 
 public class RetoAppService {
@@ -89,17 +89,11 @@ public class RetoAppService {
 	 * @param u Usuario en cuestion
 	 * @return
 	 */
-	public List<Reto> obtenerRetosActivos(Usuario u) {
+	public List<RetoConEstado> obtenerRetosActivos(Usuario u) {
 
-		List<Reto> retosA = new ArrayList<>();
 
-		for (Reto reto : u.getRetos()) {
-			if (reto.getEstado().getEstado() < 5) {
-				retosA.add(reto);
-			}
-		}
 
-		return retosA;
+		return u.getRetos();
 
 	}
 
@@ -115,10 +109,10 @@ public class RetoAppService {
 
 	}
 
-	public Estado consultarReto(Usuario u, Reto r) {
-		for (Reto reto : u.getRetos()) {
+	public RetoConEstado consultarReto(Usuario u, Reto r) {
+		for (RetoConEstado reto : u.getRetos()) {
 			if (reto.getIdReto() == r.getIdReto()) {
-				return reto.getEstado();
+				return reto;
 			}
 
 		}

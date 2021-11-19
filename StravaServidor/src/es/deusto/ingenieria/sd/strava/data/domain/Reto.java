@@ -10,7 +10,8 @@ public class Reto {
 	private Date fechaFin;
 	private double distancia;
 	private String tipoDeporte;
-	private Estado estado;
+	
+	private Usuario Duenyo;
 
 	public Reto() {
 		idReto = ++count;
@@ -24,7 +25,6 @@ public class Reto {
 		this.fechaFin = r.fechaFin;
 		this.distancia = r.distancia;
 		this.tipoDeporte = r.tipoDeporte;
-		this.estado = new Estado();
 	}
 
 	public long getIdReto() {
@@ -75,18 +75,13 @@ public class Reto {
 		this.tipoDeporte = tipoDeporte;
 	}
 
-	public Estado getEstado() {
-		return estado;
+
+	public Usuario getDuenyo() {
+		return Duenyo;
 	}
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
-	}
-
-	@Override
-	public String toString() {
-		return "Reto [idReto=" + idReto + ", nombre=" + nombre + ", fechainicio=" + fechaInicio + ", fechaFin="
-				+ fechaFin + ", distancia=" + distancia + ", tipoDeporte=" + tipoDeporte + ", estado=" + estado + "]";
+	public void setDuenyo(Usuario duenyo) {
+		Duenyo = duenyo;
 	}
 
 }
