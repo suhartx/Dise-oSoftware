@@ -10,11 +10,11 @@ import java.util.Map;
 
 import es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.strava.data.domain.Reto;
+import es.deusto.ingenieria.sd.strava.data.domain.Tipologin;
 import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
+import es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
-import es.deusto.ingenieria.sd.strava.server.data.dto.EstadoAssembler;
-import es.deusto.ingenieria.sd.strava.server.data.dto.EstadoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 import es.deusto.ingenieria.sd.strava.server.services.EntrenamientoAppService;
@@ -26,7 +26,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 
 	private Map<Long, Usuario> serverState = new HashMap<>();
 
-	private Map<Long, Reto> serverStateR = new HashMap<>();
+	private Map<Long, Reto> serverStateReto = new HashMap<>();
 
 	private LoginAppService loginService = new LoginAppService();
 	private RetoAppService retoService = new RetoAppService();
@@ -37,25 +37,33 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 
 	@Override
-	public synchronized long login(String email, String password) throws RemoteException {
+	public synchronized long login(Tipologin tipologin, String email, String password) throws RemoteException {
 		System.out.println(" * RemoteFacade login(): " + email + " / " + password);
-
+		// AÑADIMOS EL TIPOLOGIN PARA DEPENDE DEL TIPO DE LOGUEO SE LOGUEE CON FACEBOOK
+		// GOOGLE O STRAVA
 		// Perform login() using LoginAppService
-		Usuario user = loginService.login(email, password);
-
-		// If login() success user is stored in the Server State
-		if (user != null) {
-			// If user is not logged in
-			if (!this.serverState.values().contains(user)) {
-				Long token = Calendar.getInstance().getTimeInMillis();
-				this.serverState.put(token, user);
-				return (token);
+		if (tipologin.equals(Tipologin.LOCAL)) {
+			Usuario user = loginService.login(email, password);
+			//
+			// If login() success user is stored in the Server State
+			if (user != null) {
+				// If user is not logged in
+				if (!this.serverState.values().contains(user)) {
+					Long token = Calendar.getInstance().getTimeInMillis();
+					this.serverState.put(token, user);
+					return (token);
+				} else {
+					throw new RemoteException("El usuario ya esta logueado!");
+				}
 			} else {
-				throw new RemoteException("El usuario ya esta logueado!");
+				throw new RemoteException("El logueo falla!");
 			}
-		} else {
-			throw new RemoteException("El logueo falla!");
+		} else if (tipologin.equals(tipologin.FACEBOOK)) {// usuariogoogle
+			return 0L;
+		} else if (tipologin.equals(tipologin.FACEBOOK)) {// usuarioFacebook
+			return 0L;
 		}
+		return 0L;
 	}
 
 	@Override
@@ -79,10 +87,10 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		Long token = null;
 		if (sigue) {
 
-			token = login(email, contrasenya);
+			token = login(Tipologin.LOCAL, email, contrasenya);
 		}
 
-		this.serverState.put(token, new Usuario(nombre, email, fecha, contrasenya));
+		this.serverState.put(token, new UsuarioContra(nombre, email, fecha, contrasenya));
 		return (token);
 	}
 
@@ -140,22 +148,29 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 
 		System.out.println(" * RemoteFacade crearReto()");
 		retoService.crearReto(serverState.get(u), r);
-		serverStateR.put(r.getIdReto(), r);
+		serverStateReto.put(r.getIdReto(), r);
 		return r.getIdReto();
 	}
 
 	@Override
-	public EstadoDTO consultarReto(Long u, Long idReto) throws RemoteException {
+	public RetoDTO consultarReto(Long u, Long idReto) throws RemoteException {
 
 		System.out.println(" * RemoteFacade consultarReto()");
-		return EstadoAssembler.getInstance()
-				.estadoToDTO(retoService.consultarReto(serverState.get(u), serverStateR.get(idReto)));
+		return RetoAssembler.getInstance()
+				.retoToDTO(retoService.consultarReto(serverState.get(u), serverStateReto.get(idReto)));
+	}
+	@SuppressWarnings("unchecked")
+	public List<RetoDTO> consultarRetosActivos(Long u) throws RemoteException {
+
+		System.out.println(" * RemoteFacade consultarReto()");
+		return (List<RetoDTO>) RetoAssembler.getInstance()
+				.retoToDTO((Reto) retoService.obtenerRetosActivos(serverState.get(u)));
 	}
 
 	@Override
 	public void aceptarReto(Long u, Long idReto) throws RemoteException {
 		System.out.println(" * RemoteFacade aceptarReto()");
-		retoService.aceptarReto(serverState.get(u), serverStateR.get(idReto));
+		retoService.aceptarReto(serverState.get(u), serverStateReto.get(idReto));
 	}
 
 //	@Override

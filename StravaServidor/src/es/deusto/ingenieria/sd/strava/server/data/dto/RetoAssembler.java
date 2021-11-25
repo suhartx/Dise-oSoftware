@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.deusto.ingenieria.sd.strava.data.domain.Reto;
+import es.deusto.ingenieria.sd.strava.data.domain.RetoConEstado;
 
 //This class is part of the DTO pattern. It also implements Singleton Pattern.
 public class RetoAssembler {
@@ -29,6 +30,13 @@ public class RetoAssembler {
 		dto.setFechaFin(reto.getFechaFin());
 		dto.setDistancia(reto.getDistancia());
 		dto.setTipoDeporte(reto.getTipoDeporte());
+		dto.setEmailPropietario(reto.getDuenyo().getEmail());
+		if (reto.getClass().getSimpleName().equals("RetoConEstado")) {
+		dto.setPorcentaje(((RetoConEstado) reto).getPorcentaje());	
+		}else {
+			dto.setPorcentaje(0);
+		}
+		
 		return dto;
 	}
 
@@ -37,6 +45,7 @@ public class RetoAssembler {
 
 		for (Reto reto : retos) {
 			dtos.add(this.retoToDTO(reto));
+			
 		}
 
 		return dtos;

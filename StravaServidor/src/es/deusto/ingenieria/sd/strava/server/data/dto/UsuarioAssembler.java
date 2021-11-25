@@ -23,11 +23,11 @@ public class UsuarioAssembler {
 	public UsuarioDTO usuarioToDTO(Usuario usuario) {
 		UsuarioDTO dto = new UsuarioDTO();
 
-		dto.setIdUsuario(usuario.getIdUsuario());
+		// dto.setIdUsuario(usuario.getIdUsuario());
 		dto.setNombre(usuario.getNombre());
 		dto.setEmail(usuario.getEmail());
 		dto.setFechaNacimiento(usuario.getFechaNacimiento());
-		dto.setContrasenya(usuario.getContrasenya());
+		// dto.setContrasenya(usuario.getContrasenya());
 
 		return dto;
 	}

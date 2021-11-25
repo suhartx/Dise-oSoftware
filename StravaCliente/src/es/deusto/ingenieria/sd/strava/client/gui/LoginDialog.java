@@ -1,6 +1,7 @@
 package es.deusto.ingenieria.sd.strava.client.gui;
 
 import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
+import es.deusto.ingenieria.sd.strava.data.domain.Tipologin;
 
 public class LoginDialog {
 	private LoginController controller;
@@ -15,7 +16,7 @@ public class LoginDialog {
 		System.out.println(" - Login into the server: '" + this.email + "' - '" + this.password + "' ...");
 		String sha1 = org.apache.commons.codec.digest.DigestUtils.sha1Hex(password);
 		System.out.println("\t* Password hash: " + sha1);
-		boolean result = this.controller.login(email, sha1);
+		boolean result = this.controller.login(Tipologin.LOCAL, email, sha1);
 		System.out.println("\t* Login result: " + result);
 		System.out.println("\t* Token: " + this.controller.getToken());
 

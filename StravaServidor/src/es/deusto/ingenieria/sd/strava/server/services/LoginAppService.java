@@ -5,15 +5,17 @@ import java.util.Date;
 import java.util.List;
 
 import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
+import es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra;
 
 //TODO: Implement Singleton Pattern
 public class LoginAppService {
 	List<Usuario> Usuarios = new ArrayList<>();
 
+	@SuppressWarnings("unused")
 	public Usuario login(String email, String contrasenya) {
 		// TODO: Get User using DAO and check
 
-		Usuario user = new Usuario();
+		UsuarioContra user = new UsuarioContra();
 		user.setEmail("thomas.e2001@gmail.com");
 		user.setNombre("Thomas");
 		// Generate the hash of the pasword
@@ -24,9 +26,12 @@ public class LoginAppService {
 
 		for (Usuario usuario : Usuarios) {
 
-			if (usuario.getEmail().equals(email) && usuario.checkContrasenya(contrasenya)) {
+			if (usuario.getClass().getSimpleName().equals("UsuarioContra") && usuario.getEmail().equals(email)
+					&& ((UsuarioContra) usuario).checkContrasenya(contrasenya)) {
 				return user;
-			}
+			} else if (false) {
+			} // aqui implementaremos si el usuario viene de facebook y hara la comprobacion
+				// el propio facebook
 
 		}
 		return null;
@@ -43,7 +48,7 @@ public class LoginAppService {
 
 		}
 
-		Usuarios.add(new Usuario(nombre, email, fecha, contrasenya));
+		Usuarios.add(new UsuarioContra(nombre, email, fecha, contrasenya));
 
 		return true;
 	}
