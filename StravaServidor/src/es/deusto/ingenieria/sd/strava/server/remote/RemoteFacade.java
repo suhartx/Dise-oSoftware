@@ -60,7 +60,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 			}
 		} else if (tipologin.equals(tipologin.FACEBOOK)) {// usuariogoogle
 			return 0L;
-		} else if (tipologin.equals(tipologin.FACEBOOK)) {// usuarioFacebook
+		} else if (tipologin.equals(tipologin.GOOGLE)) {// usuarioFacebook
 			return 0L;
 		}
 		return 0L;
