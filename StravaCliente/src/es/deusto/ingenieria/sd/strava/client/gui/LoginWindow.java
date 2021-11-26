@@ -26,25 +26,26 @@ public class LoginWindow {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					LoginWindow window = new LoginWindow();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			@Override
+//			public void run() {
+//				try {
+//					LoginWindow window = new LoginWindow();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
 	public LoginWindow() {
 		initialize();
+
 	}
 
 	/**
@@ -141,6 +142,8 @@ public class LoginWindow {
 		titleLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		titleLabel.setBounds(10, 11, 414, 26);
 		contentPanel.add(titleLabel);
+		
+		frame.setVisible(true);
 	}
 
 }

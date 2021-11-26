@@ -1,5 +1,6 @@
 package es.deusto.ingenieria.sd.strava.client;
 
+import java.awt.EventQueue;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,6 +10,7 @@ import es.deusto.ingenieria.sd.strava.client.controller.EntrenamientoController;
 import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
 import es.deusto.ingenieria.sd.strava.client.controller.RetoController;
 import es.deusto.ingenieria.sd.strava.client.gui.LoginDialog;
+import es.deusto.ingenieria.sd.strava.client.gui.LoginWindow;
 import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
@@ -27,6 +29,8 @@ public class MainProgram {
 		LoginDialog loginDialog = new LoginDialog(loginController);
 		EntrenamientoController entrenamientoController = new EntrenamientoController(serviceLocator);
 		RetoController retoController = new RetoController(serviceLocator);
+		
+		LoginWindow loginWindow = new LoginWindow();
 
 		// Login
 		loginDialog.login();

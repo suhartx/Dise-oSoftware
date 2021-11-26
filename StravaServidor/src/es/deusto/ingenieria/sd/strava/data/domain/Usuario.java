@@ -10,7 +10,7 @@ public class Usuario {
 	private String nombre;
 	private String email;
 	private Date fechaNacimiento;
-
+	
 	/*
 	 * faltan las clases relacionadas
 	 */

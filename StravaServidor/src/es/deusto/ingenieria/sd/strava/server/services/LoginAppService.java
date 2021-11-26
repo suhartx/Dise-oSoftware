@@ -52,5 +52,13 @@ public class LoginAppService {
 
 		return true;
 	}
+	
+	public void loginFacebook(){
+		
+	}
+	
+	public void loginGoogle() {
+		
+	}
 
 }
