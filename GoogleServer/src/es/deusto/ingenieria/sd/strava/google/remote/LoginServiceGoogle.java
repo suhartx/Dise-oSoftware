@@ -1,13 +1,7 @@
 package es.deusto.ingenieria.sd.strava.google.remote;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.HashMap;
 
 public class LoginServiceGoogle extends UnicastRemoteObject implements ILoginGoogle {

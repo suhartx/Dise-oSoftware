@@ -22,6 +22,6 @@ public class LoginServerGoogle {
 			System.out.println(" # Servidor de google: " + ex.getMessage());
 			ex.printStackTrace();
 		}
-
+//
 	}
 }
