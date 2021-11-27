@@ -10,9 +10,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.border.LineBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class InitializationWindow {
 	// If it's selected register take to registerWindow
@@ -22,7 +25,7 @@ public class InitializationWindow {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void NewScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
@@ -75,6 +78,21 @@ public class InitializationWindow {
 		buttonsPanel.setLayout(null);
 
 		JButton toRegisterMenuButton = new JButton("Registrarse");
+		toRegisterMenuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						frame.setVisible(false);
+						RegisterMenuWindow rw = new RegisterMenuWindow();
+						rw.NewScreen();
+						
+					}
+				});
+				
+			}
+		});
 		toRegisterMenuButton.setForeground(UIManager.getColor("CheckBox.focus"));
 		toRegisterMenuButton.setBackground(UIManager.getColor("CheckBox.light"));
 		toRegisterMenuButton.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -82,6 +100,23 @@ public class InitializationWindow {
 		buttonsPanel.add(toRegisterMenuButton);
 
 		JButton toLoginMenuButton = new JButton("Iniciar sesi\u00F3n");
+		toLoginMenuButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						frame.setVisible(false);
+						LoginMenuWindow lw = new LoginMenuWindow();
+						lw.NewScreen();
+						
+					}
+				});
+				
+			}
+		});
 		toLoginMenuButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		toLoginMenuButton.setBackground(UIManager.getColor("CheckBox.light"));
 		toLoginMenuButton.setForeground(UIManager.getColor("CheckBox.focus"));

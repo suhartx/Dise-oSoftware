@@ -14,13 +14,25 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
 
+import java.text.ParseException;
 import com.toedter.calendar.JMonthChooser;
 import com.toedter.calendar.JYearChooser;
+
+import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
+import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
+import es.deusto.ingenieria.sd.strava.data.domain.Tipologin;
+import java.text.SimpleDateFormat;
+
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.awt.event.ActionEvent;
 
 public class RegisterWithEmailWindow {
 
@@ -28,11 +40,21 @@ public class RegisterWithEmailWindow {
 	private JTextField emailTextField;
 	private JPasswordField passwordField;
 	private JTextField nombreTextField;
-
+	private JYearChooser yearChooserSpinner;
+	private JMonthChooser monthChooserSpinner;
+	private JSpinner dayChooserSpinner;
+	private LoginController loginController;
+	private static ServiceLocator serviceLocator = new ServiceLocator();
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
+//		ServiceLocator serviceLocator = new ServiceLocator();
+//		serviceLocator.setService(args[0], args[1], args[2]);
+//	}
+	public static void NewScreen() {
+		//serviceLocator = new ServiceLocator();
+		//serviceLocator.getService();
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
@@ -57,6 +79,7 @@ public class RegisterWithEmailWindow {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		//loginController = new LoginController(serviceLocator);
 		frame = new JFrame();
 		frame.setBounds(100, 100, 483, 381);
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -77,6 +100,36 @@ public class RegisterWithEmailWindow {
 		contentPanel.add(buttonsPanel);
 
 		JButton toMenuButton = new JButton("Acceder");
+		toMenuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						int anyo = yearChooserSpinner.getValue();
+						int mes = monthChooserSpinner.getMonth();
+						int dia = (Integer)dayChooserSpinner.getValue();
+						String str = Integer.toString(dia) + " " + Integer.toString(mes) + " " + Integer.toString(anyo);
+						SimpleDateFormat df = new SimpleDateFormat("MM dd yyyy");
+						long tiempo = 0;
+						try {
+							tiempo = df.parse(str).getTime();
+						} catch (ParseException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						//loginController.registro(emailTextField.getText(), nombreTextField.getText(), new Date(tiempo), passwordField.getPassword().toString());
+						//check if user exists!
+						frame.setVisible(false);
+						MenuWindow mw = new MenuWindow();
+						mw.NewScreen();
+						
+					}
+				});
+				
+				
+			}
+		});
 		toMenuButton.setForeground(Color.BLACK);
 		toMenuButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		toMenuButton.setBackground(SystemColor.controlShadow);
@@ -104,7 +157,6 @@ public class RegisterWithEmailWindow {
 
 		emailTextField = new JTextField();
 		emailTextField.setToolTipText("");
-		emailTextField.setText("example@gmail.com");
 		emailTextField.setFont(new Font("Tahoma", Font.ITALIC, 11));
 		emailTextField.setColumns(10);
 		emailTextField.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -136,6 +188,21 @@ public class RegisterWithEmailWindow {
 		enterPasswordTextPanel.add(passwordField);
 
 		JButton backButton = new JButton("Volver");
+		backButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						frame.setVisible(false);
+						RegisterMenuWindow rw = new RegisterMenuWindow();
+						rw.NewScreen();
+						
+					}
+				});
+				
+			}
+		});
 		backButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		backButton.setBounds(10, 2, 118, 23);
 		buttonsPanel.add(backButton);
@@ -161,7 +228,6 @@ public class RegisterWithEmailWindow {
 
 		nombreTextField = new JTextField();
 		nombreTextField.setToolTipText("");
-		nombreTextField.setText("example");
 		nombreTextField.setFont(new Font("Tahoma", Font.ITALIC, 11));
 		nombreTextField.setColumns(10);
 		nombreTextField.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -188,17 +254,17 @@ public class RegisterWithEmailWindow {
 		fechaNacimientoLabel.setBounds(10, 0, 92, 28);
 		enterFechaNacimientoTextPanel.add(fechaNacimientoLabel);
 
-		JYearChooser yearChooserSpinner = new JYearChooser();
+		yearChooserSpinner = new JYearChooser();
 		yearChooserSpinner.setBounds(300, 4, 48, 20);
 		yearChooserSpinner.setEndYear(2021);
-		yearChooserSpinner.setEndYear(1900);
+		yearChooserSpinner.setStartYear(1900);
 		enterFechaNacimientoTextPanel.add(yearChooserSpinner);
 
-		JMonthChooser monthChooserSpinner = new JMonthChooser();
+		monthChooserSpinner = new JMonthChooser();
 		monthChooserSpinner.setBounds(178, 4, 100, 20);
 		enterFechaNacimientoTextPanel.add(monthChooserSpinner);
 
-		JSpinner dayChooserSpinner = new JSpinner();
+		dayChooserSpinner = new JSpinner();
 		dayChooserSpinner.setModel(new SpinnerNumberModel(1, 1, 31, 1));
 		dayChooserSpinner.setBounds(128, 4, 30, 20);
 		enterFechaNacimientoTextPanel.add(dayChooserSpinner);

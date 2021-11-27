@@ -12,7 +12,7 @@ public class RetoDTO implements Serializable {
 	private Date fechaInicio;
 	private Date fechaFin;
 	private double distancia;
-	private String tipoDeporte;
+	private String tipoDeporte;//ENUM!
 	
 	private String emailPropietario;
 	private int porcentaje;

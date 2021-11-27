@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.border.BevelBorder;
@@ -21,7 +22,7 @@ public class MenuWindow {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void NewScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
@@ -59,7 +60,7 @@ public class MenuWindow {
 
 		JPanel buttonsPanel = new JPanel();
 		buttonsPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		buttonsPanel.setBounds(126, 75, 206, 147);
+		buttonsPanel.setBounds(126, 75, 206, 154);
 		contentPanel.add(buttonsPanel);
 		buttonsPanel.setLayout(null);
 
@@ -68,12 +69,36 @@ public class MenuWindow {
 		crearEntrenamientoButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						frame.setVisible(false);
+						CrearEntrenamientoWindow cew = new CrearEntrenamientoWindow();
+						cew.NewScreen();
+						
+					}
+				});
 			}
 		});
 		crearEntrenamientoButton.setBounds(10, 11, 170, 23);
 		buttonsPanel.add(crearEntrenamientoButton);
 
 		JButton crearRetoButton = new JButton("Crear Reto");
+		crearRetoButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						frame.setVisible(false);
+						CrearRetoWindow crw = new CrearRetoWindow();
+						crw.NewScreen();
+						
+					}
+				});
+			}
+		});
 		crearRetoButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		crearRetoButton.setBounds(10, 45, 170, 23);
 		buttonsPanel.add(crearRetoButton);
@@ -82,16 +107,40 @@ public class MenuWindow {
 		buscarRetosButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						frame.setVisible(false);
+						BuscarRetosWindow brw = new BuscarRetosWindow();
+						brw.NewScreen();
+						
+					}
+				});
 			}
 		});
 		buscarRetosButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		buscarRetosButton.setBounds(10, 79, 170, 23);
 		buttonsPanel.add(buscarRetosButton);
 
-		JButton consultarRetosButton = new JButton("Consultar Retos");
-		consultarRetosButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		consultarRetosButton.setBounds(10, 113, 170, 23);
-		buttonsPanel.add(consultarRetosButton);
+		JButton buscarEntrenamientosButton = new JButton("Buscar entrenamiento");
+		buscarEntrenamientosButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						frame.setVisible(false);
+						BuscarEntrenamientosWindow bew = new BuscarEntrenamientosWindow();
+						bew.NewScreen();
+						
+					}
+				});
+			}
+		});
+		buscarEntrenamientosButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		buscarEntrenamientosButton.setBounds(10, 113, 170, 23);
+		buttonsPanel.add(buscarEntrenamientosButton);
 
 		JPanel titlePanel = new JPanel();
 		titlePanel.setBounds(10, 11, 414, 34);
@@ -114,6 +163,18 @@ public class MenuWindow {
 		logOutButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						//logOut
+						frame.setVisible(false);
+						InitializationWindow iw = new InitializationWindow();
+						iw.NewScreen();
+						
+					}
+				});
+				
 			}
 		});
 	}

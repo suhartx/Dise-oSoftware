@@ -14,6 +14,7 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
@@ -21,6 +22,8 @@ import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
 
 import com.toedter.calendar.JDateChooser;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CrearRetoWindow {
 
@@ -30,7 +33,7 @@ public class CrearRetoWindow {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void NewScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
@@ -216,6 +219,21 @@ public class CrearRetoWindow {
 		variablesPanel.add(fechaInicioCalendar);
 
 		JButton CrearEntrenamientoButton = new JButton("Crear Entrenamiento");
+		CrearEntrenamientoButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						//alerta reto creado
+						frame.setVisible(false);
+						BuscarRetosWindow brw = new BuscarRetosWindow();
+						brw.NewScreen();
+						
+					}
+				});
+			}
+		});
 		CrearEntrenamientoButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		CrearEntrenamientoButton.setBounds(133, 198, 170, 23);
 		variablesPanel.add(CrearEntrenamientoButton);
@@ -253,11 +271,40 @@ public class CrearRetoWindow {
 		variablesPanel.add(runningRadioButton);
 
 		JButton logOutButton = new JButton("Cerrar sesi\u00F3n");
+		logOutButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						//logout
+						frame.setVisible(false);
+						InitializationWindow iw = new InitializationWindow();
+						iw.NewScreen();
+						
+					}
+				});
+			}
+		});
 		logOutButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		logOutButton.setBounds(349, 8, 118, 23);
 		contentPanel.add(logOutButton);
 
 		JButton backButton = new JButton("Volver");
+		backButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						frame.setVisible(false);
+						MenuWindow mw = new MenuWindow();
+						mw.NewScreen();
+						
+					}
+				});
+			}
+		});
 		backButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		backButton.setBounds(10, 8, 118, 23);
 		contentPanel.add(backButton);

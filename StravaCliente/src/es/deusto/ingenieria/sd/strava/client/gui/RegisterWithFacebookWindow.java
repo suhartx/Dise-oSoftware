@@ -12,10 +12,13 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RegisterWithFacebookWindow {
 
@@ -26,7 +29,7 @@ public class RegisterWithFacebookWindow {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void NewScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
@@ -71,6 +74,21 @@ public class RegisterWithFacebookWindow {
 		contentPanel.add(buttonsPanel);
 
 		JButton toMenuButton = new JButton("Acceder");
+		toMenuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						frame.setVisible(false);
+						MenuWindow mw = new MenuWindow();
+						mw.NewScreen();
+						
+					}
+				});
+				
+			}
+		});
 		toMenuButton.setForeground(Color.BLACK);
 		toMenuButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		toMenuButton.setBackground(SystemColor.controlShadow);
@@ -130,6 +148,21 @@ public class RegisterWithFacebookWindow {
 		enterPasswordTextPanel.add(passwordField);
 
 		JButton backButton = new JButton("Volver");
+		backButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						frame.setVisible(false);
+						RegisterMenuWindow rw = new RegisterMenuWindow();
+						rw.NewScreen();
+						
+					}
+				});
+			
+			}
+		});
 		backButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		backButton.setBounds(10, 2, 118, 23);
 		buttonsPanel.add(backButton);

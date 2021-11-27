@@ -16,6 +16,7 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.border.BevelBorder;
@@ -32,7 +33,7 @@ public class CrearEntrenamientoWindow {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void NewScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
@@ -232,6 +233,18 @@ public class CrearEntrenamientoWindow {
 		CrearEntrenamientoButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						//alerta de entrenamiento creado
+						frame.setVisible(false);
+						BuscarEntrenamientosWindow bew = new BuscarEntrenamientosWindow();
+						bew.NewScreen();
+						
+					}
+				});
+				
 			}
 		});
 		CrearEntrenamientoButton.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -258,11 +271,41 @@ public class CrearEntrenamientoWindow {
 		variablesPanel.add(fechaFinCalendar);
 
 		JButton logOutButton = new JButton("Cerrar sesi\u00F3n");
+		logOutButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						//logout
+						frame.setVisible(false);
+						InitializationWindow iw = new InitializationWindow();
+						iw.NewScreen();
+						
+					}
+				});
+			}
+		});
 		logOutButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		logOutButton.setBounds(316, 11, 118, 23);
 		contentPanel.add(logOutButton);
 
 		JButton backButton = new JButton("Volver");
+		backButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						frame.setVisible(false);
+						MenuWindow mw = new MenuWindow();
+						mw.NewScreen();
+						
+					}
+				});
+			}
+		});
 		backButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		backButton.setBounds(10, 11, 118, 23);
 		contentPanel.add(backButton);

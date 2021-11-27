@@ -31,7 +31,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 
-public class BuscarRetosWindow {
+public class BuscarEntrenamientosWindow {
 
 	private JFrame frame;
 	private JTextField searchBarText;
@@ -44,7 +44,7 @@ public class BuscarRetosWindow {
 			@Override
 			public void run() {
 				try {
-					BuscarRetosWindow window = new BuscarRetosWindow();
+					BuscarEntrenamientosWindow window = new BuscarEntrenamientosWindow();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,7 +56,7 @@ public class BuscarRetosWindow {
 	/**
 	 * Create the application.
 	 */
-	public BuscarRetosWindow() {
+	public BuscarEntrenamientosWindow() {
 		initialize();
 	}
 
@@ -94,14 +94,14 @@ public class BuscarRetosWindow {
 		
 		
 		DefaultListModel<String> retosNombres = new DefaultListModel();
-		retosNombres.addElement("reto 1");
-		retosNombres.addElement("reto 2");
-		retosNombres.addElement("reto 3");
-		retosNombres.addElement("reto 4");
-		retosNombres.addElement("reto 5");
-		JList retosList = new JList();
-		retosList.setModel(retosNombres);
-		retosList.addListSelectionListener(new ListSelectionListener() {
+		retosNombres.addElement("entrenamiento 1");
+		retosNombres.addElement("entrenamiento 2");
+		retosNombres.addElement("entrenamiento 3");
+		retosNombres.addElement("entrenamiento 4");
+		retosNombres.addElement("entrenamiento 5");
+		JList entrenamientosList = new JList();
+		entrenamientosList.setModel(retosNombres);
+		entrenamientosList.addListSelectionListener(new ListSelectionListener() {
 			
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
@@ -109,17 +109,16 @@ public class BuscarRetosWindow {
 					
 					@Override
 					public void run() {
-						//select reto
-						frame.setVisible(true);
-						RetoWindow rw = new RetoWindow();
+						frame.setVisible(false);
+						EntrenamientoWindow rw = new EntrenamientoWindow();
 						rw.NewScreen();
-						
 					}
 				});
+			
 				
 			}
 		});
-		scrollPane.setViewportView(retosList);
+		scrollPane.setViewportView(entrenamientosList);
 		
 		JPanel searchBarPanel = new JPanel();
 		searchBarPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -153,9 +152,9 @@ public class BuscarRetosWindow {
 		                        }
 		                    }
 		                    //agrega nuevo modelo a JList
-		                    retosList.setModel(tmp);
+		                    entrenamientosList.setModel(tmp);
 		                } else {//si esta vacio muestra el Model original
-		                	retosList.setModel(retosNombres);
+		                	entrenamientosList.setModel(retosNombres);
 		                }
 		            }
 				});
@@ -164,15 +163,13 @@ public class BuscarRetosWindow {
 		searchBarButton.setBounds(207, 4, 89, 23);
 		searchBarPanel.add(searchBarButton);
 		
-		String [] opciones = {"Todos los retos", "Retos activos", "Retos no aceptados"};
+		String [] opciones = {"Todos los entrenamientos", "Mis entrenamientos"};
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(opciones));
 		if (comboBox.getSelectedIndex() == 0) {
 			//all
 		}else if (comboBox.getSelectedIndex() == 1) {
-			//actives
-		}else if (comboBox.getSelectedIndex() == 2) {
-			//not accepted
+			//mis entrenamientos
 		}
 		comboBox.setBounds(26, 54, 119, 22);
 		retoListPanel.add(comboBox);
@@ -216,7 +213,7 @@ public class BuscarRetosWindow {
 		backButton.setBounds(10, 11, 118, 23);
 		contentPanel.add(backButton);
 
-		JLabel titleLabel = new JLabel("Retos");
+		JLabel titleLabel = new JLabel("Entrenamientos");
 		titleLabel.setForeground(Color.DARK_GRAY);
 		titleLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);

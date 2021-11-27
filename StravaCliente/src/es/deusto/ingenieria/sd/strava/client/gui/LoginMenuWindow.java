@@ -16,7 +16,7 @@ import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.border.LineBorder;
 
-public class RegisterMenuWindow {
+public class LoginMenuWindow {
 
 	private JFrame frame;
 
@@ -28,7 +28,7 @@ public class RegisterMenuWindow {
 			@Override
 			public void run() {
 				try {
-					RegisterMenuWindow window = new RegisterMenuWindow();
+					LoginMenuWindow window = new LoginMenuWindow();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +40,7 @@ public class RegisterMenuWindow {
 	/**
 	 * Create the application.
 	 */
-	public RegisterMenuWindow() {
+	public LoginMenuWindow() {
 		initialize();
 	}
 
@@ -60,13 +60,13 @@ public class RegisterMenuWindow {
 		contentPanel.setBounds(0, 0, 434, 261);
 		frame.getContentPane().add(contentPanel);
 
-		JLabel lblRegistro = new JLabel("REGISTRO");
-		lblRegistro.setVerticalAlignment(SwingConstants.TOP);
-		lblRegistro.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRegistro.setForeground(Color.WHITE);
-		lblRegistro.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblRegistro.setBounds(10, 11, 414, 26);
-		contentPanel.add(lblRegistro);
+		JLabel lblTitle = new JLabel("INICIO SESI\u00D3N");
+		lblTitle.setVerticalAlignment(SwingConstants.TOP);
+		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitle.setForeground(Color.WHITE);
+		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblTitle.setBounds(10, 11, 414, 26);
+		contentPanel.add(lblTitle);
 
 		JPanel buttonsPanel = new JPanel();
 		buttonsPanel.setLayout(null);
@@ -75,8 +75,8 @@ public class RegisterMenuWindow {
 		buttonsPanel.setBounds(62, 36, 307, 214);
 		contentPanel.add(buttonsPanel);
 
-		JButton btnCrearCuenta = new JButton("Crear cuenta");
-		btnCrearCuenta.addActionListener(new ActionListener() {
+		JButton btnIniciarSesion = new JButton("Iniciar sesi\u00F3n");
+		btnIniciarSesion.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
@@ -84,38 +84,39 @@ public class RegisterMenuWindow {
 					@Override
 					public void run() {
 						frame.setVisible(false);
-						RegisterWithEmailWindow rw = new RegisterWithEmailWindow();
-						rw.NewScreen();
+						LoginWithEmailWindow lw = new LoginWithEmailWindow();
+						lw.NewScreen();
 					}
 				});
 			}
 		});
-		btnCrearCuenta.setForeground(UIManager.getColor("CheckBox.focus"));
-		btnCrearCuenta.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnCrearCuenta.setBackground(UIManager.getColor("CheckBox.light"));
-		btnCrearCuenta.setBounds(51, 61, 187, 71);
-		buttonsPanel.add(btnCrearCuenta);
+		btnIniciarSesion.setForeground(UIManager.getColor("CheckBox.focus"));
+		btnIniciarSesion.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnIniciarSesion.setBackground(UIManager.getColor("CheckBox.light"));
+		btnIniciarSesion.setBounds(51, 61, 187, 71);
+		buttonsPanel.add(btnIniciarSesion);
 
-		JButton btnRegistrarseConGoogle = new JButton("Registrarse con Google");
-		btnRegistrarseConGoogle.addActionListener(new ActionListener() {
+		JButton btnInicioGoogle = new JButton("Iniciar sesi\u00F3n con Google");
+		btnInicioGoogle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
 					
 					@Override
 					public void run() {
 						frame.setVisible(false);
-						RegisterWithGoogleWindow rwg = new RegisterWithGoogleWindow();
-						rwg.NewScreen();
+						LoginWithGoogleWindow lwG = new LoginWithGoogleWindow();
+						lwG.NewScreen();
+						
 					}
 				});
 				
 			}
 		});
-		btnRegistrarseConGoogle.setForeground(Color.WHITE);
-		btnRegistrarseConGoogle.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnRegistrarseConGoogle.setBackground(Color.DARK_GRAY);
-		btnRegistrarseConGoogle.setBounds(65, 160, 162, 21);
-		buttonsPanel.add(btnRegistrarseConGoogle);
+		btnInicioGoogle.setForeground(Color.WHITE);
+		btnInicioGoogle.setFont(new Font("Tahoma", Font.BOLD, 10));
+		btnInicioGoogle.setBackground(Color.DARK_GRAY);
+		btnInicioGoogle.setBounds(51, 160, 187, 21);
+		buttonsPanel.add(btnInicioGoogle);
 
 		JLabel lblNewLabel = new JLabel("Bienvenido/a seleccione una opci\u00F3n");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -124,27 +125,27 @@ public class RegisterMenuWindow {
 		lblNewLabel.setBounds(10, 11, 287, 36);
 		buttonsPanel.add(lblNewLabel);
 
-		JButton btnRegistrarseConFacebook = new JButton("Registrarse con Facebook");
-		btnRegistrarseConFacebook.addActionListener(new ActionListener() {
+		JButton btnInicioConFacebook = new JButton("Iniciar sesi\u00F3n con Facebook");
+		btnInicioConFacebook.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
 					
 					@Override
 					public void run() {
 						frame.setVisible(false);
-						RegisterWithFacebookWindow rwF = new RegisterWithFacebookWindow();
-						rwF.NewScreen();
+						LoginWithFacebookWindow lwF = new LoginWithFacebookWindow();
+						lwF.NewScreen();
 						
 					}
 				});
 				
 			}
 		});
-		btnRegistrarseConFacebook.setForeground(Color.WHITE);
-		btnRegistrarseConFacebook.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnRegistrarseConFacebook.setBackground(Color.DARK_GRAY);
-		btnRegistrarseConFacebook.setBounds(65, 182, 162, 21);
-		buttonsPanel.add(btnRegistrarseConFacebook);
+		btnInicioConFacebook.setForeground(Color.WHITE);
+		btnInicioConFacebook.setFont(new Font("Tahoma", Font.BOLD, 10));
+		btnInicioConFacebook.setBackground(Color.DARK_GRAY);
+		btnInicioConFacebook.setBounds(51, 182, 187, 21);
+		buttonsPanel.add(btnInicioConFacebook);
 		
 		JButton backButton = new JButton("Volver");
 		backButton.addActionListener(new ActionListener() {
@@ -156,13 +157,14 @@ public class RegisterMenuWindow {
 						frame.setVisible(false);
 						InitializationWindow iw = new InitializationWindow();
 						iw.NewScreen();
+						
 					}
 				});
 				
 			}
 		});
+		backButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		backButton.setBounds(0, 0, 118, 23);
 		contentPanel.add(backButton);
-		backButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 	}
 }
