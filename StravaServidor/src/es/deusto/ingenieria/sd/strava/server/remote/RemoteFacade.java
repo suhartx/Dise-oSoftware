@@ -17,6 +17,7 @@ import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
+import es.deusto.ingenieria.sd.strava.server.gateway.LoginFactory;
 import es.deusto.ingenieria.sd.strava.server.services.EntrenamientoAppService;
 import es.deusto.ingenieria.sd.strava.server.services.LoginAppService;
 import es.deusto.ingenieria.sd.strava.server.services.RetoAppService;
@@ -61,7 +62,16 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		} else if (tipologin.equals(tipologin.FACEBOOK)) {// usuariogoogle
 			return 0L;
 		} else if (tipologin.equals(tipologin.GOOGLE)) {// usuarioFacebook
-			return 0L;
+			
+			
+			if (LoginFactory.getInstance().crearGateway(tipologin.GOOGLE).iniciarSesion(email, password)) {
+				Long token = Calendar.getInstance().getTimeInMillis();
+				this.serverState.put(token, new Usuario(null, email, null));
+				return (token);	
+			} else {
+				throw new RemoteException("El logueo falla!");
+			}
+		
 		}
 		return 0L;
 	}

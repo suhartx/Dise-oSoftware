@@ -1,5 +1,5 @@
 package es.deusto.ingenieria.sd.strava.server.gateway;
 
-public class FacebookGateway extends Gateway {
+public class FacebookServiceGateway extends Gateway {
 
 }
