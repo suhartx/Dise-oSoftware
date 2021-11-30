@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -17,8 +20,9 @@ import javax.swing.WindowConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import es.deusto.ingenieria.sd.strava.client.MainProgram;
+import es.deusto.ingenieria.sd.strava.data.domain.Tipologin;
 
 public class LoginWithEmailWindow {
 
@@ -75,18 +79,27 @@ public class LoginWithEmailWindow {
 
 		JButton toMenuButton = new JButton("Acceder");
 		toMenuButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
-						frame.setVisible(false);
-						MenuWindow mw = new MenuWindow();
-						mw.NewScreen();
-						
+						if (MainProgram.getInstance().getLoginController().login(Tipologin.LOCAL, textField.getText(), String.valueOf(passwordField.getPassword()))) {
+							frame.setVisible(false);
+
+							//MainProgram.getInstance().
+
+							MenuWindow mw = new MenuWindow();
+							MenuWindow.NewScreen();
+							}else {
+								JOptionPane.showMessageDialog(frame,
+									    "ERROR: Introduce un usuario y contraseña válidos.");
+							}
+
 					}
 				});
-				
+
 			}
 		});
 		toMenuButton.setForeground(Color.BLACK);
@@ -149,18 +162,19 @@ public class LoginWithEmailWindow {
 
 		JButton backButton = new JButton("Volver");
 		backButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						InitializationWindow iw = new InitializationWindow();
-						iw.NewScreen();
-						
+						InitializationWindow.NewScreen();
+
 					}
 				});
-				
+
 			}
 		});
 		backButton.setFont(new Font("Tahoma", Font.BOLD, 11));

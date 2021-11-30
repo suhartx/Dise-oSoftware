@@ -4,6 +4,10 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,19 +24,11 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
 
-import java.text.ParseException;
 import com.toedter.calendar.JMonthChooser;
 import com.toedter.calendar.JYearChooser;
 
 import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
 import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
-import es.deusto.ingenieria.sd.strava.data.domain.Tipologin;
-import java.text.SimpleDateFormat;
-
-import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.awt.event.ActionEvent;
 
 public class RegisterWithEmailWindow {
 
@@ -101,9 +97,10 @@ public class RegisterWithEmailWindow {
 
 		JButton toMenuButton = new JButton("Acceder");
 		toMenuButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						int anyo = yearChooserSpinner.getValue();
@@ -122,12 +119,12 @@ public class RegisterWithEmailWindow {
 						//check if user exists!
 						frame.setVisible(false);
 						MenuWindow mw = new MenuWindow();
-						mw.NewScreen();
-						
+						MenuWindow.NewScreen();
+
 					}
 				});
-				
-				
+
+
 			}
 		});
 		toMenuButton.setForeground(Color.BLACK);
@@ -189,18 +186,19 @@ public class RegisterWithEmailWindow {
 
 		JButton backButton = new JButton("Volver");
 		backButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						RegisterMenuWindow rw = new RegisterMenuWindow();
-						rw.NewScreen();
-						
+						RegisterMenuWindow.NewScreen();
+
 					}
 				});
-				
+
 			}
 		});
 		backButton.setFont(new Font("Tahoma", Font.BOLD, 11));

@@ -59,10 +59,16 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 			} else {
 				throw new RemoteException("El logueo falla!");
 			}
-		} else if (tipologin.equals(tipologin.FACEBOOK)) {// usuariogoogle
-			return 0L;
+		} else if (tipologin.equals(tipologin.FACEBOOK)) {
+
+			if (LoginFactory.getInstance().crearGateway(tipologin.FACEBOOK).iniciarSesion(email, password)) {
+				Long token = Calendar.getInstance().getTimeInMillis();
+				this.serverState.put(token, new Usuario(null, email, null));
+				return (token);	
+			} else {
+				throw new RemoteException("El logueo falla!");
+			}
 		} else if (tipologin.equals(tipologin.GOOGLE)) {// usuarioFacebook
-			
 			
 			if (LoginFactory.getInstance().crearGateway(tipologin.GOOGLE).iniciarSesion(email, password)) {
 				Long token = Calendar.getInstance().getTimeInMillis();

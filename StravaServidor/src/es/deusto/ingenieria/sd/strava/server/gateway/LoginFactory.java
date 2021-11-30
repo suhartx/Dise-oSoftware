@@ -21,7 +21,7 @@ public class LoginFactory {
 		if (t == t.GOOGLE) {
 			return GoogleServiceGateway.getInstance();
 		}else {
-			return null;
+			return FacebookServiceGateway.getInstance();
 		}
 	}
 }

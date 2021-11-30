@@ -20,9 +20,16 @@ import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 
 
 public class MainProgram {
-
+	private static ServiceLocator serviceLocator;
+	private static MainProgram instance;
+	private LoginController loginController = new LoginController(serviceLocator);
+	private LoginDialog loginDialog = new LoginDialog(loginController);
+	private EntrenamientoController entrenamientoController = new EntrenamientoController(serviceLocator);
+	private RetoController retoController = new RetoController(serviceLocator);
+	
+	
 	public static void main(String[] args) {
-		ServiceLocator serviceLocator = new ServiceLocator();
+		serviceLocator = new ServiceLocator();
 
 		// args[0] = RMIRegistry IP
 		// args[1] = RMIRegistry Port
@@ -37,13 +44,7 @@ public class MainProgram {
 				
 			}
 		});
-		
 
-		LoginController loginController = new LoginController(serviceLocator);
-		LoginDialog loginDialog = new LoginDialog(loginController);
-		EntrenamientoController entrenamientoController = new EntrenamientoController(serviceLocator);
-		RetoController retoController = new RetoController(serviceLocator);
-		
 
 		// Login
 		//loginDialog.login();
@@ -91,4 +92,26 @@ public class MainProgram {
 //		// Logout
 //		loginDialog.logout();
 	}
+	public static MainProgram getInstance() {
+		
+		if(instance == null) {
+			instance = new MainProgram();
+		}
+		
+		return instance;
+	}
+	public LoginController getLoginController() {
+		return loginController;
+	}
+	public LoginDialog getLoginDialog() {
+		return loginDialog;
+	}
+	public EntrenamientoController getEntrenamientoController() {
+		return entrenamientoController;
+	}
+	public RetoController getRetoController() {
+		return retoController;
+	}
+
+
 }

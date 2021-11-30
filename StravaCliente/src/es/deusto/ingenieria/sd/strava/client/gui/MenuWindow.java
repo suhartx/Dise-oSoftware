@@ -70,13 +70,13 @@ public class MenuWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						CrearEntrenamientoWindow cew = new CrearEntrenamientoWindow();
-						cew.NewScreen();
-						
+						CrearEntrenamientoWindow.NewScreen();
+
 					}
 				});
 			}
@@ -86,15 +86,16 @@ public class MenuWindow {
 
 		JButton crearRetoButton = new JButton("Crear Reto");
 		crearRetoButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						CrearRetoWindow crw = new CrearRetoWindow();
-						crw.NewScreen();
-						
+						CrearRetoWindow.NewScreen();
+
 					}
 				});
 			}
@@ -108,13 +109,13 @@ public class MenuWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						BuscarRetosWindow brw = new BuscarRetosWindow();
-						brw.NewScreen();
-						
+						BuscarRetosWindow.NewScreen();
+
 					}
 				});
 			}
@@ -125,15 +126,16 @@ public class MenuWindow {
 
 		JButton buscarEntrenamientosButton = new JButton("Buscar entrenamiento");
 		buscarEntrenamientosButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						BuscarEntrenamientosWindow bew = new BuscarEntrenamientosWindow();
-						bew.NewScreen();
-						
+						BuscarEntrenamientosWindow.NewScreen();
+
 					}
 				});
 			}
@@ -164,17 +166,17 @@ public class MenuWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						//logOut
 						frame.setVisible(false);
 						InitializationWindow iw = new InitializationWindow();
-						iw.NewScreen();
-						
+						InitializationWindow.NewScreen();
+
 					}
 				});
-				
+
 			}
 		});
 	}

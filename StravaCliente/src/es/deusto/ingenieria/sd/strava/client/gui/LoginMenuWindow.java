@@ -80,12 +80,12 @@ public class LoginMenuWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						LoginWithEmailWindow lw = new LoginWithEmailWindow();
-						lw.NewScreen();
+						LoginWithEmailWindow.NewScreen();
 					}
 				});
 			}
@@ -98,18 +98,20 @@ public class LoginMenuWindow {
 
 		JButton btnInicioGoogle = new JButton("Iniciar sesi\u00F3n con Google");
 		btnInicioGoogle.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
+
 						frame.setVisible(false);
 						LoginWithGoogleWindow lwG = new LoginWithGoogleWindow();
-						lwG.NewScreen();
-						
+						LoginWithGoogleWindow.NewScreen();
+
 					}
 				});
-				
+
 			}
 		});
 		btnInicioGoogle.setForeground(Color.WHITE);
@@ -127,18 +129,19 @@ public class LoginMenuWindow {
 
 		JButton btnInicioConFacebook = new JButton("Iniciar sesi\u00F3n con Facebook");
 		btnInicioConFacebook.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						LoginWithFacebookWindow lwF = new LoginWithFacebookWindow();
-						lwF.NewScreen();
-						
+						LoginWithFacebookWindow.NewScreen();
+
 					}
 				});
-				
+
 			}
 		});
 		btnInicioConFacebook.setForeground(Color.WHITE);
@@ -146,21 +149,22 @@ public class LoginMenuWindow {
 		btnInicioConFacebook.setBackground(Color.DARK_GRAY);
 		btnInicioConFacebook.setBounds(51, 182, 187, 21);
 		buttonsPanel.add(btnInicioConFacebook);
-		
+
 		JButton backButton = new JButton("Volver");
 		backButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						InitializationWindow iw = new InitializationWindow();
-						iw.NewScreen();
-						
+						InitializationWindow.NewScreen();
+
 					}
 				});
-				
+
 			}
 		});
 		backButton.setFont(new Font("Tahoma", Font.BOLD, 11));

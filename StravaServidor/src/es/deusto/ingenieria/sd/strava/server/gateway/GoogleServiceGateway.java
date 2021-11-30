@@ -13,7 +13,7 @@ public class GoogleServiceGateway extends Gateway {
 	
 	private GoogleServiceGateway() {
 		try {
-			String URL = "//127.0.0.1:1099/GoolgeServer";
+			String URL = "//127.0.0.1:1099/GoogleServer";
 			this.loginGoogleService= (ILoginGoogle) Naming.lookup(URL);
 		} catch (Exception ex) {
 			System.err.println("# Error locating remote fa�ade: " + ex);

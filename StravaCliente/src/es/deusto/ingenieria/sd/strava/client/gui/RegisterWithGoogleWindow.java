@@ -78,13 +78,13 @@ public class RegisterWithGoogleWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						MenuWindow mw = new MenuWindow();
-						mw.NewScreen();
-						
+						MenuWindow.NewScreen();
+
 					}
 				});
 			}
@@ -149,18 +149,19 @@ public class RegisterWithGoogleWindow {
 
 		JButton backButton = new JButton("Volver");
 		backButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						RegisterMenuWindow rw = new RegisterMenuWindow();
-						rw.NewScreen();
-						
+						RegisterMenuWindow.NewScreen();
+
 					}
 				});
-				
+
 			}
 		});
 		backButton.setFont(new Font("Tahoma", Font.BOLD, 11));

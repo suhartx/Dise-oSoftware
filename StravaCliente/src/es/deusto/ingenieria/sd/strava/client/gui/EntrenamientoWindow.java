@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,8 +16,6 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class EntrenamientoWindow {
 
@@ -159,39 +159,40 @@ public class EntrenamientoWindow {
 		JLabel tiempoLabel = new JLabel("Tiempo(from DB)");
 		tiempoLabel.setBounds(90, 3, 91, 14);
 		tiempoPanel.add(tiempoLabel);
-		
+
 		JPanel tipoDeportePanel = new JPanel();
 		tipoDeportePanel.setLayout(null);
 		tipoDeportePanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		tipoDeportePanel.setBackground(Color.WHITE);
 		tipoDeportePanel.setBounds(10, 43, 191, 21);
 		reto1Panel.add(tipoDeportePanel);
-		
+
 		JLabel tipoDeporteTextLabel = new JLabel("Deporte:");
 		tipoDeporteTextLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		tipoDeporteTextLabel.setBackground(new Color(255, 255, 153));
 		tipoDeporteTextLabel.setBounds(10, 0, 67, 21);
 		tipoDeportePanel.add(tipoDeporteTextLabel);
-		
+
 		JLabel tipoDeporteLabel = new JLabel("Deporte(fromDB)");
 		tipoDeporteLabel.setBounds(90, 3, 91, 14);
 		tipoDeportePanel.add(tipoDeporteLabel);
 
 		JButton logOutButton = new JButton("Cerrar sesi\u00F3n");
 		logOutButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						//logout
 						frame.setVisible(false);
 						InitializationWindow iw = new InitializationWindow();
-						iw.NewScreen();
-						
+						InitializationWindow.NewScreen();
+
 					}
 				});
-				
+
 			}
 		});
 		logOutButton.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -200,15 +201,16 @@ public class EntrenamientoWindow {
 
 		JButton backButton = new JButton("Volver");
 		backButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				 SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						BuscarEntrenamientosWindow bew = new BuscarEntrenamientosWindow();
-						bew.NewScreen();
-						
+						BuscarEntrenamientosWindow.NewScreen();
+
 					}
 				});
 			}

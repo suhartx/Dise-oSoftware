@@ -80,12 +80,12 @@ public class RegisterMenuWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						RegisterWithEmailWindow rw = new RegisterWithEmailWindow();
-						rw.NewScreen();
+						RegisterWithEmailWindow.NewScreen();
 					}
 				});
 			}
@@ -98,17 +98,18 @@ public class RegisterMenuWindow {
 
 		JButton btnRegistrarseConGoogle = new JButton("Registrarse con Google");
 		btnRegistrarseConGoogle.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						RegisterWithGoogleWindow rwg = new RegisterWithGoogleWindow();
-						rwg.NewScreen();
+						RegisterWithGoogleWindow.NewScreen();
 					}
 				});
-				
+
 			}
 		});
 		btnRegistrarseConGoogle.setForeground(Color.WHITE);
@@ -126,18 +127,19 @@ public class RegisterMenuWindow {
 
 		JButton btnRegistrarseConFacebook = new JButton("Registrarse con Facebook");
 		btnRegistrarseConFacebook.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						RegisterWithFacebookWindow rwF = new RegisterWithFacebookWindow();
-						rwF.NewScreen();
-						
+						RegisterWithFacebookWindow.NewScreen();
+
 					}
 				});
-				
+
 			}
 		});
 		btnRegistrarseConFacebook.setForeground(Color.WHITE);
@@ -145,20 +147,21 @@ public class RegisterMenuWindow {
 		btnRegistrarseConFacebook.setBackground(Color.DARK_GRAY);
 		btnRegistrarseConFacebook.setBounds(65, 182, 162, 21);
 		buttonsPanel.add(btnRegistrarseConFacebook);
-		
+
 		JButton backButton = new JButton("Volver");
 		backButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						InitializationWindow iw = new InitializationWindow();
-						iw.NewScreen();
+						InitializationWindow.NewScreen();
 					}
 				});
-				
+
 			}
 		});
 		backButton.setBounds(0, 0, 118, 23);

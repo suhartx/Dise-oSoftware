@@ -7,9 +7,6 @@ import java.util.HashMap;
 public class LoginServiceGoogle extends UnicastRemoteObject implements ILoginGoogle {
 	private static final long serialVersionUID = 1L;
 
-//	protected static final String URL = "https://free.currconv.com/api/v7/convert?q=USD_EUR,GBP_EUR&compact=ultra&apiKey=d4f1b436d25d00b16f3f";
-//	public static float USD_RATE = 0.85f;
-//	public static float GBP_RATE = 1.17f;
 	
 	public HashMap<String, String> usuarios= new HashMap<>();
 	

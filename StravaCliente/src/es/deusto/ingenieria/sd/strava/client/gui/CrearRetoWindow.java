@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
@@ -22,8 +25,8 @@ import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
 
 import com.toedter.calendar.JDateChooser;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import es.deusto.ingenieria.sd.strava.client.MainProgram;
 
 public class CrearRetoWindow {
 
@@ -218,25 +221,8 @@ public class CrearRetoWindow {
 		fechaInicioCalendar.setBounds(138, 76, 20, 21);
 		variablesPanel.add(fechaInicioCalendar);
 
-		JButton CrearEntrenamientoButton = new JButton("Crear Entrenamiento");
-		CrearEntrenamientoButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				SwingUtilities.invokeLater(new Runnable() {
-					
-					@Override
-					public void run() {
-						//alerta reto creado
-						frame.setVisible(false);
-						BuscarRetosWindow brw = new BuscarRetosWindow();
-						brw.NewScreen();
-						
-					}
-				});
-			}
-		});
-		CrearEntrenamientoButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		CrearEntrenamientoButton.setBounds(133, 198, 170, 23);
-		variablesPanel.add(CrearEntrenamientoButton);
+
+
 
 		JPanel fechaFinPanel = new JPanel();
 		fechaFinPanel.setLayout(null);
@@ -271,17 +257,60 @@ public class CrearRetoWindow {
 		variablesPanel.add(runningRadioButton);
 
 		JButton logOutButton = new JButton("Cerrar sesi\u00F3n");
-		logOutButton.addActionListener(new ActionListener() {
+
+		JButton CrearEntrenamientoButton = new JButton("Crear Entrenamiento");
+
+		CrearEntrenamientoButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
+					@Override
+					public void run() {
+						//alerta reto creado
+						String deporte = null;
+						if (ciclismoRadioButton.isSelected()||runningRadioButton.isSelected()) {
+						if (ciclismoRadioButton.isSelected()) {
+							deporte = "ciclismo";
+
+
+						}else{
+							deporte = "running";
+						}
+						MainProgram.getInstance().getRetoController().crearReto(MainProgram.getInstance().getLoginController().getToken(), nombreTextField.getText(), fechaInicioCalendar.getDate(), null, Double.valueOf((String) kmSpinner.getValue()), deporte);
+
+						frame.setVisible(false);
+						BuscarRetosWindow brw = new BuscarRetosWindow();
+						BuscarRetosWindow.NewScreen();
+
+
+						}else {
+							JOptionPane.showMessageDialog(frame,
+								    "ERROR: Introduce un deporte.");
+
+						}
+
+
+					}
+				});
+			}
+		});
+		CrearEntrenamientoButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		CrearEntrenamientoButton.setBounds(133, 198, 170, 23);
+		variablesPanel.add(CrearEntrenamientoButton);
+
+		logOutButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				SwingUtilities.invokeLater(new Runnable() {
+
 					@Override
 					public void run() {
 						//logout
 						frame.setVisible(false);
 						InitializationWindow iw = new InitializationWindow();
-						iw.NewScreen();
-						
+						InitializationWindow.NewScreen();
+
 					}
 				});
 			}
@@ -292,15 +321,16 @@ public class CrearRetoWindow {
 
 		JButton backButton = new JButton("Volver");
 		backButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						MenuWindow mw = new MenuWindow();
-						mw.NewScreen();
-						
+						MenuWindow.NewScreen();
+
 					}
 				});
 			}

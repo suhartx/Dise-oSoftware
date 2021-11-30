@@ -38,20 +38,23 @@ public class FacebookServiceGateway extends Gateway {
 	
 	@Override
 	public boolean iniciarSesion(String email, String contrasenya) {
+
+
 		//Declaration of the socket to send/receive information to/from the server (an IP and a Port are needed)
 		try (Socket tcpSocket = new Socket(serverIP, serverPort);
 			 //Streams to send and receive information are created from the Socket
 		     DataInputStream in = new DataInputStream(tcpSocket.getInputStream());
 			 DataOutputStream out = new DataOutputStream(tcpSocket.getOutputStream())){
-			
+
 			//Send request (a Srting) to the server
 			message = email+ "/" + contrasenya;
 			out.writeUTF(message);
 			System.out.println("- EchoClient: Sent data to '" + tcpSocket.getInetAddress().getHostAddress() + ":" + tcpSocket.getPort() + "' -> '" + message + "'");
 			
 			//Read response (a String) from the server
-			String data = in.readUTF();			
-			System.out.println("- EchoClient: Received data from '" + tcpSocket.getInetAddress().getHostAddress() + ":" + tcpSocket.getPort() + "' -> '" + data + "'");
+//			String data = in.readUTF();			
+//			System.out.println("- EchoClient: Received data from '" + tcpSocket.getInetAddress().getHostAddress() + ":" + tcpSocket.getPort() + "' -> '" + data + "'");
+			return in.readBoolean();
 		} catch (Exception e) {
 			System.out.println("# EchoClient: Error: " + e.getMessage());
 		}

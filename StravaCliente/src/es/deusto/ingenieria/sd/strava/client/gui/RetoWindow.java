@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,8 +16,6 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class RetoWindow {
 
@@ -164,16 +164,17 @@ public class RetoWindow {
 		// Cuando cierras esa alerta te lleva a menu principal
 		JButton empezarRetoButton = new JButton("Aceptar reto");
 		empezarRetoButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {//reto aceptado
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						//alerta
 						frame.setVisible(false);
 						MenuWindow mw = new MenuWindow();
-						mw.NewScreen();
-						
+						MenuWindow.NewScreen();
+
 					}
 				});
 			}
@@ -181,36 +182,37 @@ public class RetoWindow {
 		empezarRetoButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		empezarRetoButton.setBounds(279, 135, 118, 23);
 		reto1Panel.add(empezarRetoButton);
-		
+
 		JPanel estadoPanel = new JPanel();//Wether what reto is seleceted is visible or not
-		estadoPanel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		estadoPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		estadoPanel.setBackground(Color.WHITE);
 		estadoPanel.setBounds(10, 135, 191, 23);
 		reto1Panel.add(estadoPanel);
 		estadoPanel.setLayout(null);
-		
+
 		JLabel estadoTextLabel = new JLabel("Estado:");
 		estadoTextLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		estadoTextLabel.setBackground(new Color(255, 255, 153));
 		estadoTextLabel.setBounds(10, 0, 67, 21);
 		estadoPanel.add(estadoTextLabel);
-		
+
 		JLabel estadoLabel = new JLabel("%Estado(fromDB)");
 		estadoLabel.setBounds(87, 3, 104, 14);
 		estadoPanel.add(estadoLabel);
 
 		JButton logOutButton = new JButton("Cerrar sesi\u00F3n");
 		logOutButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						//logout
 						frame.setVisible(false);
 						InitializationWindow iw = new InitializationWindow();
-						iw.NewScreen();
-						
+						InitializationWindow.NewScreen();
+
 					}
 				});
 			}
@@ -221,16 +223,17 @@ public class RetoWindow {
 
 		JButton backButton = new JButton("Volver");
 		backButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						BuscarRetosWindow brw = new BuscarRetosWindow();
-						brw.NewScreen();
-						
+						BuscarRetosWindow.NewScreen();
+
 					}
 				});
 			}

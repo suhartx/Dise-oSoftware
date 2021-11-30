@@ -234,17 +234,17 @@ public class CrearEntrenamientoWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						//alerta de entrenamiento creado
 						frame.setVisible(false);
 						BuscarEntrenamientosWindow bew = new BuscarEntrenamientosWindow();
-						bew.NewScreen();
-						
+						BuscarEntrenamientosWindow.NewScreen();
+
 					}
 				});
-				
+
 			}
 		});
 		CrearEntrenamientoButton.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -272,17 +272,18 @@ public class CrearEntrenamientoWindow {
 
 		JButton logOutButton = new JButton("Cerrar sesi\u00F3n");
 		logOutButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						//logout
 						frame.setVisible(false);
 						InitializationWindow iw = new InitializationWindow();
-						iw.NewScreen();
-						
+						InitializationWindow.NewScreen();
+
 					}
 				});
 			}
@@ -293,15 +294,16 @@ public class CrearEntrenamientoWindow {
 
 		JButton backButton = new JButton("Volver");
 		backButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				SwingUtilities.invokeLater(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						frame.setVisible(false);
 						MenuWindow mw = new MenuWindow();
-						mw.NewScreen();
-						
+						MenuWindow.NewScreen();
+
 					}
 				});
 			}

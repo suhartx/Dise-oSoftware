@@ -16,11 +16,11 @@ public class LoginAppService {
 		// TODO: Get User using DAO and check
 
 		UsuarioContra user = new UsuarioContra();
-		user.setEmail("thomas.e2001@gmail.com");
+		user.setEmail("suhartx@gmail.com");
 		user.setNombre("Thomas");
 		// Generate the hash of the pasword
-		String sha1 = org.apache.commons.codec.digest.DigestUtils.sha1Hex("$!9PhNz,");
-		user.setContrasenya(sha1);
+		String sha1 = org.apache.commons.codec.digest.DigestUtils.sha1Hex("suhar");
+		user.setContrasenya("suhar");
 
 		Usuarios.add(user);
 

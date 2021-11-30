@@ -58,7 +58,7 @@ public class LoginServiceFacebook extends Thread{
 
 			String data[] = this.in.readUTF().split("/");
 			boolean cierto;
-			System.out.println("   - FacebookService - Received data from '" + tcpSocket.getInetAddress().getHostAddress() + ":" + tcpSocket.getPort() + "' -> '" + data + "'");
+			System.out.println("   - FacebookService - Received data from '" + tcpSocket.getInetAddress().getHostAddress() + ":" + tcpSocket.getPort() + "' -> '" + data[0]+data[1] + "'");
 			cierto = this.iniciarSesion(data[0], data[1]);
 			this.out.writeBoolean(cierto);
 			System.out.println("   - FacebookService - Sent data to '" + tcpSocket.getInetAddress().getHostAddress() + ":" + tcpSocket.getPort() + "' -> '" + data[0].toUpperCase() + "'");
@@ -75,9 +75,13 @@ public class LoginServiceFacebook extends Thread{
 
 	public boolean iniciarSesion(String email, String contrasenya) throws RemoteException {
 		// TODO Auto-generated method stub
+		
+
 		if (usuarios.containsKey(email)&&usuarios.get(email).equals(contrasenya)) {
+
 			return true;
 		}
+
 	return false;
 	}
 }
