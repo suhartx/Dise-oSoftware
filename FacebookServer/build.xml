@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="2.server" name="FacebookServer">    
+	<property environment="env"/>
+	
+	<property name="source.dir" location="src"/>
+   	<property name="build.dir" location="bin"/>
+	<property name="server.port" value="35600"/>
+	<property name="classpath" location="${build.dir}"/>
+
+	<target name="1.compile" description="Builds the source code">
+		<delete dir="${build.dir}"/>
+		<mkdir dir="${build.dir}"/>
+		<javac srcdir="${source.dir}" destdir="${build.dir}" classpath="${classpath}" deprecation="true" fork="true" includeAntRuntime="no"/>
+    </target>
+
+	<target name="2.server" depends="1.compile" description="Runs the Server">
+		<java classname="es.deusto.ingenieria.sd.auctions.facebook.server.LoginServerFacebook" classpath="${classpath}" fork="true">
+	 		<arg value="${server.port}"/> 
+        </java>
+    </target>
+	
+</project>
