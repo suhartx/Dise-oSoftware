@@ -10,7 +10,7 @@ public class Reto {
 	private Date fechaFin;
 	private double distancia;
 	private String tipoDeporte;
-	
+
 	private Usuario Duenyo;
 
 	public Reto() {

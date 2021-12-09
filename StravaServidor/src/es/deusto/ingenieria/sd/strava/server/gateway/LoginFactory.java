@@ -6,22 +6,24 @@ public class LoginFactory {
 
 	private static LoginFactory instance;
 
-	
+
 	public static LoginFactory getInstance() {
-		
+
 		if(instance == null) {
 			instance = new LoginFactory();
 		}
-		
+
 		return instance;
 	}
 
-	
+
 	public Gateway crearGateway(Tipologin t) {
-		if (t == t.GOOGLE) {
+		if (t == Tipologin.GOOGLE) {
 			return GoogleServiceGateway.getInstance();
-		}else {
+		}else if (t == Tipologin.FACEBOOK) {
 			return FacebookServiceGateway.getInstance();
+		}else {
+			return null;
 		}
 	}
 }

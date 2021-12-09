@@ -3,7 +3,6 @@ package es.deusto.ingenieria.sd.strava.server.gateway;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
-import java.rmi.RemoteException;
 
 public class FacebookServiceGateway extends Gateway {
 
@@ -15,27 +14,27 @@ public class FacebookServiceGateway extends Gateway {
 	private static FacebookServiceGateway instance;
 
 	public static FacebookServiceGateway getInstance() {
-		
+
 		if(instance == null) {
 			instance = new FacebookServiceGateway("127.0.0.1", 35600);
 		}
-		
+
 		return instance;
 	}
 
 
 	/**
 	 * NOTE: try-with resources Statement - https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
-	 * Try statement that declares one or more resources. A resource is an object that must be closed after the program is 
+	 * Try statement that declares one or more resources. A resource is an object that must be closed after the program is
 	 * finished with it. The try-with-resources statement ensures that each resource is closed at the end of the statement.
-	 * Any object that implements java.lang.AutoCloseable, which includes all objects which implement java.io.Closeable, 
+	 * Any object that implements java.lang.AutoCloseable, which includes all objects which implement java.io.Closeable,
 	 * can be used as a resource.
 	 */
 	private FacebookServiceGateway(String servIP, int servPort) {
 		serverIP = servIP;
 		serverPort = servPort;
 	}
-	
+
 	@Override
 	public boolean iniciarSesion(String email, String contrasenya) {
 
@@ -50,16 +49,16 @@ public class FacebookServiceGateway extends Gateway {
 			message = email+ "/" + contrasenya;
 			out.writeUTF(message);
 			System.out.println("- EchoClient: Sent data to '" + tcpSocket.getInetAddress().getHostAddress() + ":" + tcpSocket.getPort() + "' -> '" + message + "'");
-			
+
 			//Read response (a String) from the server
-//			String data = in.readUTF();			
+//			String data = in.readUTF();
 //			System.out.println("- EchoClient: Received data from '" + tcpSocket.getInetAddress().getHostAddress() + ":" + tcpSocket.getPort() + "' -> '" + data + "'");
 			return in.readBoolean();
 		} catch (Exception e) {
 			System.out.println("# EchoClient: Error: " + e.getMessage());
 		}
 		return false;
-	}	
+	}
 }
-	
+
 

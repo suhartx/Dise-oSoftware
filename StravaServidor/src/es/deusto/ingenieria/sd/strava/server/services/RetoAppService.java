@@ -1,9 +1,6 @@
 package es.deusto.ingenieria.sd.strava.server.services;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import es.deusto.ingenieria.sd.strava.data.domain.Reto;
@@ -85,7 +82,7 @@ public class RetoAppService {
 
 	/**
 	 * metodo que devuelve los retos activos de un usuario
-	 * 
+	 *
 	 * @param u Usuario en cuestion
 	 * @return
 	 */
@@ -99,7 +96,7 @@ public class RetoAppService {
 
 	/**
 	 * metodo que añade un reto al usuario
-	 * 
+	 *
 	 * @param u
 	 * @param r
 	 */

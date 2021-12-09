@@ -3,7 +3,7 @@ package es.deusto.ingenieria.sd.strava.data.domain;
 public class RetoConEstado extends Reto{
 
 	int porcentaje;
-	
+
 	public RetoConEstado() {
 		super();
 		this.porcentaje=0;

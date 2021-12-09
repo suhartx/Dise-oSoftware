@@ -32,11 +32,11 @@ public class RetoAssembler {
 		dto.setTipoDeporte(reto.getTipoDeporte());
 		dto.setEmailPropietario(reto.getDuenyo().getEmail());
 		if (reto.getClass().getSimpleName().equals("RetoConEstado")) {
-		dto.setPorcentaje(((RetoConEstado) reto).getPorcentaje());	
+		dto.setPorcentaje(((RetoConEstado) reto).getPorcentaje());
 		}else {
 			dto.setPorcentaje(0);
 		}
-		
+
 		return dto;
 	}
 
@@ -45,7 +45,7 @@ public class RetoAssembler {
 
 		for (Reto reto : retos) {
 			dtos.add(this.retoToDTO(reto));
-			
+
 		}
 
 		return dtos;

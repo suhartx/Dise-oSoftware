@@ -10,7 +10,7 @@ public class Usuario {
 	private String nombre;
 	private String email;
 	private Date fechaNacimiento;
-	
+
 	/*
 	 * faltan las clases relacionadas
 	 */
@@ -86,7 +86,7 @@ public class Usuario {
 	}
 
 	public void anyadirReto(Reto r) {
-		
+
 		this.retos.add(new RetoConEstado(r));
 	}
 

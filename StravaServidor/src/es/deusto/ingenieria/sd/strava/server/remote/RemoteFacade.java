@@ -17,7 +17,6 @@ import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoAssembler;
 import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
-import es.deusto.ingenieria.sd.strava.server.gateway.LoginFactory;
 import es.deusto.ingenieria.sd.strava.server.services.EntrenamientoAppService;
 import es.deusto.ingenieria.sd.strava.server.services.LoginAppService;
 import es.deusto.ingenieria.sd.strava.server.services.RetoAppService;
@@ -43,8 +42,22 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		// AÑADIMOS EL TIPOLOGIN PARA DEPENDE DEL TIPO DE LOGUEO SE LOGUEE CON FACEBOOK
 		// GOOGLE O STRAVA
 		// Perform login() using LoginAppService
+		Usuario user = loginService.login(tipologin, email, password);
+		if (user != null) {
+			// If user is not logged in
+			if (!this.serverState.values().contains(user)) {
+				Long token = Calendar.getInstance().getTimeInMillis();
+				this.serverState.put(token, user);
+				return (token);
+			} else {
+				throw new RemoteException("El usuario ya esta logueado!");
+			}
+		} else {
+			throw new RemoteException("El logueo falla!");
+		}
+		/*
 		if (tipologin.equals(Tipologin.LOCAL)) {
-			Usuario user = loginService.login(email, password);
+
 			//
 			// If login() success user is stored in the Server State
 			if (user != null) {
@@ -64,22 +77,23 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 			if (LoginFactory.getInstance().crearGateway(tipologin.FACEBOOK).iniciarSesion(email, password)) {
 				Long token = Calendar.getInstance().getTimeInMillis();
 				this.serverState.put(token, new Usuario(null, email, null));
-				return (token);	
+				return (token);
 			} else {
 				throw new RemoteException("El logueo falla!");
 			}
 		} else if (tipologin.equals(tipologin.GOOGLE)) {// usuarioFacebook
-			
+
 			if (LoginFactory.getInstance().crearGateway(tipologin.GOOGLE).iniciarSesion(email, password)) {
 				Long token = Calendar.getInstance().getTimeInMillis();
 				this.serverState.put(token, new Usuario(null, email, null));
-				return (token);	
+				return (token);
 			} else {
 				throw new RemoteException("El logueo falla!");
 			}
-		
+
 		}
-		return 0L;
+   return 0L;
+		 */
 	}
 
 	@Override
@@ -175,6 +189,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		return RetoAssembler.getInstance()
 				.retoToDTO(retoService.consultarReto(serverState.get(u), serverStateReto.get(idReto)));
 	}
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<RetoDTO> consultarRetosActivos(Long u) throws RemoteException {
 

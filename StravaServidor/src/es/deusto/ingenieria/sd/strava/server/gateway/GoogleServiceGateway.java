@@ -8,9 +8,9 @@ import es.deusto.ingenieria.sd.strava.google.remote.ILoginGoogle;
 public class GoogleServiceGateway extends Gateway {
 
 	private static GoogleServiceGateway instance;
-	
+
 	private ILoginGoogle loginGoogleService;
-	
+
 	private GoogleServiceGateway() {
 		try {
 			String URL = "//127.0.0.1:1099/GoogleServer";
@@ -20,11 +20,11 @@ public class GoogleServiceGateway extends Gateway {
 		}
 	}
 	public static GoogleServiceGateway getInstance() {
-		
+
 		if(instance == null) {
 			instance = new GoogleServiceGateway();
 		}
-		
+
 		return instance;
 	}
 	@Override
@@ -37,7 +37,7 @@ public class GoogleServiceGateway extends Gateway {
 			System.out.println("   $ Error logging with google " + e.getMessage());
 			return false;
 		}
-	}	
+	}
 
-	
+
 }
