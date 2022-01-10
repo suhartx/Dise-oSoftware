@@ -4,17 +4,27 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.jdo.annotations.Inheritance;
+import javax.jdo.annotations.InheritanceStrategy;
+import javax.jdo.annotations.Join;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+@PersistenceCapable(detachable = "true")
+@Inheritance(strategy = InheritanceStrategy.NEW_TABLE)
 public class Usuario {
-	// private static int count = 0;
-	// private final int idUsuario;
-	private String nombre;
+
 	private String email;
+	private String nombre;
 	private Date fechaNacimiento;
 
-	/*
-	 * faltan las clases relacionadas
-	 */
+	@Join
+	@Persistent(mappedBy="user", dependentElement="true", defaultFetchGroup="true")
 	private List<Entrenamiento> entrenamientos = new ArrayList<>();
+	
+	@Join
+	@Persistent(mappedBy="owner", dependentElement="true", defaultFetchGroup="true")
 	private List<RetoConEstado> retos = new ArrayList<>();
 
 	public Usuario() {
