@@ -2,6 +2,11 @@ package es.deusto.ingenieria.sd.strava.data.domain;
 
 import java.util.Date;
 
+import javax.jdo.annotations.PersistenceCapable;
+
+
+@PersistenceCapable
+
 public class Reto {
 	private static int count = 0;
 	private long idReto;// FUERA, NO ES NECESARIO

@@ -3,6 +3,9 @@ package es.deusto.ingenieria.sd.strava.data.domain;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.jdo.annotations.PersistenceCapable;
+
+@PersistenceCapable
 public class Entrenamiento {
 	private static int count = 0;
 	private int idEntrenamiento;

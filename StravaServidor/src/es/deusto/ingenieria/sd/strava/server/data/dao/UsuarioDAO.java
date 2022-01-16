@@ -13,21 +13,21 @@ import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 //This class implements Singleton and DAO patterns
 public class UsuarioDAO extends DataAccessObjectBase implements IDataAccessObject<Usuario> {
 
-	private static UsuarioDAO instance;	
-	
+	private static UsuarioDAO instance;
+
 	private UsuarioDAO() { }
-	
+
 	public static UsuarioDAO getInstance() {
 		if (instance == null) {
 			instance = new UsuarioDAO();
-		}		
-		
+		}
+
 		return instance;
-	}	
-	
+	}
+
 	@Override
 	public void save(Usuario object) {
-		
+
 		super.saveObject(object);
 	}
 
@@ -40,18 +40,18 @@ public class UsuarioDAO extends DataAccessObjectBase implements IDataAccessObjec
 	public List<Usuario> getAll() {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
-		
+
 		List<Usuario> users = new ArrayList<>();
 
 		try {
 			tx.begin();
-			
+
 			Extent<Usuario> userExtent = pm.getExtent(Usuario.class, true);
-			
+
 			for (Usuario user : userExtent) {
 				users.add(user);
 			}
-						
+
 			tx.commit();
 		} catch (Exception ex) {
 			System.out.println("  $ Error querying all users: " + ex.getMessage());
@@ -67,19 +67,19 @@ public class UsuarioDAO extends DataAccessObjectBase implements IDataAccessObjec
 	}
 
 	@Override
-	public Usuario find(String param) {		
+	public Usuario find(String param) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 
-		Usuario result = null; 
+		Usuario result = null;
 
 		try {
 			tx.begin();
-			
+
 			Query<?> query = pm.newQuery("SELECT FROM " + Usuario.class.getName() + " WHERE email == '" + param + "'");
 			query.setUnique(true);
 			result = (Usuario) query.execute();
-			
+
 			tx.commit();
 		} catch (Exception ex) {
 			System.out.println("  $ Error querying a User: " + ex.getMessage());
