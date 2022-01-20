@@ -4,10 +4,12 @@ import java.util.Date;
 import java.util.Objects;
 
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
 public class Entrenamiento {
 	private static int count = 0;
+	@PrimaryKey
 	private int idEntrenamiento;
 	private String titulo;
 	private double distancia;

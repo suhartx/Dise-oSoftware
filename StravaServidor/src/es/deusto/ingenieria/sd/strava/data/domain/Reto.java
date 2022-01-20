@@ -2,20 +2,25 @@ package es.deusto.ingenieria.sd.strava.data.domain;
 
 import java.util.Date;
 
+import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
 
 @PersistenceCapable
 
 public class Reto {
 	private static int count = 0;
+	@PrimaryKey
 	private long idReto;// FUERA, NO ES NECESARIO
 	private String nombre;
 	private Date fechaInicio;
 	private Date fechaFin;
 	private double distancia;
 	private String tipoDeporte;
-
+	@Join
+	@Persistent(defaultFetchGroup = "true")
 	private Usuario Duenyo;
 
 	public Reto() {
