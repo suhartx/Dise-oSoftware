@@ -7,7 +7,6 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
-
 @PersistenceCapable
 
 public class Reto {
@@ -84,7 +83,6 @@ public class Reto {
 	public void setTipoDeporte(String tipoDeporte) {
 		this.tipoDeporte = tipoDeporte;
 	}
-
 
 	public Usuario getDuenyo() {
 		return Duenyo;

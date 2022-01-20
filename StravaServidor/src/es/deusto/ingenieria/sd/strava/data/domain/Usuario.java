@@ -5,12 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 import javax.jdo.annotations.Element;
-import javax.jdo.annotations.Inheritance;
-import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
 
@@ -21,14 +18,15 @@ public class Usuario {
 	private Date fechaNacimiento;
 
 	@Join
-	@Persistent(mappedBy="usuario", dependentElement="true", defaultFetchGroup="true")
+	@Persistent(mappedBy = "usuario", dependentElement = "true", defaultFetchGroup = "true")
 	private List<Entrenamiento> entrenamientos = new ArrayList<>();
-	
-	//@Join
-	//@Persistent(mappedBy="usuario", defaultFetchGroup="true")// dependentElement="true", defaultFetchGroup="true")
-	@Persistent(table="RETOS_USUARIOS",defaultFetchGroup="true")
-    @Join(column="idReto")
-    @Element(column="email")
+
+	// @Join
+	// @Persistent(mappedBy="usuario", defaultFetchGroup="true")//
+	// dependentElement="true", defaultFetchGroup="true")
+	@Persistent(table = "RETOS_USUARIOS", defaultFetchGroup = "true")
+	@Join(column = "idReto")
+	@Element(column = "email")
 	private List<RetoConEstado> retos = new ArrayList<>();
 
 	public Usuario() {

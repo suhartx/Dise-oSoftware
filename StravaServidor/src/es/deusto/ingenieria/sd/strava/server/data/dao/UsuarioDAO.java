@@ -15,7 +15,8 @@ public class UsuarioDAO extends DataAccessObjectBase implements IDataAccessObjec
 
 	private static UsuarioDAO instance;
 
-	private UsuarioDAO() { }
+	private UsuarioDAO() {
+	}
 
 	public static UsuarioDAO getInstance() {
 		if (instance == null) {

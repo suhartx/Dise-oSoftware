@@ -12,20 +12,19 @@ import es.deusto.ingenieria.sd.strava.data.domain.Reto;
 
 public class RetoDAO extends DataAccessObjectBase implements IDataAccessObject<Reto> {
 
-	
-	private static RetoDAO instance;	
-	
-	private RetoDAO() { }
-	
+	private static RetoDAO instance;
+
+	private RetoDAO() {
+	}
+
 	public static RetoDAO getInstance() {
 		if (instance == null) {
 			instance = new RetoDAO();
-		}		
-		
+		}
+
 		return instance;
 	}
-	
-	
+
 	@Override
 	public void save(Reto object) {
 		// TODO Auto-generated method stub
@@ -45,10 +44,10 @@ public class RetoDAO extends DataAccessObjectBase implements IDataAccessObject<R
 		Transaction tx = pm.currentTransaction();
 
 		List<Reto> retos = new ArrayList<>();
-		
+
 		try {
 			tx.begin();
-			
+
 			Extent<Reto> extent = pm.getExtent(Reto.class, true);
 
 			for (Reto category : extent) {
@@ -74,16 +73,16 @@ public class RetoDAO extends DataAccessObjectBase implements IDataAccessObject<R
 		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
-		
-		Reto result = null; 
+
+		Reto result = null;
 
 		try {
 			tx.begin();
-						
+
 			Query<?> query = pm.newQuery("SELECT FROM " + Reto.class.getName() + " WHERE idReto == " + param);
 			query.setUnique(true);
 			result = (Reto) query.execute();
-			
+
 			tx.commit();
 		} catch (Exception ex) {
 			System.out.println("  $ Error querying an Article: " + ex.getMessage());
@@ -97,7 +96,5 @@ public class RetoDAO extends DataAccessObjectBase implements IDataAccessObject<R
 
 		return result;
 	}
-	
-	
 
 }

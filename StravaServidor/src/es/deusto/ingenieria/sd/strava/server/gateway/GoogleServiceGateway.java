@@ -14,19 +14,21 @@ public class GoogleServiceGateway extends Gateway {
 	private GoogleServiceGateway() {
 		try {
 			String URL = "//127.0.0.1:1099/GoogleServer";
-			this.loginGoogleService= (ILoginGoogle) Naming.lookup(URL);
+			this.loginGoogleService = (ILoginGoogle) Naming.lookup(URL);
 		} catch (Exception ex) {
 			System.err.println("# Error locating remote fa�ade: " + ex);
 		}
 	}
+
 	public static GoogleServiceGateway getInstance() {
 
-		if(instance == null) {
+		if (instance == null) {
 			instance = new GoogleServiceGateway();
 		}
 
 		return instance;
 	}
+
 	@Override
 	public boolean iniciarSesion(String email, String contrasenya) {
 		// TODO Auto-generated method stub
@@ -38,6 +40,5 @@ public class GoogleServiceGateway extends Gateway {
 			return false;
 		}
 	}
-
 
 }

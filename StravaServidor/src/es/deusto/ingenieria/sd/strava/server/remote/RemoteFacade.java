@@ -56,43 +56,29 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 			throw new RemoteException("El logueo falla!");
 		}
 		/*
-		if (tipologin.equals(Tipologin.LOCAL)) {
-
-			//
-			// If login() success user is stored in the Server State
-			if (user != null) {
-				// If user is not logged in
-				if (!this.serverState.values().contains(user)) {
-					Long token = Calendar.getInstance().getTimeInMillis();
-					this.serverState.put(token, user);
-					return (token);
-				} else {
-					throw new RemoteException("El usuario ya esta logueado!");
-				}
-			} else {
-				throw new RemoteException("El logueo falla!");
-			}
-		} else if (tipologin.equals(tipologin.FACEBOOK)) {
-
-			if (LoginFactory.getInstance().crearGateway(tipologin.FACEBOOK).iniciarSesion(email, password)) {
-				Long token = Calendar.getInstance().getTimeInMillis();
-				this.serverState.put(token, new Usuario(null, email, null));
-				return (token);
-			} else {
-				throw new RemoteException("El logueo falla!");
-			}
-		} else if (tipologin.equals(tipologin.GOOGLE)) {// usuarioFacebook
-
-			if (LoginFactory.getInstance().crearGateway(tipologin.GOOGLE).iniciarSesion(email, password)) {
-				Long token = Calendar.getInstance().getTimeInMillis();
-				this.serverState.put(token, new Usuario(null, email, null));
-				return (token);
-			} else {
-				throw new RemoteException("El logueo falla!");
-			}
-
-		}
-   return 0L;
+		 * if (tipologin.equals(Tipologin.LOCAL)) {
+		 *
+		 * // // If login() success user is stored in the Server State if (user != null)
+		 * { // If user is not logged in if (!this.serverState.values().contains(user))
+		 * { Long token = Calendar.getInstance().getTimeInMillis();
+		 * this.serverState.put(token, user); return (token); } else { throw new
+		 * RemoteException("El usuario ya esta logueado!"); } } else { throw new
+		 * RemoteException("El logueo falla!"); } } else if
+		 * (tipologin.equals(tipologin.FACEBOOK)) {
+		 *
+		 * if
+		 * (LoginFactory.getInstance().crearGateway(tipologin.FACEBOOK).iniciarSesion(
+		 * email, password)) { Long token = Calendar.getInstance().getTimeInMillis();
+		 * this.serverState.put(token, new Usuario(null, email, null)); return (token);
+		 * } else { throw new RemoteException("El logueo falla!"); } } else if
+		 * (tipologin.equals(tipologin.GOOGLE)) {// usuarioFacebook
+		 *
+		 * if (LoginFactory.getInstance().crearGateway(tipologin.GOOGLE).iniciarSesion(
+		 * email, password)) { Long token = Calendar.getInstance().getTimeInMillis();
+		 * this.serverState.put(token, new Usuario(null, email, null)); return (token);
+		 * } else { throw new RemoteException("El logueo falla!"); }
+		 *
+		 * } return 0L;
 		 */
 	}
 
@@ -189,6 +175,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		return RetoAssembler.getInstance()
 				.retoToDTO(retoService.consultarReto(serverState.get(u), serverStateReto.get(idReto)));
 	}
+
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<RetoDTO> consultarRetosActivos(Long u) throws RemoteException {

@@ -17,6 +17,10 @@ public class Entrenamiento {
 	private Date fechaInicio;
 	private String horaInicio;
 	private double duracion;
+
+	@Persistent(defaultFetchGroup = "true")
+	private Usuario usuario;
+
 	// List<Usuario> usuarios= new ArrayList<>();
 	/*
 	 * la logica aqui dicta que esto no puede ser asi, la relacion de cardinalidad

@@ -1,11 +1,5 @@
 package es.deusto.ingenieria.sd.strava.client;
 
-import java.awt.EventQueue;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
 import javax.swing.SwingUtilities;
 
 import es.deusto.ingenieria.sd.strava.client.controller.EntrenamientoController;
@@ -14,8 +8,6 @@ import es.deusto.ingenieria.sd.strava.client.controller.RetoController;
 import es.deusto.ingenieria.sd.strava.client.gui.InitializationWindow;
 import es.deusto.ingenieria.sd.strava.client.gui.LoginDialog;
 import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
-import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
-import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 
 
 
@@ -26,8 +18,8 @@ public class MainProgram {
 	private LoginDialog loginDialog = new LoginDialog(loginController);
 	private EntrenamientoController entrenamientoController = new EntrenamientoController(serviceLocator);
 	private RetoController retoController = new RetoController(serviceLocator);
-	
-	
+
+
 	public static void main(String[] args) {
 		serviceLocator = new ServiceLocator();
 
@@ -36,12 +28,12 @@ public class MainProgram {
 		// args[2] = Service Name
 		serviceLocator.setService(args[0], args[1], args[2]);
 		SwingUtilities.invokeLater(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				InitializationWindow iw = new InitializationWindow();
-				iw.NewScreen();
-				
+				InitializationWindow.NewScreen();
+
 			}
 		});
 
@@ -80,11 +72,11 @@ public class MainProgram {
 //		// Crear entrenamientos
 //		entrenamientoController.crearEntrenamiento(loginController.getToken(), "Entrenamiento 1", "running", 7.21,
 //				new Date(tiempo), "15:30", 2.5);
-//		
+//
 //		// Aceptar reto
 //		retoController.aceptarReto(loginController.getToken(),  retoController.getRetos().get(0).getIdReto());
 //
-//		
+//
 //		// Consultar reto
 //		retoController.consultarReto(loginController.getToken(),  retoController.getRetos().get(0).getIdReto());
 //
@@ -93,11 +85,11 @@ public class MainProgram {
 //		loginDialog.logout();
 	}
 	public static MainProgram getInstance() {
-		
+
 		if(instance == null) {
 			instance = new MainProgram();
 		}
-		
+
 		return instance;
 	}
 	public LoginController getLoginController() {

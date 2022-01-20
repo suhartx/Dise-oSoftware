@@ -1,8 +1,6 @@
 package es.deusto.ingenieria.sd.strava.server.services;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -17,9 +15,7 @@ public class LoginAppService {
 
 	UsuarioContra user = new UsuarioContra();
 
-
-
-	public Usuario login(Tipologin tipologin,String email, String contrasenya) {
+	public Usuario login(Tipologin tipologin, String email, String contrasenya) {
 		// TODO: Get User using DAO and check
 
 		user.setEmail("suhartx@gmail.com");
@@ -28,33 +24,31 @@ public class LoginAppService {
 		user.setContrasenya("suhar");
 		Usuarios.add(user);
 
-
-	if (tipologin.equals(Tipologin.LOCAL)) {
+		if (tipologin.equals(Tipologin.LOCAL)) {
 
 			/*
 			 * AQUI TENEMOS QUE METER QUE DEVUELVA UN USUARIO PERSONIFICADO
 			 */
-			//Usuario user = loginService.login(tipologin, email, password);
+			// Usuario user = loginService.login(tipologin, email, password);
 			// If login() success user is stored in the Server State
 
+			for (Usuario usuario : Usuarios) {
 
-		for (Usuario usuario : Usuarios) {
+				if (usuario.getClass().getSimpleName().equals("UsuarioContra") && usuario.getEmail().equals(email)
+						&& ((UsuarioContra) usuario).checkContrasenya(contrasenya)) {
+					// Usuarios.add(user);
+					return usuario;
+				} // el propio facebook
 
-			if (usuario.getClass().getSimpleName().equals("UsuarioContra") && usuario.getEmail().equals(email)
-					&& ((UsuarioContra) usuario).checkContrasenya(contrasenya)) {
-				//Usuarios.add(user);
-				return usuario;
-			}// el propio facebook
-
-		}
-		return null;
+			}
+			return null;
 
 		} else if (tipologin.equals(Tipologin.FACEBOOK)) {
 
 			if (LoginFactory.getInstance().crearGateway(Tipologin.FACEBOOK).iniciarSesion(email, contrasenya)) {
-				//Long token = Calendar.getInstance().getTimeInMillis();
-				//this.serverState.put(token, new Usuario(null, email, null));
-				//return (token);
+				// Long token = Calendar.getInstance().getTimeInMillis();
+				// this.serverState.put(token, new Usuario(null, email, null));
+				// return (token);
 				Usuario u = new Usuario();
 				u.setEmail(email);
 				return u;
@@ -73,7 +67,6 @@ public class LoginAppService {
 
 		}
 
-
 //////////////////////////////////////////////////////////////////////////
 //		UsuarioContra user = new UsuarioContra();
 //		user.setEmail("suhartx@gmail.com");
@@ -81,7 +74,6 @@ public class LoginAppService {
 //		// Generate the hash of the pasword
 //		String sha1 = org.apache.commons.codec.digest.DigestUtils.sha1Hex("suhar");
 //		user.setContrasenya("suhar");
-
 
 		return null;
 

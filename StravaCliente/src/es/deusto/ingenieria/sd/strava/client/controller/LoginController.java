@@ -19,7 +19,7 @@ public class LoginController {
 	}
 
 	public boolean login(Tipologin t, String email, String password) {
-		
+
 		try {
 			this.token = this.serviceLocator.getService().login(t, email, password);
 			return true;

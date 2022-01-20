@@ -88,8 +88,6 @@ public class RetoAppService {
 	 */
 	public List<RetoConEstado> obtenerRetosActivos(Usuario u) {
 
-
-
 		return u.getRetos();
 
 	}

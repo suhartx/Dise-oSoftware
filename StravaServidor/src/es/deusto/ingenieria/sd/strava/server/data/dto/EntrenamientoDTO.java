@@ -11,7 +11,7 @@ public class EntrenamientoDTO implements Serializable {
 	private int idEntrenamiento;
 	private String titulo;
 	private double distancia;
-	private String tipoDeporte;//ENUM!
+	private String tipoDeporte;// ENUM!
 	private Date fechaInicio;
 	private String horaInicio;
 	private double duracion;
