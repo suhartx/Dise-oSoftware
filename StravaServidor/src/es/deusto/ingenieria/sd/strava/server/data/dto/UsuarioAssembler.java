@@ -9,15 +9,25 @@ import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 public class UsuarioAssembler {
 	private static UsuarioAssembler instance;
 
-	private UsuarioAssembler() {
-	}
-
 	public static UsuarioAssembler getInstance() {
 		if (instance == null) {
 			instance = new UsuarioAssembler();
 		}
 
 		return instance;
+	}
+
+	private UsuarioAssembler() {
+	}
+
+	public List<UsuarioDTO> usuarioToDTO(List<Usuario> usuarios) {
+		List<UsuarioDTO> dtos = new ArrayList<>();
+
+		for (Usuario usuario : usuarios) {
+			dtos.add(this.usuarioToDTO(usuario));
+		}
+
+		return dtos;
 	}
 
 	public UsuarioDTO usuarioToDTO(Usuario usuario) {
@@ -30,15 +40,5 @@ public class UsuarioAssembler {
 		// dto.setContrasenya(usuario.getContrasenya());
 
 		return dto;
-	}
-
-	public List<UsuarioDTO> usuarioToDTO(List<Usuario> usuarios) {
-		List<UsuarioDTO> dtos = new ArrayList<>();
-
-		for (Usuario usuario : usuarios) {
-			dtos.add(this.usuarioToDTO(usuario));
-		}
-
-		return dtos;
 	}
 }

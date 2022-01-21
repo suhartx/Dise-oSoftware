@@ -6,13 +6,7 @@ import java.net.Socket;
 
 public class FacebookServiceGateway extends Gateway {
 
-	String serverIP;// = args[0];
-	// args[1] = Server socket port
-	int serverPort;// = Integer.parseInt(args[1]);
-	// argrs[2] = Message
-	String message;// = args[2];
 	private static FacebookServiceGateway instance;
-
 	public static FacebookServiceGateway getInstance() {
 
 		if (instance == null) {
@@ -21,6 +15,12 @@ public class FacebookServiceGateway extends Gateway {
 
 		return instance;
 	}
+	String serverIP;// = args[0];
+	// args[1] = Server socket port
+	int serverPort;// = Integer.parseInt(args[1]);
+
+	// argrs[2] = Message
+	String message;// = args[2];
 
 	/**
 	 * NOTE: try-with resources Statement -

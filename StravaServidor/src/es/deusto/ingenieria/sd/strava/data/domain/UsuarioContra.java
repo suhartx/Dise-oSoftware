@@ -23,12 +23,12 @@ public class UsuarioContra extends Usuario {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getContrasenya() {
-		return contrasenya;
-	}
-
 	public boolean checkContrasenya(String contrasenya) {
 		return this.contrasenya.equals(contrasenya);
+	}
+
+	public String getContrasenya() {
+		return contrasenya;
 	}
 
 	public void setContrasenya(String contrasenya) {

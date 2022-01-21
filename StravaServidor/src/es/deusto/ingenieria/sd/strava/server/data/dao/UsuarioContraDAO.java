@@ -8,42 +8,42 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
 
-import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
+import es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra;
 
 //This class implements Singleton and DAO patterns
-public class UsuarioDAO extends DataAccessObjectBase implements IDataAccessObject<Usuario> {
+public class UsuarioContraDAO extends DataAccessObjectBase implements IDataAccessObject<UsuarioContra> {
 
-	private static UsuarioDAO instance;
+	private static UsuarioContraDAO instance;
 
-	public static UsuarioDAO getInstance() {
+	public static UsuarioContraDAO getInstance() {
 		if (instance == null) {
-			instance = new UsuarioDAO();
+			instance = new UsuarioContraDAO();
 		}
 
 		return instance;
 	}
 
-	private UsuarioDAO() {
+	private UsuarioContraDAO() {
 	}
 
 	@Override
-	public void delete(Usuario object) {
+	public void delete(UsuarioContra object) {
 		super.deleteObject(object);
 	}
 
 	@Override
-	public Usuario find(String param) {
+	public UsuarioContra find(String param) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 
-		Usuario result = null;
+		UsuarioContra result = null;
 
 		try {
 			tx.begin();
 
-			Query<?> query = pm.newQuery("SELECT FROM " + Usuario.class.getName() + " WHERE email == '" + param + "'");
+			Query<?> query = pm.newQuery("SELECT FROM " + UsuarioContra.class.getName() + " WHERE email == '" + param + "'");
 			query.setUnique(true);
-			result = (Usuario) query.execute();
+			result = (UsuarioContra) query.execute();
 
 			tx.commit();
 		} catch (Exception ex) {
@@ -60,18 +60,18 @@ public class UsuarioDAO extends DataAccessObjectBase implements IDataAccessObjec
 	}
 
 	@Override
-	public List<Usuario> getAll() {
+	public List<UsuarioContra> getAll() {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 
-		List<Usuario> users = new ArrayList<>();
+		List<UsuarioContra> users = new ArrayList<>();
 
 		try {
 			tx.begin();
 
-			Extent<Usuario> userExtent = pm.getExtent(Usuario.class, true);
+			Extent<UsuarioContra> userExtent = pm.getExtent(UsuarioContra.class, true);
 
-			for (Usuario user : userExtent) {
+			for (UsuarioContra user : userExtent) {
 				users.add(user);
 			}
 
@@ -90,7 +90,7 @@ public class UsuarioDAO extends DataAccessObjectBase implements IDataAccessObjec
 	}
 
 	@Override
-	public void save(Usuario object) {
+	public void save(UsuarioContra object) {
 
 		super.saveObject(object);
 	}

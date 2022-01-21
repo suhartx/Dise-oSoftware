@@ -16,60 +16,60 @@ public class EntrenamientoDTO implements Serializable {
 	private String horaInicio;
 	private double duracion;
 
-	public int getIdEntrenamiento() {
-		return idEntrenamiento;
-	}
-
-	public void setIdEntrenamiento(int idEntrenamiento) {
-		this.idEntrenamiento = idEntrenamiento;
-	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
 	public double getDistancia() {
 		return distancia;
-	}
-
-	public String getTipoDeporte() {
-		return tipoDeporte;
-	}
-
-	public void setTipoDeporte(String tipoDeporte) {
-		this.tipoDeporte = tipoDeporte;
-	}
-
-	public void setDistancia(double distancia) {
-		this.distancia = distancia;
-	}
-
-	public Date getFechaInicio() {
-		return fechaInicio;
-	}
-
-	public void setFechaInicio(Date fechaInicio) {
-		this.fechaInicio = fechaInicio;
-	}
-
-	public String getHoraInicio() {
-		return horaInicio;
-	}
-
-	public void setHoraInicio(String horaInicio) {
-		this.horaInicio = horaInicio;
 	}
 
 	public double getDuracion() {
 		return duracion;
 	}
 
+	public Date getFechaInicio() {
+		return fechaInicio;
+	}
+
+	public String getHoraInicio() {
+		return horaInicio;
+	}
+
+	public int getIdEntrenamiento() {
+		return idEntrenamiento;
+	}
+
+	public String getTipoDeporte() {
+		return tipoDeporte;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setDistancia(double distancia) {
+		this.distancia = distancia;
+	}
+
 	public void setDuracion(double duracion) {
 		this.duracion = duracion;
+	}
+
+	public void setFechaInicio(Date fechaInicio) {
+		this.fechaInicio = fechaInicio;
+	}
+
+	public void setHoraInicio(String horaInicio) {
+		this.horaInicio = horaInicio;
+	}
+
+	public void setIdEntrenamiento(int idEntrenamiento) {
+		this.idEntrenamiento = idEntrenamiento;
+	}
+
+	public void setTipoDeporte(String tipoDeporte) {
+		this.tipoDeporte = tipoDeporte;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	@Override

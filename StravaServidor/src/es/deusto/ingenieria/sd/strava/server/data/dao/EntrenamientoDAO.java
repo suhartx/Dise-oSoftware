@@ -15,9 +15,6 @@ public class EntrenamientoDAO extends DataAccessObjectBase implements IDataAcces
 
 	private static EntrenamientoDAO instance;
 
-	private EntrenamientoDAO() {
-	}
-
 	public static EntrenamientoDAO getInstance() {
 		if (instance == null) {
 			instance = new EntrenamientoDAO();
@@ -26,16 +23,43 @@ public class EntrenamientoDAO extends DataAccessObjectBase implements IDataAcces
 		return instance;
 	}
 
-	@Override
-	public void save(Entrenamiento object) {
-		// TODO Auto-generated method stub
-		super.saveObject(object);
+	private EntrenamientoDAO() {
 	}
 
 	@Override
 	public void delete(Entrenamiento object) {
 		// TODO Auto-generated method stub
 		super.deleteObject(object);
+	}
+
+	@Override
+	public Entrenamiento find(String param) {
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+
+		Entrenamiento result = null;
+
+		try {
+			tx.begin();
+
+			Query<?> query = pm.newQuery("SELECT FROM " + Reto.class.getName() + " WHERE idEntrenamiento == " + param);
+			query.setUnique(true);
+			result = (Entrenamiento) query.execute();
+
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println("  $ Error querying an Article: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+
+		return result;
 	}
 
 	@Override
@@ -70,33 +94,9 @@ public class EntrenamientoDAO extends DataAccessObjectBase implements IDataAcces
 	}
 
 	@Override
-	public Entrenamiento find(String param) {
+	public void save(Entrenamiento object) {
 		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction();
-
-		Entrenamiento result = null;
-
-		try {
-			tx.begin();
-
-			Query<?> query = pm.newQuery("SELECT FROM " + Reto.class.getName() + " WHERE idEntrenamiento == " + param);
-			query.setUnique(true);
-			result = (Entrenamiento) query.execute();
-
-			tx.commit();
-		} catch (Exception ex) {
-			System.out.println("  $ Error querying an Article: " + ex.getMessage());
-		} finally {
-			if (tx != null && tx.isActive()) {
-				tx.rollback();
-			}
-
-			pm.close();
-		}
-
-		return result;
+		super.saveObject(object);
 	}
 
 }

@@ -11,15 +11,26 @@ import es.deusto.ingenieria.sd.strava.data.domain.RetoConEstado;
 public class RetoAssembler {
 	private static RetoAssembler instance;
 
-	private RetoAssembler() {
-	}
-
 	public static RetoAssembler getInstance() {
 		if (instance == null) {
 			instance = new RetoAssembler();
 		}
 
 		return instance;
+	}
+
+	private RetoAssembler() {
+	}
+
+	public List<RetoDTO> retoToDTO(List<Reto> retos) {
+		List<RetoDTO> dtos = new ArrayList<>();
+
+		for (Reto reto : retos) {
+			dtos.add(this.retoToDTO(reto));
+
+		}
+
+		return dtos;
 	}
 
 	public RetoDTO retoToDTO(Reto reto) {
@@ -38,16 +49,5 @@ public class RetoAssembler {
 		}
 
 		return dto;
-	}
-
-	public List<RetoDTO> retoToDTO(List<Reto> retos) {
-		List<RetoDTO> dtos = new ArrayList<>();
-
-		for (Reto reto : retos) {
-			dtos.add(this.retoToDTO(reto));
-
-		}
-
-		return dtos;
 	}
 }

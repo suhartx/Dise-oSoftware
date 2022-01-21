@@ -7,6 +7,8 @@ import java.util.List;
 import es.deusto.ingenieria.sd.strava.data.domain.Tipologin;
 import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 import es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra;
+import es.deusto.ingenieria.sd.strava.server.data.dao.UsuarioContraDAO;
+import es.deusto.ingenieria.sd.strava.server.data.dao.UsuarioDAO;
 import es.deusto.ingenieria.sd.strava.server.gateway.LoginFactory;
 
 //TODO: Implement Singleton Pattern
@@ -15,14 +17,33 @@ public class LoginAppService {
 
 	UsuarioContra user = new UsuarioContra();
 
+	public boolean anyadirUsuario(String email, String nombre, Date fecha, String contrasenya) {
+
+		for (Usuario usuario : Usuarios) {
+
+			if (usuario.getEmail().equals(email)) {
+				System.out.println("El usuario que intenta añadir ya existe");
+				return false;
+			}
+
+		}
+		UsuarioContra u =new UsuarioContra(nombre, email, fecha, contrasenya);
+		Usuarios.add(u);
+		UsuarioDAO.getInstance().save(new Usuario(nombre, email, fecha));
+		UsuarioContraDAO.getInstance().save(u);
+		return true;
+	}
+
 	public Usuario login(Tipologin tipologin, String email, String contrasenya) {
 		// TODO: Get User using DAO and check
 
-		user.setEmail("suhartx@gmail.com");
-		user.setNombre("Thomas");
-		// Generate the hash of the pasword
-		user.setContrasenya("suhar");
-		Usuarios.add(user);
+//		user.setEmail("suhartx@gmail.com");
+//		user.setNombre("Thomas");
+//		// Generate the hash of the pasword
+//		user.setContrasenya("suhar");
+//		Usuarios.add(user);
+
+		Usuarios = UsuarioDAO.getInstance().getAll();
 
 		if (tipologin.equals(Tipologin.LOCAL)) {
 
@@ -77,22 +98,6 @@ public class LoginAppService {
 
 		return null;
 
-	}
-
-	public boolean anyadirUsuario(String email, String nombre, Date fecha, String contrasenya) {
-
-		for (Usuario usuario : Usuarios) {
-
-			if (usuario.getEmail().equals(email)) {
-				System.out.println("El usuario que intenta añadir ya existe");
-				return false;
-			}
-
-		}
-
-		Usuarios.add(new UsuarioContra(nombre, email, fecha, contrasenya));
-
-		return true;
 	}
 
 }

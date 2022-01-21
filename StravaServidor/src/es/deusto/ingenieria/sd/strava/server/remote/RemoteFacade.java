@@ -37,6 +37,87 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 
 	@Override
+	public void aceptarReto(Long u, Long idReto) throws RemoteException {
+		System.out.println(" * RemoteFacade aceptarReto()");
+		retoService.aceptarReto(serverState.get(u), serverStateReto.get(idReto));
+	}
+
+	@Override
+	public RetoDTO consultarReto(Long u, Long idReto) throws RemoteException {
+
+		System.out.println(" * RemoteFacade consultarReto()");
+		return RetoAssembler.getInstance()
+				.retoToDTO(retoService.consultarReto(serverState.get(u), serverStateReto.get(idReto)));
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<RetoDTO> consultarRetosActivos(Long u) throws RemoteException {
+
+		System.out.println(" * RemoteFacade consultarReto()");
+		return (List<RetoDTO>) RetoAssembler.getInstance()
+				.retoToDTO((Reto) retoService.obtenerRetosActivos(serverState.get(u)));
+	}
+
+	@Override
+	public long crearEntrenamiento(Long valor, String titulo, String tipoDeporte, double distancia, Date fechaInicio,
+			String horaInicio, double duracion) throws RemoteException {
+
+		System.out.println(" * RemoteFacade crearEntrenamiento()");
+		entrenaService.crearEntrenamiento(serverState.get(valor), titulo, fechaInicio, horaInicio, distancia,
+				tipoDeporte);
+		return 0;
+	}
+
+	@Override
+	public long crearReto(Long u, String nombre, Date fechaInicio, Date fechaFin, double distancia, String tipoDeporte)
+			throws RemoteException {
+
+		Reto r = new Reto();
+
+		r.setNombre(nombre);
+		r.setDistancia(distancia);
+		r.setFechaInicio(fechaInicio);
+		r.setFechaFin(fechaFin);
+		r.setTipoDeporte(tipoDeporte);
+
+		System.out.println(" * RemoteFacade crearReto()");
+		retoService.crearReto(serverState.get(u), r);
+		serverStateReto.put(r.getIdReto(), r);
+		return r.getIdReto();
+	}
+
+	@Override
+	public List<EntrenamientoDTO> getEntrenamientos(String aEntrenamiento) throws RemoteException {
+		System.out.println(" * RemoteFacade getEntrenamientos()");
+
+		// Get Categories using BidAppService
+		List<Entrenamiento> entrenamientos = entrenaService.getEntrenamientos();
+
+		if (entrenamientos != null) {
+			// Convert domain object to DTO
+			return EntrenamientoAssembler.getInstance().entrenamientoToDTO(entrenamientos);
+		} else {
+			throw new RemoteException("getRetos() fails!");
+		}
+	}
+
+	@Override
+	public List<RetoDTO> getRetos() throws RemoteException {
+		System.out.println(" * RemoteFacade getRetos()");
+
+		// Get Categories using BidAppService
+		List<Reto> retos = retoService.getRetos();
+
+		if (retos != null) {
+			// Convert domain object to DTO
+			return RetoAssembler.getInstance().retoToDTO(retos);
+		} else {
+			throw new RemoteException("getRetos() fails!");
+		}
+	}
+
+	@Override
 	public synchronized long login(Tipologin tipologin, String email, String password) throws RemoteException {
 		System.out.println(" * RemoteFacade login(): " + email + " / " + password);
 		// AÑADIMOS EL TIPOLOGIN PARA DEPENDE DEL TIPO DE LOGUEO SE LOGUEE CON FACEBOOK
@@ -108,87 +189,6 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 
 		this.serverState.put(token, new UsuarioContra(nombre, email, fecha, contrasenya));
 		return (token);
-	}
-
-	@Override
-	public List<RetoDTO> getRetos() throws RemoteException {
-		System.out.println(" * RemoteFacade getRetos()");
-
-		// Get Categories using BidAppService
-		List<Reto> retos = retoService.getRetos();
-
-		if (retos != null) {
-			// Convert domain object to DTO
-			return RetoAssembler.getInstance().retoToDTO(retos);
-		} else {
-			throw new RemoteException("getRetos() fails!");
-		}
-	}
-
-	@Override
-	public List<EntrenamientoDTO> getEntrenamientos(String aEntrenamiento) throws RemoteException {
-		System.out.println(" * RemoteFacade getEntrenamientos()");
-
-		// Get Categories using BidAppService
-		List<Entrenamiento> entrenamientos = entrenaService.getEntrenamientos();
-
-		if (entrenamientos != null) {
-			// Convert domain object to DTO
-			return EntrenamientoAssembler.getInstance().entrenamientoToDTO(entrenamientos);
-		} else {
-			throw new RemoteException("getRetos() fails!");
-		}
-	}
-
-	@Override
-	public long crearEntrenamiento(Long valor, String titulo, String tipoDeporte, double distancia, Date fechaInicio,
-			String horaInicio, double duracion) throws RemoteException {
-
-		System.out.println(" * RemoteFacade crearEntrenamiento()");
-		entrenaService.crearEntrenamiento(serverState.get(valor), titulo, fechaInicio, horaInicio, distancia,
-				tipoDeporte);
-		return 0;
-	}
-
-	@Override
-	public long crearReto(Long u, String nombre, Date fechaInicio, Date fechaFin, double distancia, String tipoDeporte)
-			throws RemoteException {
-
-		Reto r = new Reto();
-
-		r.setNombre(nombre);
-		r.setDistancia(distancia);
-		r.setFechaInicio(fechaInicio);
-		r.setFechaFin(fechaFin);
-		r.setTipoDeporte(tipoDeporte);
-
-		System.out.println(" * RemoteFacade crearReto()");
-		retoService.crearReto(serverState.get(u), r);
-		serverStateReto.put(r.getIdReto(), r);
-		return r.getIdReto();
-	}
-
-	@Override
-	public RetoDTO consultarReto(Long u, Long idReto) throws RemoteException {
-
-		System.out.println(" * RemoteFacade consultarReto()");
-		return RetoAssembler.getInstance()
-				.retoToDTO(retoService.consultarReto(serverState.get(u), serverStateReto.get(idReto)));
-	}
-
-	@Override
-	@SuppressWarnings("unchecked")
-	public List<RetoDTO> consultarRetosActivos(Long u) throws RemoteException {
-
-		System.out.println(" * RemoteFacade consultarReto()");
-		return (List<RetoDTO>) RetoAssembler.getInstance()
-				.retoToDTO((Reto) retoService.obtenerRetosActivos(serverState.get(u)));
-	}
-
-	@Override
-	public void aceptarReto(Long u, Long idReto) throws RemoteException {
-		System.out.println(" * RemoteFacade aceptarReto()");
-		retoService.aceptarReto(serverState.get(u), serverStateReto.get(idReto));
 	}
 
 //	@Override

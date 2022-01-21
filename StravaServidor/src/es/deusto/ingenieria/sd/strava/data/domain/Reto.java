@@ -36,60 +36,60 @@ public class Reto {
 		this.tipoDeporte = r.tipoDeporte;
 	}
 
-	public long getIdReto() {
-		return this.idReto;
-	}
-
-	public void setIdReto(long idReto) {
-		this.idReto = idReto;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public Date getFechaInicio() {
-		return fechaInicio;
-	}
-
-	public void setFechaInicio(Date fechainicio) {
-		this.fechaInicio = fechainicio;
-	}
-
-	public Date getFechaFin() {
-		return fechaFin;
-	}
-
-	public void setFechaFin(Date fechaFin) {
-		this.fechaFin = fechaFin;
-	}
-
 	public double getDistancia() {
 		return distancia;
-	}
-
-	public void setDistancia(double distancia) {
-		this.distancia = distancia;
-	}
-
-	public String getTipoDeporte() {
-		return tipoDeporte;
-	}
-
-	public void setTipoDeporte(String tipoDeporte) {
-		this.tipoDeporte = tipoDeporte;
 	}
 
 	public Usuario getDuenyo() {
 		return Duenyo;
 	}
 
+	public Date getFechaFin() {
+		return fechaFin;
+	}
+
+	public Date getFechaInicio() {
+		return fechaInicio;
+	}
+
+	public long getIdReto() {
+		return this.idReto;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getTipoDeporte() {
+		return tipoDeporte;
+	}
+
+	public void setDistancia(double distancia) {
+		this.distancia = distancia;
+	}
+
 	public void setDuenyo(Usuario duenyo) {
 		Duenyo = duenyo;
+	}
+
+	public void setFechaFin(Date fechaFin) {
+		this.fechaFin = fechaFin;
+	}
+
+	public void setFechaInicio(Date fechainicio) {
+		this.fechaInicio = fechainicio;
+	}
+
+	public void setIdReto(long idReto) {
+		this.idReto = idReto;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setTipoDeporte(String tipoDeporte) {
+		this.tipoDeporte = tipoDeporte;
 	}
 
 }

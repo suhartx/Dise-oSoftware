@@ -17,6 +17,50 @@ public class RetoAppService {
 
 	}
 
+	/**
+	 * metodo que añade un reto al usuario
+	 *
+	 * @param u
+	 * @param r
+	 */
+	public void aceptarReto(Usuario u, Reto r) {
+
+		u.anyadirReto(new Reto(r));
+
+	}
+
+	public RetoConEstado consultarReto(Usuario u, Reto r) {
+		for (RetoConEstado reto : u.getRetos()) {
+			if (reto.getIdReto() == r.getIdReto()) {
+				return reto;
+			}
+
+		}
+		System.out.println("Ese entrenamiento no existe");
+		return null;
+
+	}
+
+	public void crearReto(Usuario usuario, Reto r) {
+
+		retos.add(r);
+		// usuario.anyadirReto(r);
+
+	}
+
+	public List<Reto> getRetos() {
+		// TODO: Get all the categories using DAO Pattern
+		return this.retos;
+	}
+//	public List<Entrenamiento> getRetosCategoria(String categoria) {
+//		//TODO: Get articles of a category using DAO Pattern
+//		for (Reto cat : this.retos) {
+//			if (cat.getTipoDeporte().equalsIgnoreCase(categoria)) {
+//				return cat;
+//			}
+//		}
+//	}
+
 	private void initializeData() {
 
 		// Creamos un usuario
@@ -60,26 +104,6 @@ public class RetoAppService {
 
 	}
 
-	public List<Reto> getRetos() {
-		// TODO: Get all the categories using DAO Pattern
-		return this.retos;
-	}
-//	public List<Entrenamiento> getRetosCategoria(String categoria) {
-//		//TODO: Get articles of a category using DAO Pattern
-//		for (Reto cat : this.retos) {
-//			if (cat.getTipoDeporte().equalsIgnoreCase(categoria)) {
-//				return cat;
-//			}
-//		}
-//	}
-
-	public void crearReto(Usuario usuario, Reto r) {
-
-		retos.add(r);
-		// usuario.anyadirReto(r);
-
-	}
-
 	/**
 	 * metodo que devuelve los retos activos de un usuario
 	 *
@@ -89,30 +113,6 @@ public class RetoAppService {
 	public List<RetoConEstado> obtenerRetosActivos(Usuario u) {
 
 		return u.getRetos();
-
-	}
-
-	/**
-	 * metodo que añade un reto al usuario
-	 *
-	 * @param u
-	 * @param r
-	 */
-	public void aceptarReto(Usuario u, Reto r) {
-
-		u.anyadirReto(new Reto(r));
-
-	}
-
-	public RetoConEstado consultarReto(Usuario u, Reto r) {
-		for (RetoConEstado reto : u.getRetos()) {
-			if (reto.getIdReto() == r.getIdReto()) {
-				return reto;
-			}
-
-		}
-		System.out.println("Ese entrenamiento no existe");
-		return null;
 
 	}
 

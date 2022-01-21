@@ -22,28 +22,28 @@ public class UsuarioDTO implements Serializable {
 //		this.idUsuario = idUsuario;
 //	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nickname) {
-		this.nombre = nickname;
-	}
-
 	public String getEmail() {
 		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public void setNombre(String nickname) {
+		this.nombre = nickname;
 	}
 
 	@Override

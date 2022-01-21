@@ -9,6 +9,15 @@ public class GoogleServiceGateway extends Gateway {
 
 	private static GoogleServiceGateway instance;
 
+	public static GoogleServiceGateway getInstance() {
+
+		if (instance == null) {
+			instance = new GoogleServiceGateway();
+		}
+
+		return instance;
+	}
+
 	private ILoginGoogle loginGoogleService;
 
 	private GoogleServiceGateway() {
@@ -18,15 +27,6 @@ public class GoogleServiceGateway extends Gateway {
 		} catch (Exception ex) {
 			System.err.println("# Error locating remote fa�ade: " + ex);
 		}
-	}
-
-	public static GoogleServiceGateway getInstance() {
-
-		if (instance == null) {
-			instance = new GoogleServiceGateway();
-		}
-
-		return instance;
 	}
 
 	@Override

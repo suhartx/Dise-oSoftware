@@ -45,20 +45,26 @@ public class Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public void anyadirEntrenamiento(Entrenamiento e) {
+		this.entrenamientos.add(e);
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void anyadirReto(Reto r) {
+
+		this.retos.add(new RetoConEstado(r));
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this.getClass().getName().equals(obj.getClass().getName())) {
+			return this.email.equals(((Usuario) obj).email);
+		}
+
+		return false;
 	}
 
 	public String getEmail() {
 		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 //	public int getIdUsuario() {
@@ -69,37 +75,40 @@ public class Usuario {
 //		this.idUsuario = idUsuario;
 //	}
 
-	public Date getFechaNacimiento() {
-		return fechaNacimiento;
-	}
-
-	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
-	}
-
 	public List<Entrenamiento> getEntrenamientos() {
 		return entrenamientos;
 	}
 
-	public void setEntrenamientos(List<Entrenamiento> entrenamientos) {
-		this.entrenamientos = entrenamientos;
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
 	}
 
-	public void anyadirEntrenamiento(Entrenamiento e) {
-		this.entrenamientos.add(e);
+	public String getNombre() {
+		return nombre;
 	}
 
 	public List<RetoConEstado> getRetos() {
 		return retos;
 	}
 
-	public void setRetos(List<RetoConEstado> retos) {
-		this.retos = retos;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public void anyadirReto(Reto r) {
+	public void setEntrenamientos(List<Entrenamiento> entrenamientos) {
+		this.entrenamientos = entrenamientos;
+	}
 
-		this.retos.add(new RetoConEstado(r));
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setRetos(List<RetoConEstado> retos) {
+		this.retos = retos;
 	}
 
 	@Override
@@ -116,14 +125,5 @@ public class Usuario {
 //		result.append(" bids)");
 
 		return result.toString();
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this.getClass().getName().equals(obj.getClass().getName())) {
-			return this.email.equals(((Usuario) obj).email);
-		}
-
-		return false;
 	}
 }

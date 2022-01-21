@@ -9,15 +9,15 @@ import es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento;
 public class EntrenamientoAssembler {
 	private static EntrenamientoAssembler instance;
 
-	private EntrenamientoAssembler() {
-	}
-
 	public static EntrenamientoAssembler getInstance() {
 		if (instance == null) {
 			instance = new EntrenamientoAssembler();
 		}
 
 		return instance;
+	}
+
+	private EntrenamientoAssembler() {
 	}
 
 	public EntrenamientoDTO entrenamientoToDTO(Entrenamiento entrenamiento) {

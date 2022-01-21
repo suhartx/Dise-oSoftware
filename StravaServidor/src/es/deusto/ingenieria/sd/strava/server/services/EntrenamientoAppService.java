@@ -9,6 +9,7 @@ import java.util.List;
 import es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 import es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra;
+import es.deusto.ingenieria.sd.strava.server.data.dao.EntrenamientoDAO;
 
 public class EntrenamientoAppService {
 
@@ -16,6 +17,27 @@ public class EntrenamientoAppService {
 
 	public EntrenamientoAppService() {
 		this.initializeData();// TODO Auto-generated constructor stub
+	}
+
+	public void crearEntrenamiento(Usuario usuario, String nombre, Date fechaInicio, String horaInicio,
+			double distancia, String tipoDeporte) {
+
+		Entrenamiento e = new Entrenamiento();
+		e.setTitulo(nombre);
+		e.setDistancia(distancia);
+		e.setFechaInicio(fechaInicio);
+		e.setHoraInicio(horaInicio);
+		e.setTipoDeporte(tipoDeporte);
+		// r.setEstado(estado);
+		// usuario.anyadirReto(r);
+		entrenamientos.add(e);
+		usuario.anyadirEntrenamiento(e);
+		EntrenamientoDAO.getInstance().save(e);
+	}
+
+	public List<Entrenamiento> getEntrenamientos() {
+		// TODO: Get all the categories using DAO Pattern
+		return EntrenamientoDAO.getInstance().getAll();
 	}
 
 	private void initializeData() {// CLASES DE TEST QUITARLOS
@@ -46,27 +68,8 @@ public class EntrenamientoAppService {
 
 		user0.anyadirEntrenamiento(entr0);
 
-	}
+		//EntrenamientoDAO.getInstance().save(e);
 
-	public void crearEntrenamiento(Usuario usuario, String nombre, Date fechaInicio, String horaInicio,
-			double distancia, String tipoDeporte) {
-
-		Entrenamiento e = new Entrenamiento();
-		e.setTitulo(nombre);
-		e.setDistancia(distancia);
-		e.setFechaInicio(fechaInicio);
-		e.setHoraInicio(horaInicio);
-		e.setTipoDeporte(tipoDeporte);
-		// r.setEstado(estado);
-		// usuario.anyadirReto(r);
-		entrenamientos.add(e);
-		usuario.anyadirEntrenamiento(e);
-
-	}
-
-	public List<Entrenamiento> getEntrenamientos() {
-		// TODO: Get all the categories using DAO Pattern
-		return this.entrenamientos;
 	}
 
 }

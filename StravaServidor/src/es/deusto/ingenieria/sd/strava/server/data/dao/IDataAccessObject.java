@@ -6,11 +6,11 @@ import java.util.List;
 //This interface uses the concept of a "template".
 //Classes implementing it must specify the concrete type on which the methods are applied.
 public interface IDataAccessObject<DomainObject> {
-	public void save(DomainObject object);
-
 	public void delete(DomainObject object);
+
+	public DomainObject find(String param);
 
 	public List<DomainObject> getAll();
 
-	public DomainObject find(String param);
+	public void save(DomainObject object);
 }

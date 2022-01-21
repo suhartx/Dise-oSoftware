@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Objects;
 
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
@@ -32,6 +33,32 @@ public class Entrenamiento {
 		idEntrenamiento = ++count;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if ((obj == null) || (getClass() != obj.getClass()))
+			return false;
+		Entrenamiento other = (Entrenamiento) obj;
+		return idEntrenamiento == other.idEntrenamiento;
+	}
+
+	public double getDistancia() {
+		return distancia;
+	}
+
+	public double getDuracion() {
+		return duracion;
+	}
+
+	public Date getFechaInicio() {
+		return fechaInicio;
+	}
+
+	public String getHoraInicio() {
+		return horaInicio;
+	}
+
 	public int getIdEntrenamiento() {
 		return idEntrenamiento;
 	}
@@ -40,48 +67,21 @@ public class Entrenamiento {
 //
 //	}
 
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public double getDistancia() {
-		return distancia;
-	}
-
-	public void setDistancia(double distancia) {
-		this.distancia = distancia;
-	}
-
 	public String getTipoDeporte() {
 		return tipoDeporte;
 	}
 
-	public void setTipoDeporte(String tipoDeporte) {
-		this.tipoDeporte = tipoDeporte;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public Date getFechaInicio() {
-		return fechaInicio;
+	@Override
+	public int hashCode() {
+		return Objects.hash(idEntrenamiento);
 	}
 
-	public void setFechaInicio(Date fechaInicio) {
-		this.fechaInicio = fechaInicio;
-	}
-
-	public String getHoraInicio() {
-		return horaInicio;
-	}
-
-	public void setHoraInicio(String horaInicio) {
-		this.horaInicio = horaInicio;
-	}
-
-	public double getDuracion() {
-		return duracion;
+	public void setDistancia(double distancia) {
+		this.distancia = distancia;
 	}
 
 	public void setDuracion(double duracion) {
@@ -94,6 +94,22 @@ public class Entrenamiento {
 //		this.usuarios = usuarios;
 //	}
 
+	public void setFechaInicio(Date fechaInicio) {
+		this.fechaInicio = fechaInicio;
+	}
+
+	public void setHoraInicio(String horaInicio) {
+		this.horaInicio = horaInicio;
+	}
+
+	public void setTipoDeporte(String tipoDeporte) {
+		this.tipoDeporte = tipoDeporte;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
 	@Override
 	public String toString() {
 		return "Entrenamiento [idEntrenamiento=" + idEntrenamiento + ", titulo=" + titulo + ", distancia=" + distancia
@@ -101,21 +117,6 @@ public class Entrenamiento {
 				+ ", duracion=" + duracion + ""
 				// + ", usuarios=" + usuarios
 				+ "]";
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(idEntrenamiento);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if ((obj == null) || (getClass() != obj.getClass()))
-			return false;
-		Entrenamiento other = (Entrenamiento) obj;
-		return idEntrenamiento == other.idEntrenamiento;
 	}
 
 }

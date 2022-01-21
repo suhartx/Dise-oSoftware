@@ -206,3 +206,174 @@ org.datanucleus.exceptions.NucleusUserException: Clase "es.deusto.ingenieria.sd.
 	at org.datanucleus.store.rdbms.RDBMSStoreManager.createSchemaForClasses(RDBMSStoreManager.java:3940)
 	at org.datanucleus.store.schema.SchemaTool.createSchemaForClasses(SchemaTool.java:508)
 	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:424)
+12:32:19,347 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+12:32:19,838 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:32:19,838 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:32:19,919 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:32:19,919 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:32:19,919 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:32:19,953 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:32:19,953 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:32:19,981 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:33:01,917 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+12:20:48,086 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+12:20:48,573 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:20:48,573 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:20:48,650 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:20:48,650 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:20:48,650 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:20:48,683 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:20:48,683 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:20:48,715 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+12:35:41,549 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+12:47:38,924 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+12:52:34,361 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+18:10:52,373 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+18:11:25,637 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+18:15:34,085 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+18:15:41,773 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+18:20:17,506 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+18:20:24,266 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+18:29:48,028 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+18:29:54,831 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+18:31:22,422 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\data\domain\Entrenamiento.class" no existe!
+18:31:22,443 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\data\domain\Reto.class" no existe!
+18:31:22,444 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\data\domain\RetoConEstado.class" no existe!
+18:31:22,444 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\data\domain\Tipologin.class" no existe!
+18:31:22,444 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\data\domain\Usuario.class" no existe!
+18:31:22,445 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\data\domain\UsuarioContra.class" no existe!
+18:31:22,445 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\MainProgram.class" no existe!
+18:31:22,445 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\data\dao\DataAccessObjectBase.class" no existe!
+18:31:22,445 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\data\dao\EntrenamientoDAO.class" no existe!
+18:31:22,446 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\data\dao\IDataAccessObject.class" no existe!
+18:31:22,446 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\data\dao\RetoDAO.class" no existe!
+18:31:22,447 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\data\dao\UsuarioContraDAO.class" no existe!
+18:31:22,447 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\data\dao\UsuarioDAO.class" no existe!
+18:31:22,447 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\data\dto\EntrenamientoAssembler.class" no existe!
+18:31:22,448 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\data\dto\EntrenamientoDTO.class" no existe!
+18:31:22,448 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\data\dto\RetoAssembler.class" no existe!
+18:31:22,449 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\data\dto\RetoDTO.class" no existe!
+18:31:22,450 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\data\dto\UsuarioAssembler.class" no existe!
+18:31:22,450 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\data\dto\UsuarioDTO.class" no existe!
+18:31:22,451 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\gateway\FacebookServiceGateway.class" no existe!
+18:31:22,451 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\gateway\Gateway.class" no existe!
+18:31:22,452 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\gateway\GoogleServiceGateway.class" no existe!
+18:31:22,452 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\gateway\LoginFactory.class" no existe!
+18:31:22,453 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\remote\IRemoteFacade.class" no existe!
+18:31:22,453 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\remote\RemoteFacade.class" no existe!
+18:31:22,453 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\services\EntrenamientoAppService.class" no existe!
+18:31:22,454 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\services\LoginAppService.class" no existe!
+18:31:22,454 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\services\RetoAppService.class" no existe!
+18:31:22,455 (main) ERROR [DataNucleus.Enhancer] - ¡Archivo "C:\Users\suhar.txabarri\git\Dise-oSoftware\StravaServidor\bin\es\deusto\ingenieria\sd\strava\server\test\LocalTest.class" no existe!
+18:31:26,112 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+18:31:26,598 (main) ERROR [DataNucleus.MetaData] - Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+org.datanucleus.exceptions.NucleusUserException: Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseClassMetaData(MetaDataManagerImpl.java:2759)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaData(MetaDataManagerImpl.java:2694)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaDataForUse(MetaDataManagerImpl.java:1369)
+	at org.datanucleus.metadata.MetaDataManagerImpl.loadClasses(MetaDataManagerImpl.java:643)
+	at org.datanucleus.metadata.MetaDataUtils.getFileMetaDataForInputFiles(MetaDataUtils.java:850)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:366)
+
+18:31:26,599 (main) ERROR [DataNucleus.MetaData] - Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.RetoConEstado pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+org.datanucleus.exceptions.NucleusUserException: Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.RetoConEstado pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseClassMetaData(MetaDataManagerImpl.java:2759)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaData(MetaDataManagerImpl.java:2694)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaDataForUse(MetaDataManagerImpl.java:1369)
+	at org.datanucleus.metadata.MetaDataManagerImpl.loadClasses(MetaDataManagerImpl.java:643)
+	at org.datanucleus.metadata.MetaDataUtils.getFileMetaDataForInputFiles(MetaDataUtils.java:850)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:366)
+
+18:31:26,599 (main) ERROR [DataNucleus.MetaData] - Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.Reto pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+org.datanucleus.exceptions.NucleusUserException: Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.Reto pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseClassMetaData(MetaDataManagerImpl.java:2759)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaData(MetaDataManagerImpl.java:2694)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaDataForUse(MetaDataManagerImpl.java:1369)
+	at org.datanucleus.metadata.MetaDataManagerImpl.loadClasses(MetaDataManagerImpl.java:643)
+	at org.datanucleus.metadata.MetaDataUtils.getFileMetaDataForInputFiles(MetaDataUtils.java:850)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:366)
+
+18:31:26,599 (main) ERROR [DataNucleus.MetaData] - Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+org.datanucleus.exceptions.NucleusUserException: Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseClassMetaData(MetaDataManagerImpl.java:2759)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaData(MetaDataManagerImpl.java:2694)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaDataForUse(MetaDataManagerImpl.java:1369)
+	at org.datanucleus.metadata.MetaDataManagerImpl.loadClasses(MetaDataManagerImpl.java:643)
+	at org.datanucleus.metadata.MetaDataUtils.getFileMetaDataForInputFiles(MetaDataUtils.java:850)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:366)
+
+18:31:26,600 (main) ERROR [DataNucleus.MetaData] - Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.Usuario pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+org.datanucleus.exceptions.NucleusUserException: Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.Usuario pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseClassMetaData(MetaDataManagerImpl.java:2759)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaData(MetaDataManagerImpl.java:2694)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaDataForUse(MetaDataManagerImpl.java:1369)
+	at org.datanucleus.metadata.MetaDataManagerImpl.loadClasses(MetaDataManagerImpl.java:643)
+	at org.datanucleus.metadata.MetaDataUtils.getFileMetaDataForInputFiles(MetaDataUtils.java:850)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:366)
+
+18:31:26,601 (main) ERROR [DataNucleus.MetaData] - Habia un error leyendo los ficheros. Por favor lee el LOG para obtener mas información. Lo siguiente puede ayudar : Hemos encontrado errores durante la inicialisación de MetaData. Compruebe por favor, las excepciones adjuntados
+Hemos encontrado errores durante la inicialisación de MetaData. Compruebe por favor, las excepciones adjuntados
+org.datanucleus.exceptions.NucleusUserException: Hemos encontrado errores durante la inicialisación de MetaData. Compruebe por favor, las excepciones adjuntados
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaDataForUse(MetaDataManagerImpl.java:1380)
+	at org.datanucleus.metadata.MetaDataManagerImpl.loadClasses(MetaDataManagerImpl.java:643)
+	at org.datanucleus.metadata.MetaDataUtils.getFileMetaDataForInputFiles(MetaDataUtils.java:850)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:366)
+Caused by: org.datanucleus.exceptions.NucleusUserException: Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.Usuario pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseClassMetaData(MetaDataManagerImpl.java:2759)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaData(MetaDataManagerImpl.java:2694)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaDataForUse(MetaDataManagerImpl.java:1369)
+	... 3 more
+Nested Throwables StackTrace:
+Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.Usuario pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+org.datanucleus.exceptions.NucleusUserException: Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.Usuario pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseClassMetaData(MetaDataManagerImpl.java:2759)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaData(MetaDataManagerImpl.java:2694)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaDataForUse(MetaDataManagerImpl.java:1369)
+	at org.datanucleus.metadata.MetaDataManagerImpl.loadClasses(MetaDataManagerImpl.java:643)
+	at org.datanucleus.metadata.MetaDataUtils.getFileMetaDataForInputFiles(MetaDataUtils.java:850)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:366)
+Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+org.datanucleus.exceptions.NucleusUserException: Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseClassMetaData(MetaDataManagerImpl.java:2759)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaData(MetaDataManagerImpl.java:2694)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaDataForUse(MetaDataManagerImpl.java:1369)
+	at org.datanucleus.metadata.MetaDataManagerImpl.loadClasses(MetaDataManagerImpl.java:643)
+	at org.datanucleus.metadata.MetaDataUtils.getFileMetaDataForInputFiles(MetaDataUtils.java:850)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:366)
+Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.Reto pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+org.datanucleus.exceptions.NucleusUserException: Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.Reto pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseClassMetaData(MetaDataManagerImpl.java:2759)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaData(MetaDataManagerImpl.java:2694)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaDataForUse(MetaDataManagerImpl.java:1369)
+	at org.datanucleus.metadata.MetaDataManagerImpl.loadClasses(MetaDataManagerImpl.java:643)
+	at org.datanucleus.metadata.MetaDataUtils.getFileMetaDataForInputFiles(MetaDataUtils.java:850)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:366)
+Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+org.datanucleus.exceptions.NucleusUserException: Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseClassMetaData(MetaDataManagerImpl.java:2759)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaData(MetaDataManagerImpl.java:2694)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaDataForUse(MetaDataManagerImpl.java:1369)
+	at org.datanucleus.metadata.MetaDataManagerImpl.loadClasses(MetaDataManagerImpl.java:643)
+	at org.datanucleus.metadata.MetaDataUtils.getFileMetaDataForInputFiles(MetaDataUtils.java:850)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:366)
+Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.RetoConEstado pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+org.datanucleus.exceptions.NucleusUserException: Encontro el Meta-Data de la clase es.deusto.ingenieria.sd.strava.data.domain.RetoConEstado pero la clase no esta analizado! Por favor, debes analizar la clase antes de usar DataNucleus.
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseClassMetaData(MetaDataManagerImpl.java:2759)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaData(MetaDataManagerImpl.java:2694)
+	at org.datanucleus.metadata.MetaDataManagerImpl.initialiseFileMetaDataForUse(MetaDataManagerImpl.java:1369)
+	at org.datanucleus.metadata.MetaDataManagerImpl.loadClasses(MetaDataManagerImpl.java:643)
+	at org.datanucleus.metadata.MetaDataUtils.getFileMetaDataForInputFiles(MetaDataUtils.java:850)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:366)
+18:31:26,859 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+18:31:56,402 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+18:32:04,385 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+18:51:22,711 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers
+18:51:23,122 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+18:51:23,123 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+18:51:23,188 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+18:51:23,189 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+18:51:23,189 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+18:51:23,220 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+18:51:23,220 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+18:51:23,252 (main) WARN  [DataNucleus.Datastore] - SQL Warning : 'BINARY as attribute of a type' is deprecated and will be removed in a future release. Please use a CHARACTER SET clause with _bin collation instead
+18:51:31,379 (main) WARN  [DataNucleus.Datastore] - Default type for java type of java.math.BigInteger was previously jdbc-type=NUMERIC but this is not provided by the JDBC driver! Please report this to the DataNucleus developers

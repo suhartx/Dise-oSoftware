@@ -14,9 +14,6 @@ public class RetoDAO extends DataAccessObjectBase implements IDataAccessObject<R
 
 	private static RetoDAO instance;
 
-	private RetoDAO() {
-	}
-
 	public static RetoDAO getInstance() {
 		if (instance == null) {
 			instance = new RetoDAO();
@@ -25,16 +22,42 @@ public class RetoDAO extends DataAccessObjectBase implements IDataAccessObject<R
 		return instance;
 	}
 
-	@Override
-	public void save(Reto object) {
-		// TODO Auto-generated method stub
-		super.saveObject(object);
+	private RetoDAO() {
 	}
 
 	@Override
 	public void delete(Reto object) {
 		// TODO Auto-generated method stub
 		super.deleteObject(object);
+	}
+
+	@Override
+	public Reto find(String param) {
+		// TODO Auto-generated method stub
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+
+		Reto result = null;
+
+		try {
+			tx.begin();
+
+			Query<?> query = pm.newQuery("SELECT FROM " + Reto.class.getName() + " WHERE idReto == " + param);
+			query.setUnique(true);
+			result = (Reto) query.execute();
+
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println("  $ Error querying an Article: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+
+		return result;
 	}
 
 	@Override
@@ -69,32 +92,9 @@ public class RetoDAO extends DataAccessObjectBase implements IDataAccessObject<R
 	}
 
 	@Override
-	public Reto find(String param) {
+	public void save(Reto object) {
 		// TODO Auto-generated method stub
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction();
-
-		Reto result = null;
-
-		try {
-			tx.begin();
-
-			Query<?> query = pm.newQuery("SELECT FROM " + Reto.class.getName() + " WHERE idReto == " + param);
-			query.setUnique(true);
-			result = (Reto) query.execute();
-
-			tx.commit();
-		} catch (Exception ex) {
-			System.out.println("  $ Error querying an Article: " + ex.getMessage());
-		} finally {
-			if (tx != null && tx.isActive()) {
-				tx.rollback();
-			}
-
-			pm.close();
-		}
-
-		return result;
+		super.saveObject(object);
 	}
 
 }
