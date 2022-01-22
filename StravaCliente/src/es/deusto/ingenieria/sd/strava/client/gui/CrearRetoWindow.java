@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,6 +28,8 @@ import javax.swing.border.TitledBorder;
 import com.toedter.calendar.JDateChooser;
 
 import es.deusto.ingenieria.sd.strava.client.MainProgram;
+import com.toedter.calendar.JYearChooser;
+import com.toedter.calendar.JMonthChooser;
 
 public class CrearRetoWindow {
 
@@ -62,27 +65,27 @@ public class CrearRetoWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 493, 345);
+		frame.setBounds(100, 100, 493, 376);
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JPanel contentPanel = new JPanel();
 		contentPanel.setLayout(null);
 		contentPanel.setBackground(SystemColor.controlShadow);
-		contentPanel.setBounds(0, 0, 477, 306);
+		contentPanel.setBounds(0, 0, 477, 337);
 		frame.getContentPane().add(contentPanel);
 
 		JPanel buttonsPanel = new JPanel();
 		buttonsPanel.setLayout(null);
 		buttonsPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		buttonsPanel.setBounds(10, 42, 457, 256);
+		buttonsPanel.setBounds(10, 42, 457, 284);
 		contentPanel.add(buttonsPanel);
 
 		JPanel variablesPanel = new JPanel();
 		variablesPanel.setLayout(null);
 		variablesPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		variablesPanel.setBackground(Color.WHITE);
-		variablesPanel.setBounds(10, 11, 437, 233);
+		variablesPanel.setBounds(10, 11, 437, 262);
 		buttonsPanel.add(variablesPanel);
 
 		JPanel nombrePanel = new JPanel();
@@ -131,7 +134,7 @@ public class CrearRetoWindow {
 
 		JPanel distanciaPanel = new JPanel();
 		distanciaPanel.setLayout(null);
-		distanciaPanel.setBounds(10, 120, 170, 21);
+		distanciaPanel.setBounds(116, 164, 170, 21);
 		variablesPanel.add(distanciaPanel);
 
 		JPanel distanciaTextPanel = new JPanel();
@@ -156,94 +159,42 @@ public class CrearRetoWindow {
 		kmLabel.setBounds(144, 3, 24, 14);
 		distanciaTextPanel.add(kmLabel);
 
-		JPanel duracionPanel = new JPanel();
-		duracionPanel.setLayout(null);
-		duracionPanel.setBounds(10, 166, 374, 21);
-		variablesPanel.add(duracionPanel);
-
-		JPanel duracionTextPanel = new JPanel();
-		duracionTextPanel.setLayout(null);
-		duracionTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
-		duracionTextPanel.setBackground(Color.WHITE);
-		duracionTextPanel.setBounds(0, 0, 374, 21);
-		duracionPanel.add(duracionTextPanel);
-
-		JLabel duracionLabel = new JLabel("Duraci\u00F3n: ");
-		duracionLabel.setBackground(new Color(255, 255, 153));
-		duracionLabel.setBounds(10, 0, 92, 21);
-		duracionTextPanel.add(duracionLabel);
-
-		JSpinner hourSpinner = new JSpinner();
-		hourSpinner.setBounds(62, 1, 40, 19);
-		duracionTextPanel.add(hourSpinner);
-
-		JLabel hoursLabel = new JLabel("hours");
-		hoursLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		hoursLabel.setBounds(112, 3, 58, 14);
-		duracionTextPanel.add(hoursLabel);
-
-		JSpinner minutesSpinner = new JSpinner();
-		minutesSpinner.setBounds(158, 1, 40, 19);
-		duracionTextPanel.add(minutesSpinner);
-
-		JLabel minutesLabel = new JLabel("minutes");
-		minutesLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		minutesLabel.setBounds(208, 3, 58, 14);
-		duracionTextPanel.add(minutesLabel);
-
-		JSpinner secondsSpinner = new JSpinner();
-		secondsSpinner.setBounds(266, 1, 40, 19);
-		duracionTextPanel.add(secondsSpinner);
-
-		JLabel secondsLabel = new JLabel("seconds");
-		secondsLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		secondsLabel.setBounds(316, 4, 58, 14);
-		duracionTextPanel.add(secondsLabel);
-
 		JPanel fechaInicioPanel = new JPanel();
 		fechaInicioPanel.setLayout(null);
-		fechaInicioPanel.setBounds(10, 75, 114, 21);
+		fechaInicioPanel.setBounds(10, 75, 114, 29);
 		variablesPanel.add(fechaInicioPanel);
 
 		JPanel fechaInicioTextPanel = new JPanel();
 		fechaInicioTextPanel.setLayout(null);
 		fechaInicioTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		fechaInicioTextPanel.setBackground(Color.WHITE);
-		fechaInicioTextPanel.setBounds(0, 0, 113, 21);
+		fechaInicioTextPanel.setBounds(0, 0, 113, 29);
 		fechaInicioPanel.add(fechaInicioTextPanel);
 
 		JLabel fechaInicioLabel = new JLabel("Fecha inicio:");
 		fechaInicioLabel.setBackground(new Color(255, 255, 153));
-		fechaInicioLabel.setBounds(10, 0, 92, 21);
+		fechaInicioLabel.setBounds(10, 0, 92, 29);
 		fechaInicioTextPanel.add(fechaInicioLabel);
-
-		JDateChooser fechaInicioCalendar = new JDateChooser();
-		fechaInicioCalendar.setBounds(138, 76, 20, 21);
-		variablesPanel.add(fechaInicioCalendar);
 
 
 
 
 		JPanel fechaFinPanel = new JPanel();
 		fechaFinPanel.setLayout(null);
-		fechaFinPanel.setBounds(236, 74, 114, 21);
+		fechaFinPanel.setBounds(10, 115, 114, 29);
 		variablesPanel.add(fechaFinPanel);
 
 		JPanel fechaFinTextPanel = new JPanel();
 		fechaFinTextPanel.setLayout(null);
 		fechaFinTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		fechaFinTextPanel.setBackground(Color.WHITE);
-		fechaFinTextPanel.setBounds(0, 0, 113, 21);
+		fechaFinTextPanel.setBounds(0, 0, 113, 28);
 		fechaFinPanel.add(fechaFinTextPanel);
 
 		JLabel fechaFinLabel = new JLabel("Fecha fin:");
 		fechaFinLabel.setBackground(new Color(255, 255, 153));
-		fechaFinLabel.setBounds(10, 0, 92, 21);
+		fechaFinLabel.setBounds(10, 0, 92, 28);
 		fechaFinTextPanel.add(fechaFinLabel);
-
-		JDateChooser fechaFinCalendar = new JDateChooser();
-		fechaFinCalendar.setBounds(364, 75, 20, 21);
-		variablesPanel.add(fechaFinCalendar);
 
 		JRadioButton ciclismoRadioButton = new JRadioButton("Ciclismo");
 		ciclismoRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -258,46 +209,139 @@ public class CrearRetoWindow {
 
 		JButton logOutButton = new JButton("Cerrar sesi\u00F3n");
 
-		JButton CrearEntrenamientoButton = new JButton("Crear Entrenamiento");
 
-		CrearEntrenamientoButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				SwingUtilities.invokeLater(new Runnable() {
+		
+				JPanel duracionTextPanel = new JPanel();
+				duracionTextPanel.setBounds(44, 196, 374, 21);
+				variablesPanel.add(duracionTextPanel);
+				duracionTextPanel.setLayout(null);
+				duracionTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
+				duracionTextPanel.setBackground(Color.WHITE);
+				
+						JLabel duracionLabel = new JLabel("Duraci\u00F3n: ");
+						duracionLabel.setBackground(new Color(255, 255, 153));
+						duracionLabel.setBounds(10, 0, 92, 21);
+						duracionTextPanel.add(duracionLabel);
+						
+								JSpinner hourSpinner = new JSpinner();
+								hourSpinner.setBounds(62, 1, 40, 19);
+								duracionTextPanel.add(hourSpinner);
+								
+										JLabel hoursLabel = new JLabel("hours");
+										hoursLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+										hoursLabel.setBounds(112, 3, 58, 14);
+										duracionTextPanel.add(hoursLabel);
+										
+												JSpinner minutesSpinner = new JSpinner();
+												minutesSpinner.setBounds(158, 1, 40, 19);
+												duracionTextPanel.add(minutesSpinner);
+												
+														JLabel minutesLabel = new JLabel("minutes");
+														minutesLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+														minutesLabel.setBounds(208, 3, 58, 14);
+														duracionTextPanel.add(minutesLabel);
+														
+																JSpinner secondsSpinner = new JSpinner();
+																secondsSpinner.setBounds(266, 1, 40, 19);
+																duracionTextPanel.add(secondsSpinner);
+																
+																		JLabel secondsLabel = new JLabel("seconds");
+																		secondsLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+																		secondsLabel.setBounds(316, 4, 58, 14);
+																		duracionTextPanel.add(secondsLabel);
+																		
+																				JPanel duracionPanel = new JPanel();
+																				duracionPanel.setLayout(null);
+																				duracionPanel.setBounds(44, 196, 374, 21);
+																				variablesPanel.add(duracionPanel);
+																				
+																				JPanel enterFechaInicioTextPanel = new JPanel();
+																				enterFechaInicioTextPanel.setLayout(null);
+																				enterFechaInicioTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
+																				enterFechaInicioTextPanel.setBackground(Color.WHITE);
+																				enterFechaInicioTextPanel.setBounds(139, 75, 245, 29);
+																				variablesPanel.add(enterFechaInicioTextPanel);
+																				
+																				JYearChooser yearChooserSpinnerInicio = new JYearChooser();
+																				yearChooserSpinnerInicio.setBounds(187, 4, 48, 20);
+																				enterFechaInicioTextPanel.add(yearChooserSpinnerInicio);
+																				
+																				JMonthChooser monthChooserSpinnerInicio = new JMonthChooser();
+																				monthChooserSpinnerInicio.setBounds(65, 4, 100, 20);
+																				enterFechaInicioTextPanel.add(monthChooserSpinnerInicio);
+																				
+																				JSpinner dayChooserSpinnerInicio = new JSpinner();
+																				dayChooserSpinnerInicio.setBounds(10, 4, 30, 20);
+																				enterFechaInicioTextPanel.add(dayChooserSpinnerInicio);
+																				
+																			
+																				
+																				
+																				JPanel enterFechaFinTextPanel = new JPanel();
+																				enterFechaFinTextPanel.setLayout(null);
+																				enterFechaFinTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
+																				enterFechaFinTextPanel.setBackground(Color.WHITE);
+																				enterFechaFinTextPanel.setBounds(139, 115, 245, 28);
+																				variablesPanel.add(enterFechaFinTextPanel);
+																				
+																				JYearChooser yearChooserSpinnerFin = new JYearChooser();
+																				yearChooserSpinnerFin.setBounds(187, 4, 48, 20);
+																				enterFechaFinTextPanel.add(yearChooserSpinnerFin);
+																				
+																				JMonthChooser monthChooserSpinnerFin = new JMonthChooser();
+																				monthChooserSpinnerFin.setBounds(65, 4, 100, 20);
+																				enterFechaFinTextPanel.add(monthChooserSpinnerFin);
+																				
+																				JSpinner dayChooserSpinnerFin = new JSpinner();
+																				dayChooserSpinnerFin.setBounds(10, 4, 30, 20);
+																				enterFechaFinTextPanel.add(dayChooserSpinnerFin);
+																				
+																				
+																				int yearInicio = yearChooserSpinnerInicio.getYear();
+																				int monthInicio = monthChooserSpinnerInicio.getMonth();
+																				int dayInicio = (Integer)dayChooserSpinnerInicio.getValue();
+																				Date fechaInicio = new Date(yearInicio, monthInicio, dayInicio);
+																				JButton CrearRetoButton = new JButton("Crear Reto");
+																				
 
-					@Override
-					public void run() {
-						//alerta reto creado
-						String deporte = null;
-						if (ciclismoRadioButton.isSelected()||runningRadioButton.isSelected()) {
-						if (ciclismoRadioButton.isSelected()) {
-							deporte = "ciclismo";
+																				CrearRetoButton.addActionListener(new ActionListener() {
+																					@Override
+																					public void actionPerformed(ActionEvent e) {
+																						SwingUtilities.invokeLater(new Runnable() {
+
+																							@Override
+																							public void run() {
+																								//alerta reto creado
+																								String deporte = null;
+																								if (ciclismoRadioButton.isSelected()||runningRadioButton.isSelected()) {
+																								if (ciclismoRadioButton.isSelected()) {
+																									deporte = "ciclismo";
 
 
-						}else{
-							deporte = "running";
-						}
-						MainProgram.getInstance().getRetoController().crearReto(MainProgram.getInstance().getLoginController().getToken(), nombreTextField.getText(), fechaInicioCalendar.getDate(), null, Double.valueOf((String) kmSpinner.getValue()), deporte);
+																								}else{
+																									deporte = "running";
+																								}
+																								MainProgram.getInstance().getRetoController().crearReto(MainProgram.getInstance().getLoginController().getToken(), nombreTextField.getText(), fechaInicio, null, Double.valueOf((String) kmSpinner.getValue()), deporte);
 
-						frame.setVisible(false);
-						BuscarRetosWindow brw = new BuscarRetosWindow();
-						BuscarRetosWindow.NewScreen();
-
-
-						}else {
-							JOptionPane.showMessageDialog(frame,
-								    "ERROR: Introduce un deporte.");
-
-						}
+																								frame.setVisible(false);
+																								BuscarRetosWindow brw = new BuscarRetosWindow();
+																								BuscarRetosWindow.NewScreen();
 
 
-					}
-				});
-			}
-		});
-		CrearEntrenamientoButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		CrearEntrenamientoButton.setBounds(133, 198, 170, 23);
-		variablesPanel.add(CrearEntrenamientoButton);
+																								}else {
+																									JOptionPane.showMessageDialog(frame,
+																										    "ERROR: Introduce un deporte.");
+
+																								}
+
+
+																							}
+																						});
+																					}
+																				});
+																				CrearRetoButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+																				CrearRetoButton.setBounds(138, 228, 170, 23);
+																				variablesPanel.add(CrearRetoButton);
 
 		logOutButton.addActionListener(new ActionListener() {
 			@Override

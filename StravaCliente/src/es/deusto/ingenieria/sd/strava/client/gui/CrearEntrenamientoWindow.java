@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -24,6 +25,8 @@ import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
 
 import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.JYearChooser;
+import com.toedter.calendar.JMonthChooser;
 
 public class CrearEntrenamientoWindow {
 
@@ -59,27 +62,27 @@ public class CrearEntrenamientoWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 463, 350);
+		frame.setBounds(100, 100, 463, 382);
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JPanel contentPanel = new JPanel();
 		contentPanel.setBackground(UIManager.getColor("Button.shadow"));
-		contentPanel.setBounds(0, 0, 447, 311);
+		contentPanel.setBounds(0, 0, 447, 343);
 		frame.getContentPane().add(contentPanel);
 		contentPanel.setLayout(null);
 
 		JPanel buttonsPanel = new JPanel();
 		buttonsPanel.setLayout(null);
 		buttonsPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		buttonsPanel.setBounds(10, 42, 424, 254);
+		buttonsPanel.setBounds(10, 42, 424, 290);
 		contentPanel.add(buttonsPanel);
 
 		JPanel variablesPanel = new JPanel();
 		variablesPanel.setLayout(null);
 		variablesPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		variablesPanel.setBackground(Color.WHITE);
-		variablesPanel.setBounds(10, 11, 401, 232);
+		variablesPanel.setBounds(10, 11, 401, 268);
 		buttonsPanel.add(variablesPanel);
 
 		JPanel tituloPanel = new JPanel();
@@ -128,7 +131,7 @@ public class CrearEntrenamientoWindow {
 
 		JPanel distanciaPanel = new JPanel();
 		distanciaPanel.setLayout(null);
-		distanciaPanel.setBounds(10, 120, 170, 21);
+		distanciaPanel.setBounds(124, 170, 170, 21);
 		variablesPanel.add(distanciaPanel);
 
 		JPanel distanciaTextPanel = new JPanel();
@@ -156,7 +159,7 @@ public class CrearEntrenamientoWindow {
 
 		JPanel duracionPanel = new JPanel();
 		duracionPanel.setLayout(null);
-		duracionPanel.setBounds(10, 166, 374, 21);
+		duracionPanel.setBounds(10, 202, 374, 21);
 		variablesPanel.add(duracionPanel);
 
 		JPanel duracionTextPanel = new JPanel();
@@ -208,27 +211,83 @@ public class CrearEntrenamientoWindow {
 
 		JPanel fechaInicioPanel = new JPanel();
 		fechaInicioPanel.setLayout(null);
-		fechaInicioPanel.setBounds(10, 75, 114, 21);
+		fechaInicioPanel.setBounds(10, 75, 114, 29);
 		variablesPanel.add(fechaInicioPanel);
 
 		JPanel fechaInicioTextPanel = new JPanel();
 		fechaInicioTextPanel.setLayout(null);
 		fechaInicioTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		fechaInicioTextPanel.setBackground(Color.WHITE);
-		fechaInicioTextPanel.setBounds(0, 0, 113, 21);
+		fechaInicioTextPanel.setBounds(0, 0, 113, 29);
 		fechaInicioPanel.add(fechaInicioTextPanel);
 
 		JLabel fechaInicioLabel = new JLabel("Fecha inicio:");
 		fechaInicioLabel.setBackground(new Color(255, 255, 153));
-		fechaInicioLabel.setBounds(10, 0, 92, 21);
+		fechaInicioLabel.setBounds(10, 0, 92, 29);
 		fechaInicioTextPanel.add(fechaInicioLabel);
 
-		JDateChooser fechaInicioCalendar = new JDateChooser();
-		fechaInicioCalendar.setBounds(138, 76, 20, 21);
-		variablesPanel.add(fechaInicioCalendar);
+		JPanel fechaFinPanel = new JPanel();
+		fechaFinPanel.setLayout(null);
+		fechaFinPanel.setBounds(10, 121, 114, 29);
+		variablesPanel.add(fechaFinPanel);
+
+		JPanel fechaFinTextPanel = new JPanel();
+		fechaFinTextPanel.setLayout(null);
+		fechaFinTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
+		fechaFinTextPanel.setBackground(Color.WHITE);
+		fechaFinTextPanel.setBounds(0, 0, 113, 29);
+		fechaFinPanel.add(fechaFinTextPanel);
+
+		JLabel fechaFinLabel = new JLabel("Fecha fin:");
+		fechaFinLabel.setBackground(new Color(255, 255, 153));
+		fechaFinLabel.setBounds(10, 0, 92, 29);
+		fechaFinTextPanel.add(fechaFinLabel);
+		
+		JPanel enterFechaInicioTextPanel = new JPanel();
+		enterFechaInicioTextPanel.setLayout(null);
+		enterFechaInicioTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
+		enterFechaInicioTextPanel.setBackground(Color.WHITE);
+		enterFechaInicioTextPanel.setBounds(139, 76, 245, 29);
+		variablesPanel.add(enterFechaInicioTextPanel);
+		
+		JYearChooser yearChooserSpinnerInicio = new JYearChooser();
+		yearChooserSpinnerInicio.setBounds(187, 4, 48, 20);
+		enterFechaInicioTextPanel.add(yearChooserSpinnerInicio);
+		
+		JMonthChooser monthChooserSpinnerInicio = new JMonthChooser();
+		monthChooserSpinnerInicio.setBounds(65, 4, 100, 20);
+		enterFechaInicioTextPanel.add(monthChooserSpinnerInicio);
+		
+		JSpinner dayChooserSpinnerInicio = new JSpinner();
+		dayChooserSpinnerInicio.setBounds(10, 4, 30, 20);
+		enterFechaInicioTextPanel.add(dayChooserSpinnerInicio);
+		
+		JPanel enterFechaInicioTextPanel_1 = new JPanel();
+		enterFechaInicioTextPanel_1.setLayout(null);
+		enterFechaInicioTextPanel_1.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
+		enterFechaInicioTextPanel_1.setBackground(Color.WHITE);
+		enterFechaInicioTextPanel_1.setBounds(139, 121, 245, 29);
+		variablesPanel.add(enterFechaInicioTextPanel_1);
+		
+		JYearChooser yearChooserSpinnerFin = new JYearChooser();
+		yearChooserSpinnerFin.setBounds(187, 4, 48, 20);
+		enterFechaInicioTextPanel_1.add(yearChooserSpinnerFin);
+		
+		JMonthChooser monthChooserSpinnerFin = new JMonthChooser();
+		monthChooserSpinnerFin.setBounds(65, 4, 100, 20);
+		enterFechaInicioTextPanel_1.add(monthChooserSpinnerFin);
+		
+		JSpinner dayChooserSpinnerFin = new JSpinner();
+		dayChooserSpinnerFin.setBounds(10, 4, 30, 20);
+		enterFechaInicioTextPanel_1.add(dayChooserSpinnerFin);
+		int yearInicio = yearChooserSpinnerInicio.getYear();
+		int monthInicio = monthChooserSpinnerInicio.getMonth();
+		int dayInicio = (Integer)dayChooserSpinnerInicio.getValue();
+		Date fechaInicio = new Date(yearInicio, monthInicio, dayInicio);
+
 
 		JButton CrearEntrenamientoButton = new JButton("Crear Entrenamiento");
-		CrearEntrenamientoButton.setBounds(133, 198, 170, 23);
+		CrearEntrenamientoButton.setBounds(124, 234, 170, 23);
 		variablesPanel.add(CrearEntrenamientoButton);
 		CrearEntrenamientoButton.addActionListener(new ActionListener() {
 			@Override
@@ -248,27 +307,6 @@ public class CrearEntrenamientoWindow {
 			}
 		});
 		CrearEntrenamientoButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-
-		JPanel fechaFinPanel = new JPanel();
-		fechaFinPanel.setLayout(null);
-		fechaFinPanel.setBounds(236, 74, 114, 21);
-		variablesPanel.add(fechaFinPanel);
-
-		JPanel fechaFinTextPanel = new JPanel();
-		fechaFinTextPanel.setLayout(null);
-		fechaFinTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
-		fechaFinTextPanel.setBackground(Color.WHITE);
-		fechaFinTextPanel.setBounds(0, 0, 113, 21);
-		fechaFinPanel.add(fechaFinTextPanel);
-
-		JLabel fechaFinLabel = new JLabel("Fecha fin:");
-		fechaFinLabel.setBackground(new Color(255, 255, 153));
-		fechaFinLabel.setBounds(10, 0, 92, 21);
-		fechaFinTextPanel.add(fechaFinLabel);
-
-		JDateChooser fechaFinCalendar = new JDateChooser();
-		fechaFinCalendar.setBounds(364, 75, 20, 21);
-		variablesPanel.add(fechaFinCalendar);
 
 		JButton logOutButton = new JButton("Cerrar sesi\u00F3n");
 		logOutButton.addActionListener(new ActionListener() {
