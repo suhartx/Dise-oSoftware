@@ -7,18 +7,32 @@ import java.util.List;
 import es.deusto.ingenieria.sd.strava.data.domain.Tipologin;
 import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 import es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra;
-import es.deusto.ingenieria.sd.strava.server.data.dao.RetoDAO;
 import es.deusto.ingenieria.sd.strava.server.data.dao.UsuarioContraDAO;
 import es.deusto.ingenieria.sd.strava.server.data.dao.UsuarioDAO;
 import es.deusto.ingenieria.sd.strava.server.gateway.LoginFactory;
 
 //TODO: Implement Singleton Pattern
 public class LoginAppService {
-	List<UsuarioContra> Usuarios = new ArrayList<>();
+	static List<UsuarioContra> Usuarios = new ArrayList<>();
 
 	UsuarioContra user = new UsuarioContra();
 
-	public boolean anyadirUsuario(String email, String nombre, Date fecha, String contrasenya) {
+	private static LoginAppService instance;
+
+	public static LoginAppService getInstance() {
+		if (instance == null) {
+			instance = new LoginAppService();
+		}
+
+
+		return instance;
+	}
+
+
+	public boolean anyadirUsuario(String email, String nombre, Date fecha, String contra) {
+
+		initializeData();
+
 
 		for (Usuario usuario : Usuarios) {
 
@@ -28,9 +42,13 @@ public class LoginAppService {
 			}
 
 		}
-		UsuarioContra u =new UsuarioContra(nombre, email, fecha, contrasenya);
-		Usuarios.add(u);
-		UsuarioContraDAO.getInstance().save(u);
+		System.out.println(contra + "n en añyadir usuario");
+		UsuarioContra u =new UsuarioContra(nombre, email, fecha, contra);
+
+		System.out.println(u.getContrasenya() + "despues de crear el objeto");
+
+		UsuarioDAO.getInstance().save(u);
+		initializeData();
 		return true;
 	}
 
@@ -54,14 +72,23 @@ public class LoginAppService {
 			// If login() success user is stored in the Server State
 
 			for (Usuario usuario : Usuarios) {
+					System.out.println(usuario.getEmail() +"=="+email);
+					System.out.println(((UsuarioContra) usuario).getContrasenya() +"=="+contrasenya);
 
-				if (usuario.getClass().getSimpleName().equals("UsuarioContra") && usuario.getEmail().equals(email)
-						&& ((UsuarioContra) usuario).checkContrasenya(contrasenya)) {
+
+					////////
+					///ERROR NULL POINTER EXCEPTION
+					////////
+				if (usuario.getClass().getSimpleName().equals("UsuarioContra"))
+					if(usuario.getEmail().equals(email)
+						&& ((UsuarioContra) usuario).getContrasenya().equals(contrasenya)) {
 					// Usuarios.add(user);
+						//System.out.println(Usuarios.isEmpty());
 					return usuario;
 				} // el propio facebook
 
 			}
+			System.out.println("ocurre esto");
 			return null;
 
 		} else if (tipologin.equals(Tipologin.FACEBOOK)) {
@@ -99,7 +126,7 @@ public class LoginAppService {
 		return null;
 
 	}
-	private void initializeData() {
+	private static void initializeData() {
 
 
 

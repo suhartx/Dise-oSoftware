@@ -8,10 +8,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JSpinner;
@@ -27,6 +29,7 @@ import javax.swing.border.TitledBorder;
 import com.toedter.calendar.JMonthChooser;
 import com.toedter.calendar.JYearChooser;
 
+import es.deusto.ingenieria.sd.strava.client.MainProgram;
 import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
 import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
 
@@ -103,6 +106,7 @@ public class RegisterWithEmailWindow {
 
 					@Override
 					public void run() {
+						Long l;
 						int anyo = yearChooserSpinner.getValue();
 						int mes = monthChooserSpinner.getMonth();
 						int dia = (Integer)dayChooserSpinner.getValue();
@@ -115,11 +119,23 @@ public class RegisterWithEmailWindow {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
+						System.out.println(String.valueOf(passwordField.getPassword()));
+						String i  = String.valueOf(passwordField.getPassword());
+						l = MainProgram.getInstance().getLoginController().registro(emailTextField.getText(), nombreTextField.getText(), new Date(tiempo), i);
+
 						//loginController.registro(emailTextField.getText(), nombreTextField.getText(), new Date(tiempo), passwordField.getPassword().toString());
+						if (l !=null) {
+							frame.setVisible(false);
+							MenuWindow mw = new MenuWindow();
+							MenuWindow.NewScreen();
+						}else {
+							JOptionPane.showMessageDialog(frame,
+								    "El email con el que quieres registrarte ya tiene una cuenta.",
+								    "Error registro",
+								    JOptionPane.ERROR_MESSAGE);
+						}
 						//check if user exists!
-						frame.setVisible(false);
-						MenuWindow mw = new MenuWindow();
-						MenuWindow.NewScreen();
+
 
 					}
 				});

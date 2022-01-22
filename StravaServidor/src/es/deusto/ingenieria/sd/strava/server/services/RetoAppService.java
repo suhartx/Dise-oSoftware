@@ -26,7 +26,7 @@ public class RetoAppService {
 	 * @param r
 	 */
 	public void aceptarReto(Usuario u, Reto r) {
-		
+
 		u.anyadirReto(new Reto(r));
 		UsuarioDAO.getInstance().save(u);
 
@@ -56,7 +56,7 @@ public class RetoAppService {
 		// TODO: Get all the categories using DAO Pattern
 		//RetoDAO.getInstance().getAll();
 		return this.getRetos();
-		
+
 	}
 //	public List<Entrenamiento> getRetosCategoria(String categoria) {
 //		//TODO: Get articles of a category using DAO Pattern

@@ -1,14 +1,11 @@
 package es.deusto.ingenieria.sd.strava.server.services;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento;
 import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
-import es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra;
 import es.deusto.ingenieria.sd.strava.server.data.dao.EntrenamientoDAO;
 
 public class EntrenamientoAppService {

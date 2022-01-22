@@ -5,10 +5,8 @@ import java.sql.Date;
 import java.util.GregorianCalendar;
 
 import es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento;
-import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 import es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra;
 import es.deusto.ingenieria.sd.strava.server.data.dao.EntrenamientoDAO;
-import es.deusto.ingenieria.sd.strava.server.data.dao.UsuarioContraDAO;
 import es.deusto.ingenieria.sd.strava.server.data.dao.UsuarioDAO;
 import es.deusto.ingenieria.sd.strava.server.remote.IRemoteFacade;
 import es.deusto.ingenieria.sd.strava.server.remote.RemoteFacade;
@@ -59,9 +57,9 @@ public class MainProgram {
             p2.setTipoDeporte("bici");
             p2.setTitulo("titulo");
             p2.setUsuario(p1);
-            
 
-            
+
+
 
             //Save Users in the DB
             UsuarioDAO.getInstance().save(p1);

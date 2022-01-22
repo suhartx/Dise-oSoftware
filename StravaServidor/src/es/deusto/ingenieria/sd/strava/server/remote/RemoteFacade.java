@@ -28,12 +28,16 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 
 	private Map<Long, Reto> serverStateReto = new HashMap<>();
 
-	private LoginAppService loginService = new LoginAppService();
+	//private LoginAppService loginService = new LoginAppService();
 	private RetoAppService retoService = new RetoAppService();
 	private EntrenamientoAppService entrenaService = new EntrenamientoAppService();
 
 	public RemoteFacade() throws RemoteException {
 		super();
+
+
+
+
 	}
 
 	@Override
@@ -123,7 +127,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		// AÑADIMOS EL TIPOLOGIN PARA DEPENDE DEL TIPO DE LOGUEO SE LOGUEE CON FACEBOOK
 		// GOOGLE O STRAVA
 		// Perform login() using LoginAppService
-		Usuario user = loginService.login(tipologin, email, password);
+		Usuario user = LoginAppService.getInstance().login(tipologin, email, password);
 		if (user != null) {
 			// If user is not logged in
 			if (!this.serverState.values().contains(user)) {
@@ -179,15 +183,18 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	public long registrarUsuario(String email, String nombre, Date fecha, String contrasenya) throws RemoteException {
 		// TODO Auto-generated method stub
 
-		boolean sigue = loginService.anyadirUsuario(email, nombre, fecha, contrasenya);
+		boolean sigue = LoginAppService.getInstance().anyadirUsuario(email, nombre, fecha, contrasenya);
 
 		Long token = null;
 		if (sigue) {
 
 			token = login(Tipologin.LOCAL, email, contrasenya);
+
+			//LA CLAVE DEL ERROR ESTA AQUI
+			this.serverState.put(token, new UsuarioContra(nombre, email, fecha, contrasenya));
 		}
 
-		this.serverState.put(token, new UsuarioContra(nombre, email, fecha, contrasenya));
+
 		return (token);
 	}
 

@@ -85,6 +85,7 @@ public class LoginWithEmailWindow {
 
 					@Override
 					public void run() {
+						System.out.println("");
 						if (MainProgram.getInstance().getLoginController().login(Tipologin.LOCAL, textField.getText(), String.valueOf(passwordField.getPassword()))) {
 							frame.setVisible(false);
 

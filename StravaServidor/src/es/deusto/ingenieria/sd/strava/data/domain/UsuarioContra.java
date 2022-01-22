@@ -20,6 +20,7 @@ public class UsuarioContra extends Usuario {
 	public UsuarioContra(String nombre, String email, Date fechaNacimiento, String contrasenya) {
 		super(nombre, email, fechaNacimiento);
 
+		this.contrasenya = contrasenya;
 		// TODO Auto-generated constructor stub
 	}
 

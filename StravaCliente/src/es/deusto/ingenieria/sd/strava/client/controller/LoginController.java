@@ -43,13 +43,14 @@ public class LoginController {
 		return token;
 	}
 
-	public void registro(String email, String nombre, Date fecha, String contrasenya) {
-
+	public long registro(String email, String nombre, Date fecha, String contrasenya) {
+		Long l= null;
 		try {
-			this.serviceLocator.getService().registrarUsuario(email, nombre, fecha, contrasenya);
+			l = this.serviceLocator.getService().registrarUsuario(email, nombre, fecha, contrasenya);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return l;
 	}
 }
