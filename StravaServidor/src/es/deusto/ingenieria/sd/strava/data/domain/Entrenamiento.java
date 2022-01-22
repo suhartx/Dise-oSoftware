@@ -29,6 +29,14 @@ public class Entrenamiento {
 	 * quitarlo y cambiar en diagrama de clases
 	 */
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public Entrenamiento() {
 		idEntrenamiento = ++count;
 	}

@@ -10,11 +10,10 @@
 	<classpathentry kind="lib" path="lib/google.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-8.0.27.jar"/>
 	<classpathentry kind="lib" path="lib/log4j-1.2.14.jar"/>
-	<classpathentry kind="lib" path="lib/javax.jdo-3.2.0-m12.jar"/>
 	<classpathentry kind="lib" path="lib/datanucleus-api-jdo-6.0.0-m2.jar"/>
 	<classpathentry kind="lib" path="lib/datanucleus-cache-6.0.0-m2.jar"/>
 	<classpathentry kind="lib" path="lib/datanucleus-core-6.0.0-m2.jar"/>
 	<classpathentry kind="lib" path="lib/datanucleus-rdbms-6.0.0-m2.jar"/>
-	<classpathentry kind="lib" path="lib/javax.jdo-3.2.0-m13.jar"/>
+	<classpathentry kind="lib" path="lib/javax.jdo-3.2.0-release.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

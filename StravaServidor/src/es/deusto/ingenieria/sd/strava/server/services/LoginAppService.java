@@ -7,13 +7,14 @@ import java.util.List;
 import es.deusto.ingenieria.sd.strava.data.domain.Tipologin;
 import es.deusto.ingenieria.sd.strava.data.domain.Usuario;
 import es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra;
+import es.deusto.ingenieria.sd.strava.server.data.dao.RetoDAO;
 import es.deusto.ingenieria.sd.strava.server.data.dao.UsuarioContraDAO;
 import es.deusto.ingenieria.sd.strava.server.data.dao.UsuarioDAO;
 import es.deusto.ingenieria.sd.strava.server.gateway.LoginFactory;
 
 //TODO: Implement Singleton Pattern
 public class LoginAppService {
-	List<Usuario> Usuarios = new ArrayList<>();
+	List<UsuarioContra> Usuarios = new ArrayList<>();
 
 	UsuarioContra user = new UsuarioContra();
 
@@ -29,7 +30,6 @@ public class LoginAppService {
 		}
 		UsuarioContra u =new UsuarioContra(nombre, email, fecha, contrasenya);
 		Usuarios.add(u);
-		UsuarioDAO.getInstance().save(new Usuario(nombre, email, fecha));
 		UsuarioContraDAO.getInstance().save(u);
 		return true;
 	}
@@ -43,7 +43,7 @@ public class LoginAppService {
 //		user.setContrasenya("suhar");
 //		Usuarios.add(user);
 
-		Usuarios = UsuarioDAO.getInstance().getAll();
+
 
 		if (tipologin.equals(Tipologin.LOCAL)) {
 
@@ -98,6 +98,13 @@ public class LoginAppService {
 
 		return null;
 
+	}
+	private void initializeData() {
+
+
+
+
+		Usuarios = UsuarioContraDAO.getInstance().getAll();
 	}
 
 }
