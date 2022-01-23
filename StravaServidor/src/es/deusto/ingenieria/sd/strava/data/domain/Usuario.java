@@ -16,16 +16,15 @@ public class Usuario {
 	private String nombre;
 	private Date fechaNacimiento;
 
-	@Join
-	@Persistent(mappedBy = "usuario", dependentElement = "true", defaultFetchGroup = "true")
+	
+	@Persistent(mappedBy = "usuario", dependentElement = "true")
 	private List<Entrenamiento> entrenamientos;
 
 	// @Join
 	// @Persistent(mappedBy="usuario", defaultFetchGroup="true")//
 	// dependentElement="true", defaultFetchGroup="true")
-	@Persistent(table = "RETOS_USUARIOS", defaultFetchGroup = "true")
-	@Join(column = "idReto")
-	@Element(column = "email")
+	@Join
+	@Persistent(defaultFetchGroup = "true")
 	private List<RetoConEstado> retos;
 
 	public Usuario() {

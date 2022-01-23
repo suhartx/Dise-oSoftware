@@ -2,6 +2,7 @@ package es.deusto.ingenieria.sd.strava.data.domain;
 
 import java.util.Date;
 
+import javax.jdo.annotations.Column;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
@@ -18,8 +19,8 @@ public class Reto {
 	private Date fechaFin;
 	private double distancia;
 	private String tipoDeporte;
-	@Join
-	@Persistent(defaultFetchGroup = "true")
+	
+	@Column(name="USUARIO_ID")
 	private Usuario Duenyo;
 
 	public Reto() {
