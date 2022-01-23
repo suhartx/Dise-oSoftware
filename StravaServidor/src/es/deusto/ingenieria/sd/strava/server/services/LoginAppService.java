@@ -65,6 +65,7 @@ public class LoginAppService {
 
 		if (tipologin.equals(Tipologin.LOCAL)) {
 
+			initializeData();
 			/*
 			 * AQUI TENEMOS QUE METER QUE DEVUELVA UN USUARIO PERSONIFICADO
 			 */

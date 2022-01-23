@@ -18,7 +18,7 @@ public class Usuario {
 
 	@Join
 	@Persistent(mappedBy = "usuario", dependentElement = "true", defaultFetchGroup = "true")
-	private List<Entrenamiento> entrenamientos = new ArrayList<>();
+	private List<Entrenamiento> entrenamientos;
 
 	// @Join
 	// @Persistent(mappedBy="usuario", defaultFetchGroup="true")//
@@ -26,13 +26,14 @@ public class Usuario {
 	@Persistent(table = "RETOS_USUARIOS", defaultFetchGroup = "true")
 	@Join(column = "idReto")
 	@Element(column = "email")
-	private List<RetoConEstado> retos = new ArrayList<>();
+	private List<RetoConEstado> retos;
 
 	public Usuario() {
 
 		// idUsuario = ++count;
 		// Esto genera automaticamente el id de usuario
 		// cada vez que se inizializa uno nuevo
+		entrenamientos = new ArrayList<>();
 
 	}
 
@@ -42,6 +43,8 @@ public class Usuario {
 		this.nombre = nombre;
 		this.email = email;
 		this.fechaNacimiento = fechaNacimiento;
+		entrenamientos = new ArrayList<>();
+		retos = new ArrayList<>();
 	}
 
 	public void anyadirEntrenamiento(Entrenamiento e) {

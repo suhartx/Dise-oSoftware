@@ -69,7 +69,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 
 		System.out.println(" * RemoteFacade crearEntrenamiento()");
 		entrenaService.crearEntrenamiento(serverState.get(valor), titulo, fechaInicio, horaInicio, distancia,
-				tipoDeporte);
+				tipoDeporte, duracion);
 		return 0;
 	}
 

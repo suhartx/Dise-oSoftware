@@ -18,6 +18,8 @@ public class MainProgram {
 	private LoginDialog loginDialog = new LoginDialog(loginController);
 	private EntrenamientoController entrenamientoController = new EntrenamientoController(serviceLocator);
 	private RetoController retoController = new RetoController(serviceLocator);
+	
+	Long usuarioActual;
 
 
 	public static void main(String[] args) {

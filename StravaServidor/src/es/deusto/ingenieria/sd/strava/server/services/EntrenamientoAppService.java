@@ -17,19 +17,26 @@ public class EntrenamientoAppService {
 	}
 
 	public void crearEntrenamiento(Usuario usuario, String nombre, Date fechaInicio, String horaInicio,
-			double distancia, String tipoDeporte) {
+			double distancia, String tipoDeporte, double duracion) {
 
-		Entrenamiento e = new Entrenamiento();
-		e.setTitulo(nombre);
-		e.setDistancia(distancia);
-		e.setFechaInicio(fechaInicio);
-		e.setHoraInicio(horaInicio);
-		e.setTipoDeporte(tipoDeporte);
+		System.out.println("1");
+		
+		Entrenamiento e = new Entrenamiento(nombre, distancia, tipoDeporte, fechaInicio, horaInicio, duracion, usuario);
+		System.out.println("2");
+		
+		System.out.println(e.toString());
+		
+		System.out.println("3");
 		// r.setEstado(estado);
 		// usuario.anyadirReto(r);
 		entrenamientos.add(e);
+		System.out.println("4");
+		usuario.toString();
+		
 		usuario.anyadirEntrenamiento(e);
+		System.out.println("5");
 		EntrenamientoDAO.getInstance().save(e);
+		System.out.println("6");
 	}
 
 	public List<Entrenamiento> getEntrenamientos() {

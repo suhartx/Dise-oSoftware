@@ -9,6 +9,19 @@ import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable(detachable = "true")
 public class Entrenamiento {
+	public Entrenamiento(String titulo, double distancia, String tipoDeporte, Date fechaInicio,
+			String horaInicio, double duracion, Usuario usuario) {
+		
+		idEntrenamiento = ++count;
+		this.titulo = titulo;
+		this.distancia = distancia;
+		this.tipoDeporte = tipoDeporte;
+		this.fechaInicio = fechaInicio;
+		this.horaInicio = horaInicio;
+		this.duracion = duracion;
+		this.usuario = usuario;
+	}
+
 	private static int count = 0;
 	@PrimaryKey
 	private int idEntrenamiento;

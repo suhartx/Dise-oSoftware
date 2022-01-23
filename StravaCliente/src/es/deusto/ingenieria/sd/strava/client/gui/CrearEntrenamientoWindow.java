@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
@@ -26,6 +28,9 @@ import javax.swing.border.TitledBorder;
 
 import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JYearChooser;
+
+import es.deusto.ingenieria.sd.strava.client.MainProgram;
+
 import com.toedter.calendar.JMonthChooser;
 
 public class CrearEntrenamientoWindow {
@@ -283,8 +288,10 @@ public class CrearEntrenamientoWindow {
 		int yearInicio = yearChooserSpinnerInicio.getYear();
 		int monthInicio = monthChooserSpinnerInicio.getMonth();
 		int dayInicio = (Integer)dayChooserSpinnerInicio.getValue();
-		Date fechaInicio = new Date(yearInicio, monthInicio, dayInicio);
 
+        String str = Integer.toString(dayInicio) + " " + Integer.toString(monthInicio) + " " + Integer.toString(yearInicio);
+        SimpleDateFormat df = new SimpleDateFormat("MM dd yyyy");
+		
 
 		JButton CrearEntrenamientoButton = new JButton("Crear Entrenamiento");
 		CrearEntrenamientoButton.setBounds(124, 234, 170, 23);
@@ -297,7 +304,19 @@ public class CrearEntrenamientoWindow {
 					@Override
 					public void run() {
 						//alerta de entrenamiento creado
-						frame.setVisible(false);
+						
+						Long tiempo= 0l;
+						try {
+							tiempo = df.parse(str).getTime();
+						} catch (ParseException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						double i = (int) kmSpinner.getValue();
+						double j = (int)hourSpinner.getValue();
+						
+						
+						MainProgram.getInstance().getEntrenamientoController().crearEntrenamiento(MainProgram.getInstance().getLoginController().getToken(), tituloTextField.getText(), deporteComboBox.getSelectedItem().toString(), i, new Date(tiempo), "12:00", j);
 						BuscarEntrenamientosWindow bew = new BuscarEntrenamientosWindow();
 						BuscarEntrenamientosWindow.NewScreen();
 
@@ -318,6 +337,7 @@ public class CrearEntrenamientoWindow {
 					@Override
 					public void run() {
 						//logout
+						MainProgram.getInstance().getLoginController().logout();
 						frame.setVisible(false);
 						InitializationWindow iw = new InitializationWindow();
 						InitializationWindow.NewScreen();

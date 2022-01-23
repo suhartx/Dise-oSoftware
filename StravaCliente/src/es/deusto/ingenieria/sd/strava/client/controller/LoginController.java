@@ -51,6 +51,11 @@ public class LoginController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//token =l;
 		return l;
+	}
+
+	public void setToken(long token) {
+		this.token = token;
 	}
 }
