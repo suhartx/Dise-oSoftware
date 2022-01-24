@@ -145,6 +145,21 @@ public class BuscarRetosWindow {
 		retosList.setModel(retosNombres);
 		comboBox.setBounds(26, 54, 119, 22);
 		retoListPanel.add(comboBox);
+		JButton searchBarButton = new JButton("Buscar");
+		searchBarButton.addActionListener(e->{
+			final String searchText = searchBarText.getText().toLowerCase();
+			 retosNombres.removeAllElements();
+			 for (RetoDTO reto: retos) {
+				 if (reto.getNombre().contains(searchText)) {
+					 retosNombres.addElement(reto.getNombre());
+				 }
+			 }
+			 if (searchText.isEmpty() || searchText.isBlank()) {
+				 for (RetoDTO reto: retos) {
+					 retosNombres.addElement(reto.getNombre());
+				 }
+			 }
+		});
 		
 		
 		retosList.addListSelectionListener(new ListSelectionListener() {
@@ -187,34 +202,34 @@ public class BuscarRetosWindow {
 		searchBarPanel.add(searchBarText);
 		searchBarText.setColumns(10);
 
-		JButton searchBarButton = new JButton("Buscar");
-		searchBarButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				searchBarText.addKeyListener(new KeyAdapter() {
-					@Override
-					public void keyReleased(KeyEvent e) {
-					    JTextField textField = (JTextField) e.getSource();
-		                //obtiene contenido del textfield
-		                String text = textField.getText();
-		                if (text.trim().length() > 0) {
-		                    //nuevo Model temporal
-		                    DefaultListModel<String> tmp = new DefaultListModel();
-		                    for (int i = 0; i < retosNombres.getSize(); i++) {//recorre Model original
-		                        //si encuentra coincidencias agrega a model temporal
-		                        if (retosNombres.getElementAt(i).toLowerCase().contains(text.toLowerCase())) {
-		                            tmp.addElement(retosNombres.getElementAt(i));
-		                        }
-		                    }
-		                    //agrega nuevo modelo a JList
-		                    retosList.setModel(tmp);
-		                } else {//si esta vacio muestra el Model original
-		                	retosList.setModel(retosNombres);
-		                }
-		            }
-				});
-			}
-		});
+
+//		searchBarButton.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				searchBarText.addKeyListener(new KeyAdapter() {
+//					@Override
+//					public void keyReleased(KeyEvent e) {
+//					    JTextField textField = (JTextField) e.getSource();
+//		                //obtiene contenido del textfield
+//		                String text = textField.getText();
+//		                if (text.trim().length() > 0) {
+//		                    //nuevo Model temporal
+//		                    DefaultListModel<String> tmp = new DefaultListModel();
+//		                    for (int i = 0; i < retosNombres.getSize(); i++) {//recorre Model original
+//		                        //si encuentra coincidencias agrega a model temporal
+//		                        if (retosNombres.getElementAt(i).toLowerCase().contains(text.toLowerCase())) {
+//		                            tmp.addElement(retosNombres.getElementAt(i));
+//		                        }
+//		                    }
+//		                    //agrega nuevo modelo a JList
+//		                    retosList.setModel(tmp);
+//		                } else {//si esta vacio muestra el Model original
+//		                	retosList.setModel(retosNombres);
+//		                }
+//		            }
+//				});
+//			}
+//		});
 		searchBarButton.setBounds(207, 4, 89, 23);
 		searchBarPanel.add(searchBarButton);
 
