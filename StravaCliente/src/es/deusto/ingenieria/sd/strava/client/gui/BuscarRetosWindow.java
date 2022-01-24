@@ -95,9 +95,7 @@ public class BuscarRetosWindow {
 
 		DefaultListModel<String> retosNombres = new DefaultListModel();
 		List<RetoDTO> retos = MainProgram.getInstance().getRetoController().getRetos();
-		for (RetoDTO reto : retos) {
-			retosNombres.addElement(reto.getNombre());
-		}
+
 
 //		retosNombres.addElement("reto 1");
 //		retosNombres.addElement("reto 2");
@@ -105,7 +103,32 @@ public class BuscarRetosWindow {
 //		retosNombres.addElement("reto 4");
 //		retosNombres.addElement("reto 5");
 		JList retosList = new JList();
+		
+		String [] opciones = {"Todos los retos", "Retos activos", "Retos no aceptados"};
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(opciones));
+		if (comboBox.getSelectedIndex() == 0) {
+			for (RetoDTO reto : retos) {
+				retosNombres.addElement(reto.getNombre());
+			}
+		}else if (comboBox.getSelectedIndex() == 1) {
+			for (RetoDTO reto : retos) {
+				if (reto.getPorcentaje() != 0){
+					retosNombres.addElement(reto.getNombre());
+				}
+			}
+		}else if (comboBox.getSelectedIndex() == 2) {
+			for (RetoDTO reto : retos) {
+				if (reto.getPorcentaje() == 0){
+					retosNombres.addElement(reto.getNombre());
+				}
+			}
+		}
 		retosList.setModel(retosNombres);
+		comboBox.setBounds(26, 54, 119, 22);
+		retoListPanel.add(comboBox);
+		
+		
 		retosList.addListSelectionListener(new ListSelectionListener() {
 
 			@Override
@@ -114,10 +137,16 @@ public class BuscarRetosWindow {
 
 					@Override
 					public void run() {
+						frame.setVisible(false);
 						//select reto
-						frame.setVisible(true);
-						RetoWindow rw = new RetoWindow();
-						RetoWindow.NewScreen();
+						String selectedRetoName = retosList.getSelectedValue().toString();
+						for (RetoDTO reto: retos) {
+							if (reto.getNombre() == selectedRetoName){
+								System.out.println(reto.toString());
+								
+								RetoWindow.NewScreen(reto);
+							}
+						}
 
 					}
 				});
@@ -170,18 +199,7 @@ public class BuscarRetosWindow {
 		searchBarButton.setBounds(207, 4, 89, 23);
 		searchBarPanel.add(searchBarButton);
 
-		String [] opciones = {"Todos los retos", "Retos activos", "Retos no aceptados"};
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(opciones));
-		if (comboBox.getSelectedIndex() == 0) {
-			//all
-		}else if (comboBox.getSelectedIndex() == 1) {
-			//actives
-		}else if (comboBox.getSelectedIndex() == 2) {
-			//not accepted
-		}
-		comboBox.setBounds(26, 54, 119, 22);
-		retoListPanel.add(comboBox);
+
 
 		JButton logOutButton = new JButton("Cerrar sesi\u00F3n");
 		logOutButton.addActionListener(new ActionListener() {
