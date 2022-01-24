@@ -7,7 +7,6 @@ import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
 import es.deusto.ingenieria.sd.strava.client.controller.RetoController;
 import es.deusto.ingenieria.sd.strava.client.gui.InitializationWindow;
 import es.deusto.ingenieria.sd.strava.client.gui.LoginDialog;
-import es.deusto.ingenieria.sd.strava.client.gui.MenuWindow;
 import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
 
 
@@ -34,15 +33,9 @@ public class MainProgram {
 
 			@Override
 			public void run() {
-//				//if user is logged menu
-//				if (MainProgram.getInstance().usuarioActual != null){
-//					MenuWindow.NewScreen();
-//				}else {
-//					InitializationWindow.NewScreen();
-//				}
-				MenuWindow.NewScreen();
-				
-				
+				//Check if logged
+				MainProgram.getInstance().getLoginController().logout();
+				InitializationWindow.NewScreen();
 
 			}
 		});
