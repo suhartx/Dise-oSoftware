@@ -107,23 +107,41 @@ public class BuscarRetosWindow {
 		String [] opciones = {"Todos los retos", "Retos activos", "Retos no aceptados"};
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(opciones));
-		if (comboBox.getSelectedIndex() == 0) {
-			for (RetoDTO reto : retos) {
-				retosNombres.addElement(reto.getNombre());
-			}
-		}else if (comboBox.getSelectedIndex() == 1) {
-			for (RetoDTO reto : retos) {
-				if (reto.getPorcentaje() != 0){
-					retosNombres.addElement(reto.getNombre());
-				}
-			}
-		}else if (comboBox.getSelectedIndex() == 2) {
-			for (RetoDTO reto : retos) {
-				if (reto.getPorcentaje() == 0){
-					retosNombres.addElement(reto.getNombre());
-				}
-			}
+		retosList.setModel(retosNombres);
+		for (RetoDTO reto : retos) {
+			retosNombres.addElement(reto.getNombre());
 		}
+		
+		comboBox.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				JComboBox comboBox = (JComboBox) e.getSource();
+				
+				Object selected = comboBox.getSelectedItem();
+				retosNombres.removeAllElements();
+				if (selected.toString().equals("Todos los retos")) {
+					for (RetoDTO reto : retos) {
+						retosNombres.addElement(reto.getNombre());
+					}
+				}else if (selected.toString().equals("Retos activos")) {
+					for (RetoDTO reto : retos) {
+						if (reto.getPorcentaje() != 0){
+							retosNombres.addElement(reto.getNombre());
+						}
+					}
+				}else {
+					for (RetoDTO reto : retos) {
+						if (reto.getPorcentaje() == 0){
+							retosNombres.addElement(reto.getNombre());
+						}
+					}
+				}
+				
+			}
+		});
+
 		retosList.setModel(retosNombres);
 		comboBox.setBounds(26, 54, 119, 22);
 		retoListPanel.add(comboBox);
