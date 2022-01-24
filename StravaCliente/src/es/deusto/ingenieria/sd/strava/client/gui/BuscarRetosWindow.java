@@ -96,12 +96,6 @@ public class BuscarRetosWindow {
 		DefaultListModel<String> retosNombres = new DefaultListModel();
 		List<RetoDTO> retos = MainProgram.getInstance().getRetoController().getRetos();
 
-
-//		retosNombres.addElement("reto 1");
-//		retosNombres.addElement("reto 2");
-//		retosNombres.addElement("reto 3");
-//		retosNombres.addElement("reto 4");
-//		retosNombres.addElement("reto 5");
 		JList retosList = new JList();
 		
 		String [] opciones = {"Todos los retos", "Retos activos", "Retos no aceptados"};
@@ -155,6 +149,7 @@ public class BuscarRetosWindow {
 				 }
 			 }
 			 if (searchText.isEmpty() || searchText.isBlank()) {
+				 retosNombres.removeAllElements();
 				 for (RetoDTO reto: retos) {
 					 retosNombres.addElement(reto.getNombre());
 				 }

@@ -30,18 +30,21 @@ public class EntrenamientoAppService {
 		// r.setEstado(estado);
 		// usuario.anyadirReto(r);
 		entrenamientos.add(e);
-		System.out.println("4");
-		usuario.toString();
-
-		usuario.anyadirEntrenamiento(e);
-		System.out.println("5");
 		EntrenamientoDAO.getInstance().save(e);
+		System.out.println("4");
+		usuario.anyadirEntrenamiento(e);//Si se comenta esta linea está bien
+		//usuario.toString();
+
+		
+		System.out.println("5");
+		
 		System.out.println("6");
 	}
 
 	public List<Entrenamiento> getEntrenamientos() {
 		// TODO: Get all the categories using DAO Pattern
-		return entrenamientos;
+		initializeData();
+		return this.entrenamientos;
 	}
 
 	private void initializeData() {// CLASES DE TEST QUITARLOS

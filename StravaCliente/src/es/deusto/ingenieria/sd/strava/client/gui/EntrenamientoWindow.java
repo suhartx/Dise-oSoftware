@@ -18,6 +18,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 
 import es.deusto.ingenieria.sd.strava.client.MainProgram;
+import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
 
 public class EntrenamientoWindow {
 
@@ -26,7 +27,7 @@ public class EntrenamientoWindow {
 	/**
 	 * Launch the application.
 	 */
-	public static void NewScreen() {
+	public static void NewScreen(EntrenamientoDTO entrenamiento) {
 		//if selectedItem is not finished = panelAceptarRetoIsHidden
 		//if selectedItem it's not started = panelEstadoIsHidden
 		//if selectedItem it's finished = panelAceptarReto & panelEstadoIsHidden
@@ -34,7 +35,7 @@ public class EntrenamientoWindow {
 			@Override
 			public void run() {
 				try {
-					EntrenamientoWindow window = new EntrenamientoWindow();
+					EntrenamientoWindow window = new EntrenamientoWindow(entrenamiento);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,41 +47,41 @@ public class EntrenamientoWindow {
 	/**
 	 * Create the application.
 	 */
-	public EntrenamientoWindow() {
-		initialize();
+	public EntrenamientoWindow(EntrenamientoDTO entrenamiento) {
+		initialize(entrenamiento);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(EntrenamientoDTO entrenamiento) {
 		frame = new JFrame();
 		frame.setResizable(false);
-		frame.setBounds(100, 100, 482, 315);
+		frame.setBounds(100, 100, 582, 321);
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JPanel contentPanel = new JPanel();
 		contentPanel.setLayout(null);
 		contentPanel.setBackground(SystemColor.controlShadow);
-		contentPanel.setBounds(0, 0, 477, 391);
+		contentPanel.setBounds(0, 0, 576, 292);
 		frame.getContentPane().add(contentPanel);
 
 		JPanel retoListPanel = new JPanel();
 		retoListPanel.setLayout(null);
 		retoListPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		retoListPanel.setBounds(10, 45, 457, 235);
+		retoListPanel.setBounds(10, 45, 556, 236);
 		contentPanel.add(retoListPanel);
 
 		JPanel variablesPanel = new JPanel();
 		variablesPanel.setLayout(null);
 		variablesPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		variablesPanel.setBackground(Color.WHITE);
-		variablesPanel.setBounds(10, 11, 437, 205);
+		variablesPanel.setBounds(10, 11, 536, 214);
 		retoListPanel.add(variablesPanel);
 
 		JPanel reto1Panel = new JPanel();
-		reto1Panel.setBounds(10, 11, 407, 177);
+		reto1Panel.setBounds(10, 11, 516, 192);
 		variablesPanel.add(reto1Panel);
 		reto1Panel.setLayout(null);
 
@@ -88,7 +89,7 @@ public class EntrenamientoWindow {
 		nombreTextPanel.setLayout(null);
 		nombreTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		nombreTextPanel.setBackground(Color.WHITE);
-		nombreTextPanel.setBounds(10, 11, 387, 21);
+		nombreTextPanel.setBounds(10, 11, 496, 21);
 		reto1Panel.add(nombreTextPanel);
 
 		JLabel nombreTextLabel = new JLabel("Nombre:");
@@ -98,14 +99,15 @@ public class EntrenamientoWindow {
 		nombreTextPanel.add(nombreTextLabel);
 
 		JLabel nombreLabel = new JLabel("Nombre reto(from DB)");
-		nombreLabel.setBounds(90, 3, 274, 14);
+		nombreLabel.setText(entrenamiento.getTitulo());
+		nombreLabel.setBounds(90, 3, 396, 14);
 		nombreTextPanel.add(nombreLabel);
 
 		JPanel fechasPanel = new JPanel();
 		fechasPanel.setLayout(null);
 		fechasPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		fechasPanel.setBackground(Color.WHITE);
-		fechasPanel.setBounds(10, 84, 387, 21);
+		fechasPanel.setBounds(10, 84, 496, 21);
 		reto1Panel.add(fechasPanel);
 
 		JLabel fechaInicioTextLabel = new JLabel("Fecha inicio:");
@@ -115,24 +117,26 @@ public class EntrenamientoWindow {
 		fechasPanel.add(fechaInicioTextLabel);
 
 		JLabel fechaInicioLabel = new JLabel("fechaInicio(fromDB)");
-		fechaInicioLabel.setBounds(90, 3, 98, 14);
+		fechaInicioLabel.setText(entrenamiento.getFechaInicio().toString());
+		fechaInicioLabel.setBounds(90, 3, 159, 14);
 		fechasPanel.add(fechaInicioLabel);
 
-		JLabel fechaFinalTextLabel = new JLabel("Fecha final: ");
-		fechaFinalTextLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		fechaFinalTextLabel.setBackground(new Color(255, 255, 153));
-		fechaFinalTextLabel.setBounds(198, 0, 70, 21);
-		fechasPanel.add(fechaFinalTextLabel);
+		JLabel horaInicioTextLabel = new JLabel("Hora Inicio:");
+		horaInicioTextLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+		horaInicioTextLabel.setBackground(new Color(255, 255, 153));
+		horaInicioTextLabel.setBounds(290, 0, 70, 21);
+		fechasPanel.add(horaInicioTextLabel);
 
-		JLabel fechaFinalLabel = new JLabel("fechaFin(fromDB)");
-		fechaFinalLabel.setBounds(291, 3, 86, 14);
-		fechasPanel.add(fechaFinalLabel);
+		JLabel horaInicioLabel = new JLabel("fechaFin(fromDB)");
+		horaInicioLabel.setText(entrenamiento.getHoraInicio());
+		horaInicioLabel.setBounds(370, 3, 116, 14);
+		fechasPanel.add(horaInicioLabel);
 
 		JPanel distanciaPanel = new JPanel();
 		distanciaPanel.setLayout(null);
 		distanciaPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		distanciaPanel.setBackground(Color.WHITE);
-		distanciaPanel.setBounds(10, 127, 191, 21);
+		distanciaPanel.setBounds(10, 127, 224, 21);
 		reto1Panel.add(distanciaPanel);
 
 		JLabel distanciaTextLabel = new JLabel("Distancia:");
@@ -142,23 +146,25 @@ public class EntrenamientoWindow {
 		distanciaPanel.add(distanciaTextLabel);
 
 		JLabel distanciaLabel = new JLabel("Distancia(from DB)");
-		distanciaLabel.setBounds(90, 3, 91, 14);
+		distanciaLabel.setText(Double.toString(entrenamiento.getDistancia()));
+		distanciaLabel.setBounds(123, 3, 91, 14);
 		distanciaPanel.add(distanciaLabel);
 
 		JPanel tiempoPanel = new JPanel();
 		tiempoPanel.setLayout(null);
 		tiempoPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		tiempoPanel.setBackground(Color.WHITE);
-		tiempoPanel.setBounds(206, 127, 191, 21);
+		tiempoPanel.setBounds(294, 127, 212, 21);
 		reto1Panel.add(tiempoPanel);
 
 		JLabel tiempoTextLabel = new JLabel("Tiempo:");
 		tiempoTextLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		tiempoTextLabel.setBackground(new Color(255, 255, 153));
-		tiempoTextLabel.setBounds(10, 0, 67, 21);
+		tiempoTextLabel.setBounds(13, 0, 67, 21);
 		tiempoPanel.add(tiempoTextLabel);
 
 		JLabel tiempoLabel = new JLabel("Tiempo(from DB)");
+		tiempoLabel.setText(Double.toString(entrenamiento.getDuracion()) + "minutes");
 		tiempoLabel.setBounds(90, 3, 91, 14);
 		tiempoPanel.add(tiempoLabel);
 
@@ -166,7 +172,7 @@ public class EntrenamientoWindow {
 		tipoDeportePanel.setLayout(null);
 		tipoDeportePanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 		tipoDeportePanel.setBackground(Color.WHITE);
-		tipoDeportePanel.setBounds(10, 43, 191, 21);
+		tipoDeportePanel.setBounds(10, 43, 496, 21);
 		reto1Panel.add(tipoDeportePanel);
 
 		JLabel tipoDeporteTextLabel = new JLabel("Deporte:");
@@ -176,7 +182,8 @@ public class EntrenamientoWindow {
 		tipoDeportePanel.add(tipoDeporteTextLabel);
 
 		JLabel tipoDeporteLabel = new JLabel("Deporte(fromDB)");
-		tipoDeporteLabel.setBounds(90, 3, 91, 14);
+		tipoDeporteLabel.setText(entrenamiento.getTipoDeporte());
+		tipoDeporteLabel.setBounds(90, 3, 396, 14);
 		tipoDeportePanel.add(tipoDeporteLabel);
 
 		JButton logOutButton = new JButton("Cerrar sesi\u00F3n");
@@ -199,7 +206,7 @@ public class EntrenamientoWindow {
 			}
 		});
 		logOutButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		logOutButton.setBounds(349, 11, 118, 23);
+		logOutButton.setBounds(448, 11, 118, 23);
 		contentPanel.add(logOutButton);
 
 		JButton backButton = new JButton("Volver");
@@ -226,7 +233,7 @@ public class EntrenamientoWindow {
 		titleLabel.setForeground(Color.DARK_GRAY);
 		titleLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		titleLabel.setBounds(161, 15, 162, 19);
+		titleLabel.setBounds(226, 15, 162, 19);
 		contentPanel.add(titleLabel);
 	}
 }
