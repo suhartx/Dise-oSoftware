@@ -1,13 +1,8 @@
 package es.deusto.ingenieria.sd.strava.server;
 
 import java.rmi.Naming;
-import java.sql.Date;
 import java.util.GregorianCalendar;
 
-import es.deusto.ingenieria.sd.strava.data.domain.Entrenamiento;
-import es.deusto.ingenieria.sd.strava.data.domain.UsuarioContra;
-import es.deusto.ingenieria.sd.strava.server.data.dao.EntrenamientoDAO;
-import es.deusto.ingenieria.sd.strava.server.data.dao.UsuarioDAO;
 import es.deusto.ingenieria.sd.strava.server.remote.IRemoteFacade;
 import es.deusto.ingenieria.sd.strava.server.remote.RemoteFacade;
 
@@ -43,27 +38,27 @@ public class MainProgram {
             GregorianCalendar calendar = new GregorianCalendar();
 
             //Create Profiles
-            UsuarioContra p1 = new UsuarioContra();
-            p1.setEmail("jaimeamann@opendeusto.es");
-            p1.setNombre("Jaime");
-            p1.setFechaNacimiento(new Date(6666666));
-            p1.setContrasenya("holakease");
-
-            Entrenamiento p2 = new Entrenamiento();
-            p2.setDistancia(2);
-            p2.setDuracion(23);
-            p2.setFechaInicio(new Date(333333));
-            p2.setHoraInicio("323");
-            p2.setTipoDeporte("bici");
-            p2.setTitulo("titulo");
-            p2.setUsuario(p1);
+//            UsuarioContra p1 = new UsuarioContra();
+//            p1.setEmail("jaimeamann@opendeusto.es");
+//            p1.setNombre("Jaime");
+//            p1.setFechaNacimiento(new Date(6666666));
+//            p1.setContrasenya("holakease");
+//
+//            Entrenamiento p2 = new Entrenamiento();
+//            p2.setDistancia(2);
+//            p2.setDuracion(23);
+//            p2.setFechaInicio(new Date(333333));
+//            p2.setHoraInicio("323");
+//            p2.setTipoDeporte("bici");
+//            p2.setTitulo("titulo");
+//            p2.setUsuario(p1);
 
 
 
 
             //Save Users in the DB
-            UsuarioDAO.getInstance().save(p1);
-            EntrenamientoDAO.getInstance().save(p2);
+//            UsuarioDAO.getInstance().save(p1);
+//            EntrenamientoDAO.getInstance().save(p2);
 
 
         } catch (Exception ex) {

@@ -11,6 +11,8 @@ import javax.jdo.annotations.PrimaryKey;
 @PersistenceCapable(detachable = "true")
 
 public class Reto {
+
+
 	private static int count = 0;
 	@PrimaryKey
 	private long idReto;// FUERA, NO ES NECESARIO
@@ -19,8 +21,8 @@ public class Reto {
 	private Date fechaFin;
 	private double distancia;
 	private String tipoDeporte;
-	
-	@Column(name="USUARIO_ID")
+
+	@Join(table="ID_USUARIO")
 	private Usuario Duenyo;
 
 	public Reto() {
@@ -92,5 +94,9 @@ public class Reto {
 	public void setTipoDeporte(String tipoDeporte) {
 		this.tipoDeporte = tipoDeporte;
 	}
-
+	@Override
+	public String toString() {
+		return "Reto [idReto=" + idReto + ", nombre=" + nombre + ", fechaInicio=" + fechaInicio + ", fechaFin="
+				+ fechaFin + ", distancia=" + distancia + ", tipoDeporte=" + tipoDeporte + ", Duenyo=" + Duenyo + "]";
+	}
 }

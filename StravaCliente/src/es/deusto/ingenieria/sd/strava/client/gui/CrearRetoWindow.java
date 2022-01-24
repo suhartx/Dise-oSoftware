@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -25,11 +27,10 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
 
-import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.JMonthChooser;
+import com.toedter.calendar.JYearChooser;
 
 import es.deusto.ingenieria.sd.strava.client.MainProgram;
-import com.toedter.calendar.JYearChooser;
-import com.toedter.calendar.JMonthChooser;
 
 public class CrearRetoWindow {
 
@@ -210,99 +211,102 @@ public class CrearRetoWindow {
 		JButton logOutButton = new JButton("Cerrar sesi\u00F3n");
 
 
-		
+
 				JPanel duracionTextPanel = new JPanel();
 				duracionTextPanel.setBounds(44, 196, 374, 21);
 				variablesPanel.add(duracionTextPanel);
 				duracionTextPanel.setLayout(null);
 				duracionTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 				duracionTextPanel.setBackground(Color.WHITE);
-				
+
 						JLabel duracionLabel = new JLabel("Duraci\u00F3n: ");
 						duracionLabel.setBackground(new Color(255, 255, 153));
 						duracionLabel.setBounds(10, 0, 92, 21);
 						duracionTextPanel.add(duracionLabel);
-						
+
 								JSpinner hourSpinner = new JSpinner();
 								hourSpinner.setBounds(62, 1, 40, 19);
 								duracionTextPanel.add(hourSpinner);
-								
+
 										JLabel hoursLabel = new JLabel("hours");
 										hoursLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 										hoursLabel.setBounds(112, 3, 58, 14);
 										duracionTextPanel.add(hoursLabel);
-										
+
 												JSpinner minutesSpinner = new JSpinner();
 												minutesSpinner.setBounds(158, 1, 40, 19);
 												duracionTextPanel.add(minutesSpinner);
-												
+
 														JLabel minutesLabel = new JLabel("minutes");
 														minutesLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 														minutesLabel.setBounds(208, 3, 58, 14);
 														duracionTextPanel.add(minutesLabel);
-														
+
 																JSpinner secondsSpinner = new JSpinner();
 																secondsSpinner.setBounds(266, 1, 40, 19);
 																duracionTextPanel.add(secondsSpinner);
-																
+
 																		JLabel secondsLabel = new JLabel("seconds");
 																		secondsLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 																		secondsLabel.setBounds(316, 4, 58, 14);
 																		duracionTextPanel.add(secondsLabel);
-																		
+
 																				JPanel duracionPanel = new JPanel();
 																				duracionPanel.setLayout(null);
 																				duracionPanel.setBounds(44, 196, 374, 21);
 																				variablesPanel.add(duracionPanel);
-																				
+
 																				JPanel enterFechaInicioTextPanel = new JPanel();
 																				enterFechaInicioTextPanel.setLayout(null);
 																				enterFechaInicioTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 																				enterFechaInicioTextPanel.setBackground(Color.WHITE);
 																				enterFechaInicioTextPanel.setBounds(139, 75, 245, 29);
 																				variablesPanel.add(enterFechaInicioTextPanel);
-																				
+
 																				JYearChooser yearChooserSpinnerInicio = new JYearChooser();
 																				yearChooserSpinnerInicio.setBounds(187, 4, 48, 20);
 																				enterFechaInicioTextPanel.add(yearChooserSpinnerInicio);
-																				
+
 																				JMonthChooser monthChooserSpinnerInicio = new JMonthChooser();
 																				monthChooserSpinnerInicio.setBounds(65, 4, 100, 20);
 																				enterFechaInicioTextPanel.add(monthChooserSpinnerInicio);
-																				
+
 																				JSpinner dayChooserSpinnerInicio = new JSpinner();
 																				dayChooserSpinnerInicio.setBounds(10, 4, 30, 20);
 																				enterFechaInicioTextPanel.add(dayChooserSpinnerInicio);
-																				
-																			
-																				
-																				
+
+
+
+
 																				JPanel enterFechaFinTextPanel = new JPanel();
 																				enterFechaFinTextPanel.setLayout(null);
 																				enterFechaFinTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
 																				enterFechaFinTextPanel.setBackground(Color.WHITE);
 																				enterFechaFinTextPanel.setBounds(139, 115, 245, 28);
 																				variablesPanel.add(enterFechaFinTextPanel);
-																				
+
 																				JYearChooser yearChooserSpinnerFin = new JYearChooser();
 																				yearChooserSpinnerFin.setBounds(187, 4, 48, 20);
 																				enterFechaFinTextPanel.add(yearChooserSpinnerFin);
-																				
+
 																				JMonthChooser monthChooserSpinnerFin = new JMonthChooser();
 																				monthChooserSpinnerFin.setBounds(65, 4, 100, 20);
 																				enterFechaFinTextPanel.add(monthChooserSpinnerFin);
-																				
+
 																				JSpinner dayChooserSpinnerFin = new JSpinner();
 																				dayChooserSpinnerFin.setBounds(10, 4, 30, 20);
 																				enterFechaFinTextPanel.add(dayChooserSpinnerFin);
-																				
-																				
+
+
 																				int yearInicio = yearChooserSpinnerInicio.getYear();
 																				int monthInicio = monthChooserSpinnerInicio.getMonth();
 																				int dayInicio = (Integer)dayChooserSpinnerInicio.getValue();
-																				Date fechaInicio = new Date(yearInicio, monthInicio, dayInicio);
+
 																				JButton CrearRetoButton = new JButton("Crear Reto");
-																				
+
+
+																		        String str = Integer.toString(dayInicio) + " " + Integer.toString(monthInicio) + " " + Integer.toString(yearInicio);
+																		        SimpleDateFormat df = new SimpleDateFormat("MM dd yyyy");
 
 																				CrearRetoButton.addActionListener(new ActionListener() {
 																					@Override
@@ -321,7 +325,15 @@ public class CrearRetoWindow {
 																								}else{
 																									deporte = "running";
 																								}
-																								MainProgram.getInstance().getRetoController().crearReto(MainProgram.getInstance().getLoginController().getToken(), nombreTextField.getText(), fechaInicio, null, Double.valueOf((String) kmSpinner.getValue()), deporte);
+																								Long tiempo= 0l;
+																								try {
+																									tiempo = df.parse(str).getTime();
+																								} catch (ParseException e) {
+																									// TODO Auto-generated catch block
+																									e.printStackTrace();
+																								}
+																								double i = (int) kmSpinner.getValue();
+																								MainProgram.getInstance().getRetoController().crearReto(MainProgram.getInstance().getLoginController().getToken(), nombreTextField.getText(), new Date(tiempo), null, i, deporte);
 
 																								frame.setVisible(false);
 																								BuscarRetosWindow brw = new BuscarRetosWindow();
@@ -351,6 +363,7 @@ public class CrearRetoWindow {
 					@Override
 					public void run() {
 						//logout
+						MainProgram.getInstance().getLoginController().logout();
 						frame.setVisible(false);
 						InitializationWindow iw = new InitializationWindow();
 						InitializationWindow.NewScreen();

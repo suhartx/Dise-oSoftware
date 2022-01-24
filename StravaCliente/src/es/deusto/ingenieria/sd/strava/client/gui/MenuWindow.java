@@ -15,6 +15,8 @@ import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.border.BevelBorder;
 
+import es.deusto.ingenieria.sd.strava.client.MainProgram;
+
 public class MenuWindow {
 
 	private JFrame frame;
@@ -170,6 +172,7 @@ public class MenuWindow {
 					@Override
 					public void run() {
 						//logOut
+						MainProgram.getInstance().getLoginController().logout();
 						frame.setVisible(false);
 						InitializationWindow iw = new InitializationWindow();
 						InitializationWindow.NewScreen();

@@ -42,7 +42,7 @@ public class RegisterWithEmailWindow {
 	private JYearChooser yearChooserSpinner;
 	private JMonthChooser monthChooserSpinner;
 	private JSpinner dayChooserSpinner;
-	
+
 	private LoginController loginController;
 	private static ServiceLocator serviceLocator = new ServiceLocator();
 	/**
@@ -123,7 +123,7 @@ public class RegisterWithEmailWindow {
 						System.out.println(String.valueOf(passwordField.getPassword()));
 						String i  = String.valueOf(passwordField.getPassword());
 						l = MainProgram.getInstance().getLoginController().registro(emailTextField.getText(), nombreTextField.getText(), new Date(tiempo), i);
-						
+
 						//loginController.registro(emailTextField.getText(), nombreTextField.getText(), new Date(tiempo), passwordField.getPassword().toString());
 						if (l !=null) {
 							MainProgram.getInstance().getLoginController().setToken(l);

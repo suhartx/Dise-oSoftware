@@ -11,7 +11,7 @@ import javax.jdo.annotations.PrimaryKey;
 public class Entrenamiento {
 	public Entrenamiento(String titulo, double distancia, String tipoDeporte, Date fechaInicio,
 			String horaInicio, double duracion, Usuario usuario) {
-		
+
 		idEntrenamiento = ++count;
 		this.titulo = titulo;
 		this.distancia = distancia;

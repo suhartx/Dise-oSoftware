@@ -84,6 +84,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		r.setFechaInicio(fechaInicio);
 		r.setFechaFin(fechaFin);
 		r.setTipoDeporte(tipoDeporte);
+		r.setDuenyo(serverState.get(u));
 
 		System.out.println(" * RemoteFacade crearReto()");
 		retoService.crearReto(serverState.get(u), r);
@@ -111,10 +112,14 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		System.out.println(" * RemoteFacade getRetos()");
 
 		// Get Categories using BidAppService
+		System.out.println("1");
+		
 		List<Reto> retos = retoService.getRetos();
 
+		System.out.println("2");
 		if (retos != null) {
 			// Convert domain object to DTO
+			System.out.println("3");
 			return RetoAssembler.getInstance().retoToDTO(retos);
 		} else {
 			throw new RemoteException("getRetos() fails!");

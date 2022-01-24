@@ -27,9 +27,11 @@ public class RetoAppService {
 	 */
 	public void aceptarReto(Usuario u, Reto r) {
 
+		
+		
 		u.anyadirReto(new Reto(r));
 		UsuarioDAO.getInstance().save(u);
-
+		this.initializeData();
 	}
 
 	public RetoConEstado consultarReto(Usuario u, Reto r) {
@@ -47,6 +49,7 @@ public class RetoAppService {
 	public void crearReto(Usuario usuario, Reto r) {
 
 		retos.add(r);
+		System.out.println(r.toString());
 		RetoDAO.getInstance().save(r);
 		// usuario.anyadirReto(r);
 
@@ -55,7 +58,8 @@ public class RetoAppService {
 	public List<Reto> getRetos() {
 		// TODO: Get all the categories using DAO Pattern
 		//RetoDAO.getInstance().getAll();
-		return this.getRetos();
+		initializeData();
+		return this.retos;
 
 	}
 //	public List<Entrenamiento> getRetosCategoria(String categoria) {
@@ -69,10 +73,8 @@ public class RetoAppService {
 
 	private void initializeData() {
 
-
-
-
 		retos = RetoDAO.getInstance().getAll();
+		System.out.println(retos.toString());
 	}
 
 	/**

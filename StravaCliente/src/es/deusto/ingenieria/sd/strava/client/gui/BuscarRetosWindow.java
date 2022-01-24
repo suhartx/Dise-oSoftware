@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
@@ -26,6 +27,9 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
+import es.deusto.ingenieria.sd.strava.client.MainProgram;
+import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 
 public class BuscarRetosWindow {
 
@@ -90,11 +94,16 @@ public class BuscarRetosWindow {
 
 
 		DefaultListModel<String> retosNombres = new DefaultListModel();
-		retosNombres.addElement("reto 1");
-		retosNombres.addElement("reto 2");
-		retosNombres.addElement("reto 3");
-		retosNombres.addElement("reto 4");
-		retosNombres.addElement("reto 5");
+		List<RetoDTO> retos = MainProgram.getInstance().getRetoController().getRetos();
+		for (RetoDTO reto : retos) {
+			retosNombres.addElement(reto.getNombre());
+		}
+
+//		retosNombres.addElement("reto 1");
+//		retosNombres.addElement("reto 2");
+//		retosNombres.addElement("reto 3");
+//		retosNombres.addElement("reto 4");
+//		retosNombres.addElement("reto 5");
 		JList retosList = new JList();
 		retosList.setModel(retosNombres);
 		retosList.addListSelectionListener(new ListSelectionListener() {
@@ -183,6 +192,7 @@ public class BuscarRetosWindow {
 					@Override
 					public void run() {
 						//logout
+						MainProgram.getInstance().getLoginController().logout();
 						frame.setVisible(false);
 						InitializationWindow iw = new InitializationWindow();
 						InitializationWindow.NewScreen();

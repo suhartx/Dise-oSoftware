@@ -17,6 +17,8 @@ import javax.swing.WindowConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 
+import es.deusto.ingenieria.sd.strava.client.MainProgram;
+
 public class EntrenamientoWindow {
 
 	private JFrame frame;
@@ -186,6 +188,7 @@ public class EntrenamientoWindow {
 					@Override
 					public void run() {
 						//logout
+						MainProgram.getInstance().getLoginController().logout();
 						frame.setVisible(false);
 						InitializationWindow iw = new InitializationWindow();
 						InitializationWindow.NewScreen();

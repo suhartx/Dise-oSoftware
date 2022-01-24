@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.jdo.annotations.Element;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
@@ -16,7 +15,7 @@ public class Usuario {
 	private String nombre;
 	private Date fechaNacimiento;
 
-	
+
 	@Persistent(mappedBy = "usuario", dependentElement = "true")
 	private List<Entrenamiento> entrenamientos;
 

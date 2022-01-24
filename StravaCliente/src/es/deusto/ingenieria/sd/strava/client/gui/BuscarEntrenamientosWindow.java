@@ -27,6 +27,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import es.deusto.ingenieria.sd.strava.client.MainProgram;
+
 public class BuscarEntrenamientosWindow {
 
 	private JFrame frame;
@@ -180,6 +182,7 @@ public class BuscarEntrenamientosWindow {
 					@Override
 					public void run() {
 						//logout
+						MainProgram.getInstance().getLoginController().logout();
 						frame.setVisible(false);
 						InitializationWindow iw = new InitializationWindow();
 						InitializationWindow.NewScreen();
