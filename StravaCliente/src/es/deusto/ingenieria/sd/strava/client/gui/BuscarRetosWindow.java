@@ -148,6 +148,7 @@ public class BuscarRetosWindow {
 							}
 						}
 
+
 					}
 				});
 

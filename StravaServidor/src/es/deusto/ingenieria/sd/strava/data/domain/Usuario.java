@@ -19,9 +19,6 @@ public class Usuario {
 	@Persistent(mappedBy = "usuario", dependentElement = "true")
 	private List<Entrenamiento> entrenamientos;
 
-	// @Join
-	// @Persistent(mappedBy="usuario", defaultFetchGroup="true")//
-	// dependentElement="true", defaultFetchGroup="true")
 	@Join
 	@Persistent(defaultFetchGroup = "true")
 	private List<RetoConEstado> retos;

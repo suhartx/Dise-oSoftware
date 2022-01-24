@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
@@ -28,6 +29,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import es.deusto.ingenieria.sd.strava.client.MainProgram;
+import es.deusto.ingenieria.sd.strava.server.data.dto.EntrenamientoDTO;
+import es.deusto.ingenieria.sd.strava.server.data.dto.RetoDTO;
 
 public class BuscarEntrenamientosWindow {
 
@@ -92,11 +95,15 @@ public class BuscarEntrenamientosWindow {
 
 
 		DefaultListModel<String> retosNombres = new DefaultListModel();
-		retosNombres.addElement("entrenamiento 1");
-		retosNombres.addElement("entrenamiento 2");
-		retosNombres.addElement("entrenamiento 3");
-		retosNombres.addElement("entrenamiento 4");
-		retosNombres.addElement("entrenamiento 5");
+		List<EntrenamientoDTO> retos = MainProgram.getInstance().getEntrenamientoController().getEntrenamientos();
+//		retosNombres.addElement("entrenamiento 1");
+//		retosNombres.addElement("entrenamiento 2");
+//		retosNombres.addElement("entrenamiento 3");
+//		retosNombres.addElement("entrenamiento 4");
+//		retosNombres.addElement("entrenamiento 5");
+		for (EntrenamientoDTO reto : retos) {
+			retosNombres.addElement(reto.getTitulo());
+		}
 		JList entrenamientosList = new JList();
 		entrenamientosList.setModel(retosNombres);
 		entrenamientosList.addListSelectionListener(new ListSelectionListener() {
