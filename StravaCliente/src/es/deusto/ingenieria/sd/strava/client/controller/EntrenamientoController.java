@@ -28,10 +28,10 @@ public class EntrenamientoController {
 
 	}
 
-	public List<EntrenamientoDTO> getEntrenamientos(String aEntrenamiento) {
+	public List<EntrenamientoDTO> getEntrenamientos() {
 		// TODO: Get all the categories using DAO Pattern
 		try {
-			return this.serviceLocator.getService().getEntrenamientos(aEntrenamiento);
+			return this.serviceLocator.getService().getEntrenamientos();
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

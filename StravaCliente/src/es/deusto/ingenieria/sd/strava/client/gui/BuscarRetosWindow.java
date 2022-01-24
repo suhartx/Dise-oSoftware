@@ -115,6 +115,7 @@ public class BuscarRetosWindow {
 					@Override
 					public void run() {
 						//select reto
+
 						frame.setVisible(true);
 						RetoWindow rw = new RetoWindow();
 						RetoWindow.NewScreen();

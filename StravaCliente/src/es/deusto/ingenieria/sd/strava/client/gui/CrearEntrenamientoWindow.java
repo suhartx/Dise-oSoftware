@@ -315,8 +315,8 @@ public class CrearEntrenamientoWindow {
 
 
 						MainProgram.getInstance().getEntrenamientoController().crearEntrenamiento(MainProgram.getInstance().getLoginController().getToken(), tituloTextField.getText(), deporteComboBox.getSelectedItem().toString(), i, new Date(tiempo), "12:00", j);
-//						BuscarEntrenamientosWindow bew = new BuscarEntrenamientosWindow();
-//						BuscarEntrenamientosWindow.NewScreen();
+						BuscarEntrenamientosWindow bew = new BuscarEntrenamientosWindow();
+						BuscarEntrenamientosWindow.NewScreen();
 
 					}
 				});

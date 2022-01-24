@@ -46,7 +46,7 @@ public interface IRemoteFacade extends Remote {
 	public long crearReto(Long u, String nombre, Date fechaInicio, Date fechaFin, double distancia, String tipoDeporte)
 			throws RemoteException;
 
-	public List<EntrenamientoDTO> getEntrenamientos(String aEntrenamiento) throws RemoteException;
+	public List<EntrenamientoDTO> getEntrenamientos() throws RemoteException;
 
 	public List<RetoDTO> getRetos() throws RemoteException;
 

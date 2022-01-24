@@ -29,8 +29,8 @@ public class LocalTest {
 			}
 
 			// Get Entrenamientos
-			entrenamientos = facade.getEntrenamientos(reto.getNombre());
-			entrenamiento = entrenamientos.get(0);
+			//entrenamientos = facade.getEntrenamientos(reto.getNombre());
+			//entrenamiento = entrenamientos.get(0);
 
 			for (EntrenamientoDTO a : entrenamientos) {
 				System.out.println("\t- " + a);

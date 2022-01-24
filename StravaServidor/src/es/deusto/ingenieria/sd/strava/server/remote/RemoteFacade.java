@@ -93,7 +93,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 	}
 
 	@Override
-	public List<EntrenamientoDTO> getEntrenamientos(String aEntrenamiento) throws RemoteException {
+	public List<EntrenamientoDTO> getEntrenamientos() throws RemoteException {
 		System.out.println(" * RemoteFacade getEntrenamientos()");
 
 		// Get Categories using BidAppService
