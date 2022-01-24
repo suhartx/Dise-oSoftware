@@ -27,8 +27,8 @@ public class RetoAppService {
 	 */
 	public void aceptarReto(Usuario u, Reto r) {
 
-		
-		
+
+
 		u.anyadirReto(new Reto(r));
 		UsuarioDAO.getInstance().save(u);
 		this.initializeData();

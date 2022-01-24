@@ -113,7 +113,7 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 
 		// Get Categories using BidAppService
 		System.out.println("1");
-		
+
 		List<Reto> retos = retoService.getRetos();
 
 		System.out.println("2");

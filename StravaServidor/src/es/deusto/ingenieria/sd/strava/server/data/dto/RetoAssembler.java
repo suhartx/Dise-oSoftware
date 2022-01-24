@@ -20,7 +20,7 @@ public class RetoAssembler {
 	}
 
 	private RetoAssembler() {
-		
+
 	}
 
 	public List<RetoDTO> retoToDTO(List<Reto> retos) {
