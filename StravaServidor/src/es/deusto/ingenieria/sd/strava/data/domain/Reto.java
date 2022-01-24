@@ -2,7 +2,6 @@ package es.deusto.ingenieria.sd.strava.data.domain;
 
 import java.util.Date;
 
-import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
