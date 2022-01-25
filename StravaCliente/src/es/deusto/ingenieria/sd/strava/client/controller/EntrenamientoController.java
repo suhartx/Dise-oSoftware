@@ -25,7 +25,6 @@ public class EntrenamientoController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 	public List<EntrenamientoDTO> getEntrenamientos() {

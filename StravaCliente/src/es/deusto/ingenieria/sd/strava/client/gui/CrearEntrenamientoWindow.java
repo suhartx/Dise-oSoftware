@@ -30,6 +30,8 @@ import com.toedter.calendar.JMonthChooser;
 import com.toedter.calendar.JYearChooser;
 
 import es.deusto.ingenieria.sd.strava.client.MainProgram;
+import javax.swing.SpinnerDateModel;
+import java.util.Calendar;
 
 public class CrearEntrenamientoWindow {
 
@@ -229,22 +231,22 @@ public class CrearEntrenamientoWindow {
 		fechaInicioLabel.setBounds(10, 0, 92, 29);
 		fechaInicioTextPanel.add(fechaInicioLabel);
 
-		JPanel fechaFinPanel = new JPanel();
-		fechaFinPanel.setLayout(null);
-		fechaFinPanel.setBounds(10, 121, 114, 29);
-		variablesPanel.add(fechaFinPanel);
+		JPanel horaInicioPanel = new JPanel();
+		horaInicioPanel.setLayout(null);
+		horaInicioPanel.setBounds(10, 121, 114, 29);
+		variablesPanel.add(horaInicioPanel);
 
-		JPanel fechaFinTextPanel = new JPanel();
-		fechaFinTextPanel.setLayout(null);
-		fechaFinTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
-		fechaFinTextPanel.setBackground(Color.WHITE);
-		fechaFinTextPanel.setBounds(0, 0, 113, 29);
-		fechaFinPanel.add(fechaFinTextPanel);
+		JPanel horaInicioTextPanel = new JPanel();
+		horaInicioTextPanel.setLayout(null);
+		horaInicioTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
+		horaInicioTextPanel.setBackground(Color.WHITE);
+		horaInicioTextPanel.setBounds(0, 0, 113, 29);
+		horaInicioPanel.add(horaInicioTextPanel);
 
-		JLabel fechaFinLabel = new JLabel("Fecha fin:");
-		fechaFinLabel.setBackground(new Color(255, 255, 153));
-		fechaFinLabel.setBounds(10, 0, 92, 29);
-		fechaFinTextPanel.add(fechaFinLabel);
+		JLabel horaInicioLabel = new JLabel("Hora inicio:");
+		horaInicioLabel.setBackground(new Color(255, 255, 153));
+		horaInicioLabel.setBounds(10, 0, 92, 29);
+		horaInicioTextPanel.add(horaInicioLabel);
 
 		JPanel enterFechaInicioTextPanel = new JPanel();
 		enterFechaInicioTextPanel.setLayout(null);
@@ -265,24 +267,27 @@ public class CrearEntrenamientoWindow {
 		dayChooserSpinnerInicio.setBounds(10, 4, 30, 20);
 		enterFechaInicioTextPanel.add(dayChooserSpinnerInicio);
 
-		JPanel enterFechaInicioTextPanel_1 = new JPanel();
-		enterFechaInicioTextPanel_1.setLayout(null);
-		enterFechaInicioTextPanel_1.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
-		enterFechaInicioTextPanel_1.setBackground(Color.WHITE);
-		enterFechaInicioTextPanel_1.setBounds(139, 121, 245, 29);
-		variablesPanel.add(enterFechaInicioTextPanel_1);
+		JPanel enterHoraInicioTextPanel = new JPanel();
+		enterHoraInicioTextPanel.setLayout(null);
+		enterHoraInicioTextPanel.setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 0, 0)));
+		enterHoraInicioTextPanel.setBackground(Color.WHITE);
+		enterHoraInicioTextPanel.setBounds(139, 121, 131, 29);
+		variablesPanel.add(enterHoraInicioTextPanel);
 
-		JYearChooser yearChooserSpinnerFin = new JYearChooser();
-		yearChooserSpinnerFin.setBounds(187, 4, 48, 20);
-		enterFechaInicioTextPanel_1.add(yearChooserSpinnerFin);
-
-		JMonthChooser monthChooserSpinnerFin = new JMonthChooser();
-		monthChooserSpinnerFin.setBounds(65, 4, 100, 20);
-		enterFechaInicioTextPanel_1.add(monthChooserSpinnerFin);
-
-		JSpinner dayChooserSpinnerFin = new JSpinner();
-		dayChooserSpinnerFin.setBounds(10, 4, 30, 20);
-		enterFechaInicioTextPanel_1.add(dayChooserSpinnerFin);
+		JSpinner hoursChooserSpinner = new JSpinner();
+		hoursChooserSpinner.setModel(new SpinnerNumberModel(0, 0, 24, 1));
+		hoursChooserSpinner.setBounds(10, 4, 41, 20);
+		enterHoraInicioTextPanel.add(hoursChooserSpinner);
+		
+		JSpinner minutesChooserSpinner = new JSpinner();
+		minutesChooserSpinner.setModel(new SpinnerNumberModel(0, 0, 59, 1));
+		minutesChooserSpinner.setBounds(71, 4, 50, 20);
+		enterHoraInicioTextPanel.add(minutesChooserSpinner);
+		
+		int hourInicio = (Integer)hoursChooserSpinner.getValue();
+		int minutesInicio = (Integer)minutesChooserSpinner.getValue();
+		
+		String str1 = Integer.toString(hourInicio) + ":" + Integer.toString(minutesInicio);
 		int yearInicio = yearChooserSpinnerInicio.getYear();
 		int monthInicio = monthChooserSpinnerInicio.getMonth();
 		int dayInicio = (Integer)dayChooserSpinnerInicio.getValue();
@@ -302,6 +307,7 @@ public class CrearEntrenamientoWindow {
 					@Override
 					public void run() {
 						//alerta de entrenamiento creado
+						frame.setVisible(false);
 
 						Long tiempo= 0l;
 						try {
@@ -310,12 +316,15 @@ public class CrearEntrenamientoWindow {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						double i = (int) kmSpinner.getValue();
-						double j = (int)hourSpinner.getValue();
+						double distancia = (int) kmSpinner.getValue();
+						double hs = (int)hourSpinner.getValue();
+						double mins = (int) minutesSpinner.getValue();
+						double secs = (int) secondsSpinner.getValue();
+						double duracion = (hs * 60) + mins + (secs/60);
 
 
-						MainProgram.getInstance().getEntrenamientoController().crearEntrenamiento(MainProgram.getInstance().getLoginController().getToken(), tituloTextField.getText(), deporteComboBox.getSelectedItem().toString(), i, new Date(tiempo), "12:00", j);
-						BuscarEntrenamientosWindow bew = new BuscarEntrenamientosWindow();
+						MainProgram.getInstance().getEntrenamientoController().crearEntrenamiento(MainProgram.getInstance().getLoginController().getToken(), tituloTextField.getText(), deporteComboBox.getSelectedItem().toString(), distancia, new Date(tiempo), str1, duracion);
+//						BuscarEntrenamientosWindow bew = new BuscarEntrenamientosWindow();
 						BuscarEntrenamientosWindow.NewScreen();
 
 					}
